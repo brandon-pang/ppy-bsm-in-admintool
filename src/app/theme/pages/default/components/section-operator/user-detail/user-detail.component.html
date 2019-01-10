@@ -236,7 +236,7 @@
 					</div>
 					<ng-template #post_show>
 						<div class="d-flex justify-content-end m--margin-bottom-10">
-							<button type="button" class="btn btn-brand btn-md">우편발송</button>
+							<button type="button" class="btn btn-brand btn-md" (click)="sendMailEditOpen(sendMailEdit)">우편발송</button>
 						</div>
 
 						<table class="table table-bordered table-hover">
@@ -408,7 +408,7 @@
 				<td style="width:40%;">아이템 코드</td>
 				<td style="width:60%;">
 					<div class="form-group m-form__group">
-						<select class="form-control m-select2" id="m_select2-1" name="param" style="width:100%;"  #sendMail_itemCode required>
+						<select class="form-control m-select2" id="m_select2_1" name="param" style="width:100%;"  #sendMail_itemCode required>
 							<option *ngFor="let p of gameInfoData[0].ITEM_CODE_LIST; let i=index"  [value]="p.Value">{{p.DescName}}</option>
 						</select>
 					</div>
@@ -423,8 +423,7 @@
 			<tr>
 				<td style="width:40%;">발송자 이름</td>
 				<td style="width:60%;">
-					<input type="number" pattern="\d+" class="form-control m-input"
-							placeholder="SYSTEM" value="SYSTEM" #sendMail_sender>
+					<input class="form-control m-input" placeholder="SYSTEM" value="SYSTEM" #sendMail_sender>
 				</td>
 			</tr>
 			<tr>

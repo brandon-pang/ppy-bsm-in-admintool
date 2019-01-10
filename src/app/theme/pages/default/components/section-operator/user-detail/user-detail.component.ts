@@ -183,6 +183,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                     if (res.result === 100) {
                         swal("우편 발송 완료", res.data[0].state, "success");
                         this.sendMailData  = res.data;
+                        this.getPostItemData(id);
                     } else {
                         swal("It can't find data", "Result Number is "+res.result, "error");
                     }
@@ -307,7 +308,8 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
     sendMailEditOpen(content) {
         this._script.loadScripts('app-widgets-bootstrap-datetimepicker',
             ['assets/demo/default/custom/components/forms/widgets/bootstrap-datetimepicker.js']);
-
+        this._script.loadScripts('app-widgets-bootstrap-datetimepicker',
+            ['assets/demo/default/custom/components/forms/widgets/select2.js']);
         this.modalService.open(content).result.then((result) => {
             this.modalClose = `Closed with: ${result}`;
         }, (reason) => {
