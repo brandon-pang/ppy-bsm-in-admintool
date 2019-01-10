@@ -1,0 +1,194 @@
+<!-- BEGIN: Subheader -->
+<div class="m-subheader" appunwraptag="">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title m-subheader__title--separator">
+                서버 점검 설정
+            </h3>
+        </div>
+    </div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content">
+    <div class="m-portlet">
+        <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+                <div class="m-portlet__head-title">
+                    <h3 class="m-portlet__head-text">
+                        Set Servers Maintenance
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="m-portlet__body">
+            <!--begin::Section-->
+            <div class="m-section">
+                <div class="m-section__content">
+                    <table class="table m-table">
+                        <thead class="thead-default">
+                            <tr>
+                                <th style="width:20%; vertical-align: middle;">Server State</th>
+                                <th style="width:80%" colspan="4">
+                                    All Server ON/OFF &nbsp;&nbsp;
+                                    <span class="m-switch m-switch--outline m-switch--icon m-switch--danger align-middle">
+                                        <label style="display:block; margin-bottom:0;">
+                                            <input type="checkbox" checked="checked" name="">
+                                            <span></span>
+                                        </label>
+                                    </span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="5" scope="row" style="width:5%">
+                                    <span class="m-badge m-badge--brand m-badge--wide" style="font-size:12pt;">AGENT</span>
+                                </td>
+                            </tr>
+                            <tr class="bg-primary text-white">
+                                <th style="width:20%">Server Type</th>
+                                <th style="width:20%">Server ID</th>
+                                <th style="width:30%">Server Address</th>
+                                <th style="width:15%">State</th>
+                                <th style="width:15%">ON / OFF</th>
+                            </tr>
+                            <tr *ngFor="let list of serverStatData[0]?.AGENT">
+                                <th scope="row" style="width:20%" class="align-middle">{{list.ServerType}}</th>
+                                <td style="width:20%" class="align-middle">{{list.ServerID}}</td>
+                                <td style="width:30%" class="align-middle">{{list.ServerAddress}}</td>
+                                <td style="width:15%" class="align-middle">
+                                    <span class="m-badge m-badge--info m-badge--wide m-badge--rounded">{{list.State}}</span>
+                                </td>
+                                <td style="width:15%" class="align-middle">
+                                    <span class="m-switch m-switch--outline m-switch--icon m-switch--success align-middle">
+                                        <label style="display:block; margin-bottom:0;">
+                                            <input type="checkbox" checked="checked" name="">
+                                            <span></span>
+                                        </label>
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="5" scope="row" style="width:5%">
+                                    <span class="m-badge m-badge--brand m-badge--wide" style="font-size:12pt;">GAME</span>
+                                </td>
+                            </tr>
+                            <tr class="bg-primary text-white">
+                                <th style="width:20%">Server Type</th>
+                                <th style="width:20%">Server ID</th>
+                                <th style="width:30%">Server Address</th>
+                                <th style="width:15%">State</th>
+                                <th style="width:15%">ON / OFF</th>
+                            </tr>
+                            <tr *ngFor="let list of serverStatData[0]?.GAME">
+                                <th scope="row" style="width:20%" class="align-middle">{{list.ServerType}}</th>
+                                <td style="width:20%" class="align-middle">{{list.ServerID}}</td>
+                                <td style="width:30%" class="align-middle">{{list.ServerAddress}}</td>
+                                <td style="width:15%" class="align-middle">
+                                    <span class="m-badge m-badge--info m-badge--wide m-badge--rounded">{{list.State}}</span>
+                                </td>
+                                <td style="width:15%" class="align-middle">
+                                    <span class="m-switch m-switch--outline m-switch--icon m-switch--success align-middle">
+                                        <label style="display:block; margin-bottom:0;">
+                                            <input type="checkbox" checked="checked" name="">
+                                            <span></span>
+                                        </label>
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="5" scope="row" style="width:5%">
+                                    <span class="m-badge m-badge--brand m-badge--wide" style="font-size:12pt;">HOST</span>
+                                </td>
+                            </tr>
+                            <tr class="bg-primary text-white">
+                                <th style="width:20%">Server Type</th>
+                                <th style="width:20%">Server ID</th>
+                                <th style="width:30%">Server Address</th>
+                                <th style="width:15%">State</th>
+                                <th style="width:15%">ON / OFF</th>
+                            </tr>
+                            <tr *ngFor="let list of serverStatData[0]?.HOST">
+                                <th scope="row" style="width:20%" class="align-middle">{{list.ServerType}}</th>
+                                <td style="width:20%" class="align-middle">{{list.ServerID}}</td>
+                                <td style="width:30%" class="align-middle">{{list.ServerAddress}}</td>
+                                <td style="width:15%" class="align-middle">
+                                    <span class="m-badge m-badge--info m-badge--wide m-badge--rounded">{{list.State}}</span>
+                                </td>
+                                <td style="width:15%" class="align-middle">
+                                    <span class="m-switch m-switch--outline m-switch--icon m-switch--success align-middle">
+                                        <label style="display:block; margin-bottom:0;">
+                                            <input type="checkbox" checked="checked" name="">
+                                            <span></span>
+                                        </label>
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="5" scope="row" style="width:5%">
+                                    <span class="m-badge m-badge--brand m-badge--wide" style="font-size:12pt;">CACHE</span>
+                                </td>
+                            </tr>
+                            <tr class="bg-primary text-white">
+                                <th style="width:20%">Server Type</th>
+                                <th style="width:20%">Server ID</th>
+                                <th style="width:30%">Server Address</th>
+                                <th style="width:15%">State</th>
+                                <th style="width:15%">ON / OFF</th>
+                            </tr>
+                            <tr *ngFor="let list of serverStatData[0]?.CACHE">
+                                <th scope="row" style="width:20%" class="align-middle">{{list.ServerType}}</th>
+                                <td style="width:20%" class="align-middle">{{list.ServerID}}</td>
+                                <td style="width:30%" class="align-middle">{{list.ServerAddress}}</td>
+                                <td style="width:15%" class="align-middle">
+                                    <span class="m-badge m-badge--info m-badge--wide m-badge--rounded">{{list.State}}</span>
+                                </td>
+                                <td style="width:15%" class="align-middle">
+                                    <span class="m-switch m-switch--outline m-switch--icon m-switch--success align-middle">
+                                        <label style="display:block; margin-bottom:0;">
+                                            <input type="checkbox" checked="checked" name="">
+                                            <span></span>
+                                        </label>
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="5" scope="row" style="width:5%">
+                                    <span class="m-badge m-badge--brand m-badge--wide" style="font-size:12pt;">MONITORING</span>
+                                </td>
+                            </tr>
+                            <tr class="bg-primary text-white">
+                                <th style="width:20%">Server Type</th>
+                                <th style="width:20%">Server ID</th>
+                                <th style="width:30%">Server Address</th>
+                                <th style="width:15%">State</th>
+                                <th style="width:15%">ON / OFF</th>
+                            </tr>
+                            <tr *ngFor="let list of serverStatData[0]?.MONITORING">
+                                <th scope="row" style="width:20%" class="align-middle">{{list.ServerType}}</th>
+                                <td style="width:20%" class="align-middle">{{list.ServerID}}</td>
+                                <td style="width:30%" class="align-middle">{{list.ServerAddress}}</td>
+                                <td style="width:15%" class="align-middle">
+                                    <span class="m-badge m-badge--info m-badge--wide m-badge--rounded">{{list.State}}</span>
+                                </td>
+                                <td style="width:15%" class="align-middle">
+                                    <span class="m-switch m-switch--outline m-switch--icon m-switch--success align-middle">
+                                        <label style="display:block; margin-bottom:0;">
+                                            <input type="checkbox" checked="checked" name="">
+                                            <span></span>
+                                        </label>
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--end::Form-->
+    </div>
+</div>

@@ -1,0 +1,574 @@
+<!-- BEGIN: Subheader -->
+<div class="m-subheader" appunwraptag="">
+	<div class="d-flex align-items-center">
+		<div class="mr-auto">
+			<h3 class="m-subheader__title m-subheader__title--separator">User's Detail</h3>
+		</div>
+	</div>
+</div><!-- END: Subheader -->
+<div class="m-content">
+	<div class="m-portlet">
+		<div class="m-portlet__head">
+			<div class="m-portlet__head-caption">
+				<div class="m-portlet__head-title">
+					<h3 class="m-portlet__head-text">Detail of User Information</h3>
+				</div>
+			</div>
+		</div>
+		<div class="m-portlet__body">
+			<!--begin: Search Form -->
+			<div class="m-form m-form--label-align-right m--margin-bottom-30">
+				<div class="row align-items-center">
+					<div class="col-xl-6">
+						<div class="form-group m-form__group">
+							<label for="searchInput">검색하시려는 유저의 닉네임을 입력해 주세요</label>
+							<div class="input-group">
+								<input type="text" id="searchInput" class="form-control" placeholder="Search for nickname" #newPersonName (keydown.enter)="getParamData(newPersonName.value);">
+								<div class="input-group-append">
+									<button class="btn btn-primary" type="button" (click)="getParamData(newPersonName.value);">Search</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--end: Search Form -->
+			<div class="m-section" style="margin-bottom: 0;">
+				<span class="m-section__sub"> <code>NICK NAME : <b>{{ findData[0]?.nickname }}</b></code> , <code>PLAYER ID : <b>{{ findData[0]?.playerID }}</b></code></span>
+				<div class="m-section__content">
+					<div class="row">
+						<div class="col-lg-4">
+							<table class="table table-inverse">
+								<tbody>
+								<tr>
+									<th scope="row">User ID</th>
+									<td style="word-break: break-all">{{findData[0]?.userID}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Level</th>
+									<td>{{findData[0]?.level}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Exp</th>
+									<td>{{findData[0]?.exp}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Created Time</th>
+									<td>{{findData[0]?.createdTime}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Gold</th>
+									<td id="sty-gold">{{findData[0]?.gold | number}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Gem</th>
+									<td id="sty-gem">{{findData[0]?.gem}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Bonus Gem</th>
+									<td id="sty-bGem">{{findData[0]?.bonusGem}}</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="col-lg-4">
+							<table class="table table-inverse">
+								<tbody>
+								<tr>
+									<th scope="row">RewardTableOrder</th>
+									<td>{{findData[0]?.rewardTableOrder}}</td>
+								</tr>
+								<tr>
+									<th scope="row">FreeRewardTime</th>
+									<td>{{findData[0]?.freeRewardTime}}</td>
+								</tr>
+								<tr>
+									<th scope="row">medalRewardTime</th>
+									<td>{{findData[0]?.medalRewardTime}}</td>
+								</tr>
+								<tr>
+									<th scope="row">shopRefreshTime</th>
+									<td>{{findData[0]?.shopRefreshTime}}</td>
+								</tr>
+								<tr>
+									<th scope="row">tutorialProgress</th>
+									<td>{{findData[0]?.tutorialProgress}}</td>
+								</tr>
+								<tr>
+									<th scope="row">clanID</th>
+									<td>{{findData[0]?.clanID}}</td>
+								</tr>
+								<tr>
+									<th scope="row">applyClanID</th>
+									<td>{{findData[0]?.applyClanID}}</td>
+								</tr>
+								<tr>
+									<th scope="row">seasonID</th>
+									<td>{{findData[0]?.seasonID}}</td>
+								</tr>
+
+								</tbody>
+							</table>
+						</div>
+						<div class="col-lg-4">
+							<table class="table table-inverse">
+								<tbody>
+								<tr>
+									<th scope="row">eloScore</th>
+									<td>{{findData[0]?.eloScore}}</td>
+								</tr>
+								<tr>
+									<th scope="row">paneltyTime</th>
+									<td>{{findData[0]?.paneltyTime}}</td>
+								</tr>
+								<tr>
+									<th scope="row">dailyGoldGetCount</th>
+									<td>{{findData[0]?.dailyGoldGetCount}}</td>
+								</tr>
+								<tr>
+									<th scope="row">dailyGoldCountResetTime</th>
+									<td>{{findData[0]?.dailyGoldCountResetTime}}</td>
+								</tr>
+								<tr>
+									<th scope="row">profileIcon</th>
+									<td>{{findData[0]?.profileIcon}}</td>
+								</tr>
+								<tr>
+									<th scope="row">requestCardID</th>
+									<td>{{findData[0]?.requestCardID}}</td>
+								</tr>
+								<tr>
+									<th scope="row">nextRequestCardTime</th>
+									<td>{{findData[0]?.nextRequestCardTime}}</td>
+								</tr>
+								<tr>
+									<th scope="row">countryCode</th>
+									<td>{{findData[0]?.countryCode}}</td>
+								</tr>
+								<tr>
+									<th scope="row">clientOption</th>
+									<td>{{findData[0]?.clientOption}}</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="m-portlet m-portlet--tabs m-portlet--success m-portlet--head-solid-bg m-portlet--head-sm">
+		<div class="m-portlet__head">
+			<div class="m-portlet__head-caption">
+				<div class="m-portlet__head-title">
+					<h3 class="m-portlet__head-text">
+						User Management </h3>
+				</div>
+			</div>
+			<div class="m-portlet__head-tools">
+				<ul class="nav nav-tabs m-tabs m-tabs-line  m-tabs-line--right" role="tablist">
+					<li class="nav-item m-tabs__item">
+						<a class="nav-link m-tabs__link active show" data-toggle="tab" href="#m_tabs_7_1" role="tab" aria-selected="true"> 인벤토리 </a>
+					</li>
+					<li class="nav-item m-tabs__item">
+						<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_7_2" role="tab" aria-selected="false"> 소셜 </a>
+					</li>
+					<li class="nav-item m-tabs__item">
+						<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_7_3" role="tab" aria-selected="false"> 우편함 </a>
+					</li>
+					<li class="nav-item m-tabs__item">
+						<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_7_5" role="tab" aria-selected="false"> 구매이력 </a>
+					</li>
+					<li class="nav-item m-tabs__item">
+						<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_7_6" role="tab" aria-selected="false"> 재화회수 </a>
+					</li>
+					<li class="nav-item m-tabs__item">
+						<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_7_7" role="tab" aria-selected="false"> 계정블럭 </a>
+					</li>
+					<li class="nav-item m-tabs__item">
+						<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_7_8" role="tab" aria-selected="false"> 등급변경 </a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="m-portlet__body">
+			<div class="tab-content">
+				<div class="tab-pane active show" id="m_tabs_7_1" role="tabpanel">
+					<div *ngIf="blockPlayerID === '';else inven_show">
+						인벤 토리를 사용 하시려면 유저 검색이 필요합니다.
+					</div>
+					<ng-template #inven_show>
+						<table class="table table-bordered table-hover">
+							<thead>
+							<tr>
+								<th>#</th>
+								<th>Item Code</th>
+								<th>Level</th>
+								<th>Exp</th>
+								<th>Skin Code</th>
+								<th>Expiry</th>
+								<th>Control</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr *ngFor="let p of invenData; let i=index">
+								<th scope="row" >{{i + 1}}</th>
+								<td>{{p.descName}}</td>
+								<td>{{p.level}}</td>
+								<td>{{p.exp}}</td>
+								<td>{{p.skinCode}}</td>
+								<td>{{p.expriy}}</td>
+								<td>
+									<button type="button" class="btn btn-danger btn-sm">회수</button>
+									<button type="button" class="btn btn-primary btn-sm" (click)="itemEditOpen(invenEdit, i)">수정</button>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</ng-template>
+				</div>
+				<div class="tab-pane" id="m_tabs_7_2" role="tabpanel">
+					API가 현재 개발중 입니다.
+				</div>
+				<div class="tab-pane" id="m_tabs_7_3" role="tabpanel">
+					<div *ngIf="blockPlayerID === '';else post_show">
+						우편함을 사용 하시려면 유저 검색이 필요합니다.
+					</div>
+					<ng-template #post_show>
+						<div class="d-flex justify-content-end m--margin-bottom-10">
+							<button type="button" class="btn btn-brand btn-md">우편발송</button>
+						</div>
+
+						<table class="table table-bordered table-hover">
+							<thead>
+							<tr>
+								<th>#</th>
+								<th>PostID</th>
+								<th>Item Code</th>
+								<th>Count</th>
+								<th>Message</th>
+								<th>Sender</th>
+								<th>Expire Date</th>
+								<th>Control</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr *ngFor="let p of postData; let i=index" >
+								<th scope="row" style="vertical-align: middle;">{{i + 1}}</th>
+								<td style="vertical-align: middle;">{{p.postID}}</td>
+								<td style="vertical-align: middle;">{{p.itemCode}}</td>
+								<td style="vertical-align: middle;">{{p.itemCount}}</td>
+								<td style="vertical-align: middle;">{{p.postMessage}}</td>
+								<td style="vertical-align: middle;">{{p.senderName}}</td>
+								<td style="vertical-align: middle;">{{p.expireTime | date:'yyyy/MM/dd hh:mm'}}</td>
+								<td style="vertical-align: middle;"><button type="button" class="btn btn-warning btn-sm" disabled="true">회수</button></td>
+							</tr>
+							</tbody>
+						</table>
+					</ng-template>
+				</div>
+				<div class="tab-pane" id="m_tabs_7_5" role="tabpanel">
+					API가 현재 개발중 입니다.
+				</div>
+				<div class="tab-pane" id="m_tabs_7_6" role="tabpanel">
+					<div *ngIf="blockPlayerID === '';else gold_show">
+						재화 회수를 사용 하시려면 유저 검색이 필요합니다.
+					</div>
+					<ng-template #gold_show>
+						<table class="table table-bordered table-hover">
+							<thead>
+							<tr>
+								<th>PlayerID</th>
+								<th>Gold</th>
+								<th>Control</th>
+								<th>GEM</th>
+								<th>Bonus GEM</th>
+								<th>Control</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td style="vertical-align: middle;">{{ findData[0]?.playerID }}</td>
+								<td style="vertical-align: middle;">{{ findData[0]?.gold }}</td>
+								<td style="vertical-align: middle;"><button class="btn btn-warning" [ngClass]="{'disabled':blockPlayerID == '' }" [disabled]="blockPlayerID===''" (click)="setEditOpen(goldEdit)">골드 수정</button></td>
+								<td style="vertical-align: middle;">{{ findData[0]?.gem }}</td>
+								<td style="vertical-align: middle;">{{ findData[0]?.bonusGem }}</td>
+								<td style="vertical-align: middle;"><button class="btn btn-danger" [ngClass]="{'disabled':blockPlayerID == '' }" [disabled]="blockPlayerID===''" (click)="setEditOpen(gemEdit)">GEM 수정</button></td>
+							</tr>
+							</tbody>
+						</table>
+					</ng-template>
+				</div>
+				<div class="tab-pane" id="m_tabs_7_7" role="tabpanel">
+					<div *ngIf="blockPlayerID === '';else block_show">
+						계정 블럭을 사용 하시려면 유저 검색이 필요합니다.
+					</div>
+					<ng-template #block_show>
+						<table class="table table-bordered table-hover">
+							<thead>
+							<tr>
+								<th>PlayerID</th>
+								<th>Set Time</th>
+								<th>Write Reason</th>
+								<th>Control</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>
+									<div class="form-group m-form__group">
+										<input type="text" class="form-control m-input" readonly placeholder="Not Available" [value]="blockPlayerID" #blockID>
+									</div>
+								</td>
+								<td>
+									<div class="form-group m-form__group">
+										<input type="number" pattern="\d+" class="form-control m-input" placeholder="초 단위로 입력해 주세요" #blockSecond required>
+									</div>
+								</td>
+								<td>
+									<div class="form-group m-form__group">
+										<textarea class="form-control m-input" rows="1" placeholder="Reason is.." #blockReason required></textarea>
+									</div>
+								</td>
+								<td>
+									<button class="btn btn-primary" type="submit"
+											[class.disabled]="blockID.value === '' || blockSecond.value === ''"
+											(click)="setUserBlock(blockID.value, blockSecond.value, blockReason.value)"
+											[disabled]="blockID.value ==='' || blockSecond.value === ''" >Submit</button>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</ng-template>
+				</div>
+				<div class="tab-pane" id="m_tabs_7_8" role="tabpanel">
+					<div [hidden]="blockPlayerID !== ''">
+						등급 변경을 사용 하시려면 유저 검색이 필요합니다.
+					</div>
+					<table class="table table-bordered table-hover" [hidden]="blockPlayerID === ''">
+						<thead>
+						<tr>
+							<th>PlayerID</th>
+							<th>Set Grade</th>
+							<th>Control</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td style="width:40%;">
+								<div class="form-group m-form__group">
+									<input type="text" class="form-control m-input" readonly placeholder="Not Available" [value]="blockPlayerID" #gradeID  >
+								</div>
+							</td>
+							<td style="width:40%;">
+								<div class="form-group m-form__group">
+									<!--[value]="findData[0]?.rewardTableOrder"-->
+									<select class="form-control m-select2" id="m_select2" name="param" style="width:100%;"  #gradeSelect>
+										<option value="0">영구블럭</option>
+										<option value="1">내부관계자</option>
+										<option value="2">일반</option>
+									</select>
+								</div>
+							</td>
+							<td style="width:20%;">
+								<!--[disabled]="blockPlayerID == ''"-->
+								<div class="form-group m-form__group d-flex justify-content-center align-items-center" style="width:100%;">
+									<button class="btn btn-primary" type="submit"
+											[ngClass]="{'disabled':blockPlayerID == ''}"
+											(click)="setChangeUserGrade(gradeID.value, gradeSelect.value)"
+											[disabled]="blockPlayerID == ''">Submit</button>
+								</div>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<ng-template #sendMailEdit let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title">우편 발송</h4>
+		<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<table class="table table-bordered table-hover">
+			<tbody>
+			<tr>
+				<td style="width:40%;">Player ID</td>
+				<td style="width:60%;">
+					<input type="text" class="form-control m-input" readonly [value]="blockPlayerID" #sendMail_ID>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:40%;">아이템 코드</td>
+				<td style="width:60%;">
+					<div class="form-group m-form__group">
+						<select class="form-control m-select2" id="m_select2-1" name="param" style="width:100%;"  #sendMail_itemCode required>
+							<option *ngFor="let p of gameInfoData[0].ITEM_CODE_LIST; let i=index"  [value]="p.Value">{{p.DescName}}</option>
+						</select>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:40%;">아이템 갯수</td>
+				<td style="width:60%;">
+					<input type="number" pattern="\d+" class="form-control m-input" value="1" #sendMail_itemCount required>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:40%;">발송자 이름</td>
+				<td style="width:60%;">
+					<input type="number" pattern="\d+" class="form-control m-input"
+							placeholder="SYSTEM" value="SYSTEM" #sendMail_sender>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:40%;">발송 메시지</td>
+				<td style="width:60%;">
+					<div class="form-group m-form__group">
+						<textarea class="form-control m-input" rows="1" placeholder="Reason is.." #sendMail_message></textarea>
+					</div>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary" (click)="c('Close click')" [disabled]="sendMail_itemCode.value == ''"
+				(click)="setSendItemMail(sendMail_ID.value, sendMail_itemCode.value, sendMail_itemCount.value, sendMail_sender.value, sendMail_message.value)">Submit</button>
+		<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+	</div>
+</ng-template>
+
+<ng-template #invenEdit let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title">인벤토리 수정</h4>
+		<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<table class="table table-bordered table-hover">
+			<tbody>
+			<tr>
+				<td style="width:40%;">Player ID</td>
+				<td style="width:60%;">
+					<input type="text" class="form-control m-input" readonly [value]="blockPlayerID" #im_ID>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:40%;">아이템 코드</td>
+				<td style="width:60%;">
+					<input type="text" class="form-control m-input" readonly [value]="invenData[InvenRowId].descName" #im_itemCode>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:40%;">아이템 갯수</td>
+				<td style="width:60%;">
+					<input type="number" pattern="\d+" class="form-control m-input"
+							[placeholder]="invenData[InvenRowId].exp" [value]="invenData[InvenRowId].exp" #im_itemRange required>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:40%;">아이템 레벨</td>
+				<td style="width:60%;">
+					<input type="number" pattern="\d+" class="form-control m-input"
+							[placeholder]="invenData[InvenRowId].level" [value]="invenData[InvenRowId].level" #im_itemLevel required>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:40%;">스킨 아이템 코드</td>
+				<td style="width:60%;">
+					<input type="number" pattern="\d+" class="form-control m-input"
+							[placeholder]="invenData[InvenRowId].skinCode" [value]="invenData[InvenRowId].skinCode" #im_skinItem required>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:40%;">기간 만료일</td>
+				<td style="width:60%;">
+					<div class="input-group date">
+						<input type="text" class="form-control m-input" readonly id="m_datetimepicker_3_1" [value]="invenData[InvenRowId].expriy | date:'yyyy-MM-dd HH:mm'" #im_expire/>
+						<div class="input-group-append">
+							<span class="input-group-text"><i class="la la-calendar glyphicon-th"></i></span>
+						</div>
+					</div>
+					<!--<input class="form-control m-input" [value]="invenData[InvenRowId].expriy" #im_expire>-->
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary" (click)="c('Close click')" [disabled]="im_itemCode.value == ''"
+				(click)="setInvenItem(InvenRowId, im_ID.value, invenData[InvenRowId].itemCode, im_itemRange.value, im_itemLevel.value, im_expire.value, im_skinItem.value)">Submit</button>
+		<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+	</div>
+</ng-template>
+
+<ng-template #goldEdit let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title">골드 수정</h4>
+		<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<table class="table table-bordered table-hover">
+			<tbody>
+			<tr>
+				<td style="width:40%;">현재 보유한 골드량</td>
+				<td style="width:60%;">{{findData[0]?.gold}}</td>
+			</tr>
+			<tr>
+				<td style="width:40%;">수정 할 골드량</td>
+				<td style="width:60%;"><input type="number" pattern="\d+" class="form-control m-input" [placeholder]="findData[0]?.gold" #goldReturn required></td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary" (click)="c('Close click')" [disabled]="goldReturn.value == ''" (click)="setChangeGold(blockPlayerID,goldReturn.value)">Submit</button>
+		<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+	</div>
+</ng-template>
+
+<ng-template #gemEdit let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title">GEM 수정</h4>
+		<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<table class="table table-bordered table-hover">
+			<tbody>
+			<tr>
+				<td style="width:40%;">현재 보유한 GEM량</td>
+				<td style="width:60%;">{{findData[0]?.gem}}</td>
+			</tr>
+			<tr>
+				<td style="width:40%;">수정 할 GEM량</td>
+				<td style="width:60%;"><input type="number" pattern="\d+" class="form-control m-input" [placeholder]="findData[0]?.gem" [value]="findData[0]?.gem" #gemReturn></td>
+			</tr>
+			<tr>
+				<td style="width:40%;">현재 보너스 GEM량</td>
+				<td style="width:60%;">{{findData[0]?.bonusGem}}</td>
+			</tr>
+			<tr>
+				<td style="width:40%;">수정 할 보너스 GEM량</td>
+				<td style="width:60%;"><input type="number" pattern="\d+" class="form-control m-input" [placeholder]="findData[0]?.bonusGem" [value]="findData[0]?.bonusGem" #gemBonusReturn></td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary" (click)="c('Close click')" [disabled]="gemReturn.value == ''"
+				(click)="setChangeGem(blockPlayerID,gemReturn.value,gemBonusReturn.value)">Submit</button>
+		<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+	</div>
+</ng-template>
