@@ -40,6 +40,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
     public InvenRowId:number=0;
     public gameInfoData:any=[];
     public sendMailData:any=[];
+    public invenRemoveItem:any=[];
     //private sub: any;
     constructor(
         //private route: ActivatedRoute,
@@ -144,6 +145,52 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
             error => {
                 this.errMessage = <any>error;
             });
+    }
+    setInvenRemoveItem(rowid, id, itemCode){
+        let res: any = [];
+        console.log('setInvenRemoveItem', id,itemCode);
+        this.userDetailService.setInvenRemoveItem(id,itemCode)
+            .subscribe(
+                invenRemoveItem => {
+                    res = invenRemoveItem;
+                    this.invenRemoveItem  = res.data;
+                    console.log(' this.invenRemoveItem', res);
+                    if (res.result === 100) {
+                        this.invenData.splice(rowid,1);
+                        swal("성공", "플레이어 아이디: "+id+' 행번호:'+rowid+" 아이템 삭제 되었습니다.", "success");
+                    } else {
+                        swal("Error", "Row No: "+rowid+" Result Number is "+res.result, "error");
+                    }
+                },
+                error => {
+                    this.errMessage = <any>error;
+                });
+    }
+
+    setInvenItem(rowid, id, itemCode, count, level, expriy, skinCode){
+        let res: any = [];
+        console.log('setInvenItem', id,itemCode,count,level,expriy,skinCode);
+        this.userDetailService.setInvenItem(id,itemCode,count,level,expriy,skinCode)
+            .subscribe(
+                invenModifyData => {
+                    res = invenModifyData;
+                    this.invenModifyData  = res.data;
+                    console.log(' this.invenModifyData', res)
+                    if (res.result === 100) {
+                        swal("성공", "플레이어 아이디: "+id+' 행번호:'+rowid+" 아이템 정보가 수정 되었습니다.", "success");
+                        this.invenData[rowid].exp=res.data[0].exp;
+                        this.invenData[rowid].level=res.data[0].level;
+                        this.invenData[rowid].skinCode=res.data[0].skinCode;
+                        this.invenData[rowid].expriy=res.data[0].expriy;
+                        //$('#sty-gem').css({"color":"blue", "font-weight":"bold"})
+                        //$('#sty-bGem').css({"color":"blue", "font-weight":"bold"})
+                    } else {
+                        swal("Error", "Result Number is "+res.result, "error");
+                    }
+                },
+                error => {
+                    this.errMessage = <any>error;
+                });
     }
 
     getPostItemData(id: number) {
@@ -282,31 +329,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                 });
 
     }
-    setInvenItem(rowid, id, itemCode, count, level, expriy, skinCode){
-        let res: any = [];
-        console.log('setInvenItem', id,itemCode,count,level,expriy,skinCode);
-        this.userDetailService.setInvenItem(id,itemCode,count,level,expriy,skinCode)
-            .subscribe(
-                invenModifyData => {
-                    res = invenModifyData;
-                    this.invenModifyData  = res.data;
-                    console.log(' this.invenModifyData', res)
-                    if (res.result === 100) {
-                        swal("성공", "플레이어 아이디: "+id+' 행번호:'+rowid+" 아이템 정보가 수정 되었습니다.", "success");
-                        this.invenData[rowid].exp=res.data[0].exp;
-                        this.invenData[rowid].level=res.data[0].level;
-                        this.invenData[rowid].skinCode=res.data[0].skinCode;
-                        this.invenData[rowid].expriy=res.data[0].expriy;
-                        //$('#sty-gem').css({"color":"blue", "font-weight":"bold"})
-                        //$('#sty-bGem').css({"color":"blue", "font-weight":"bold"})
-                    } else {
-                        swal("Error", "Result Number is "+res.result, "error");
-                    }
-                },
-                error => {
-                    this.errMessage = <any>error;
-                });
-    }
+
     sendMailEditOpen(content) {
         this._script.loadScripts('app-widgets-bootstrap-datetimepicker',
             ['assets/demo/default/custom/components/forms/widgets/bootstrap-datetimepicker.js']);

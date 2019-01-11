@@ -128,6 +128,14 @@ export class UserDetailService {
             .map(this.extractData)
             .catch(handleError);
     }
+    setInvenRemoveItem(id: string, itemCode:string): Observable<any[]> {
+        let targetUrl = `${this.apiUrl}/WAPI/RemoveItem/?key=${this.apiKey}`;
+        let setUrl = `${targetUrl}&playerID=${id}&itemCode=${itemCode}`;
+        return this.http
+            .get(setUrl)
+            .map(this.extractData)
+            .catch(handleError);
+    }
 
     private extractData(res: Response) {
         //Helpers.setLoading(false);
