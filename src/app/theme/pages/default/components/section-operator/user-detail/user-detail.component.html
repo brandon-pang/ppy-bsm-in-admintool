@@ -42,7 +42,11 @@
 								<tbody>
 								<tr>
 									<th scope="row">User ID</th>
-									<td style="word-break: break-all">{{findData[0]?.userID}}</td>
+									<td style="word-break: break-all" >
+										<ul>
+											<li *ngFor="let p of findData[0]?.userID;" class="m--margin-bottom-5">{{p}}</li>
+										</ul>
+									</td>
 								</tr>
 								<tr>
 									<th scope="row">Level</th>
@@ -119,7 +123,7 @@
 								</tr>
 								<tr>
 									<th scope="row">paneltyTime</th>
-									<td>{{findData[0]?.paneltyTime}}</td>
+									<td id="sty-panelty-time">{{findData[0]?.paneltyTime}}</td>
 								</tr>
 								<tr>
 									<th scope="row">dailyGoldGetCount</th>
@@ -365,8 +369,8 @@
 									<!--[value]="findData[0]?.rewardTableOrder"-->
 									<select class="form-control m-select2" id="m_select2" name="param" style="width:100%;"  #gradeSelect>
 										<option value="0">영구블럭</option>
-										<option value="1">내부관계자</option>
-										<option value="2">일반</option>
+										<option value="1">일반</option>
+										<option value="2">내부관계자</option>
 									</select>
 								</div>
 							</td>

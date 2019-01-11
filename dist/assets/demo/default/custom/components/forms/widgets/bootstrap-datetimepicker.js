@@ -45,7 +45,7 @@ var BootstrapDatetimepicker = function () {
             autoclose: true,
             pickerPosition: 'bottom-left',
             todayBtn: true,
-            format: 'yyyy/mm/dd hh:ii'
+            format: 'yyyy-mm-dd hh:ii'
         });
         $('#m_datetimepicker_3_modal').datetimepicker({
             todayHighlight: true,

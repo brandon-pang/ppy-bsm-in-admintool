@@ -204,6 +204,8 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                     console.log(' this.blockData', res)
                     if (res.result === 100) {
                         swal(id+" has been block", "Time to "+res.data[0].BlockTime, "success");
+                        this.findData[0].paneltyTime=res.data[0].BlockTime;
+                        $('#sty-panelty-time').css({"color":"blue", "font-weight":"bold"})
                     } else {
                         swal("It can't find data", "Result Number is "+res.result, "error");
                     }
