@@ -1,11 +1,7 @@
 import { AfterViewInit, Input, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ServerMaintenanceService } from "./server-maintenance.service";
 import { ScriptLoaderService } from '../../../../../../_services/script-loader.service';
-import { Pipe, PipeTransform } from "@angular/core";
 import { Helpers } from '../../../../../../helpers';
-import * as $ from 'jquery';
-import {Observable} from "rxjs";
-import {handleError} from "../../async-handling.observable";
 declare var swal: any;
 
 @Component({

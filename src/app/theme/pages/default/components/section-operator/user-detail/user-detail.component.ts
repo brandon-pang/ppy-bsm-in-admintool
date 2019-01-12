@@ -20,7 +20,6 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
     errMessage: string = "";
     findData: any = [];
     invenData: any = [];
-    tableData: any = [];
     clanData: any=[];
     clanMember:any=[];
     blockData:any=[];
@@ -29,16 +28,17 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
     blockID:string='';
     blockSecond:string='';
     blockReason:string='';
-
     id: string = "0";
     postData:any=[];
 
+    public gameInfoData:any=[]
+    public tableData: any = [];
     public modalClose: string;
     public chgGoldData: string;
     public chgGemData: string;
     public invenModifyData: string;
     public InvenRowId:number=0;
-    public gameInfoData:any=[];
+
     public sendMailData:any=[];
     public invenRemoveItem:any=[];
     //private sub: any;
@@ -46,7 +46,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
         //private route: ActivatedRoute,
         private modalService:NgbModal,
         private _script: ScriptLoaderService,
-        private userDetailService: UserDetailService,
+        private userDetailService: UserDetailService
     ) { }
 
     ngOnInit(): void {

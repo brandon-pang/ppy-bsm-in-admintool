@@ -12,8 +12,6 @@ declare let mLayout: any;
     encapsulation: ViewEncapsulation.None,
 })
 export class ThemeComponent implements OnInit {
-
-
     constructor(private _script: ScriptLoaderService, private _router: Router) {
 
     }
