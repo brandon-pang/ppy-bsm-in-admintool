@@ -23,7 +23,7 @@
 						<div class="form-group m-form__group">
 							<label for="searchInput">검색하시려는 유저의 닉네임을 입력해 주세요</label>
 							<div class="input-group">
-								<input type="text" id="searchInput" class="form-control" placeholder="Search for nickname" #newPersonName (keydown.enter)="getParamData(newPersonName.value);">
+								<input type="text" id="searchInput" class="form-control" placeholder="Search for nickname" [value]="nickName" #newPersonName (keydown.enter)="getParamData(newPersonName.value);">
 								<div class="input-group-append">
 									<button class="btn btn-primary" type="button" (click)="getParamData(newPersonName.value);">Search</button>
 								</div>

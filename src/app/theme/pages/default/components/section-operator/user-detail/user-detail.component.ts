@@ -30,7 +30,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
     blockReason:string='';
     id: string = "0";
     postData:any=[];
-
+    nickName:string="";
     public gameInfoData:any=[]
     public tableData: any = [];
     public modalClose: string;
@@ -52,6 +52,12 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
     ngOnInit(): void {
         this.getTableList();
         this.getGameItemInfo();
+
+        let hasName=sessionStorage.getItem("nickName");
+
+        if(hasName !== null){
+            this.getParamData(hasName);
+        }
     }
     ngAfterViewInit() {
         this._script.loadScripts('app-widgets-bootstrap-datetimepicker',
@@ -101,6 +107,10 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                 if (res.result === 100) {
                     this.findData = res.data;
                     this.blockPlayerID=this.findData[0].playerID;
+                    this.nickName=id;
+                    sessionStorage.setItem('nickName', id);
+                    sessionStorage.setItem('playerID', this.blockPlayerID);
+
                     setTimeout(() => {
                         this.getInventoryData(this.findData[0].playerID);
                         this.getPostItemData(this.findData[0].playerID);
