@@ -16,8 +16,9 @@ import { Helpers } from "../../../../../../helpers";
 @Injectable()
 
 export class ServerMaintenanceService {
-    private apiUrl = 'http://122.199.219.189:9001';
-    private apiKey='test_key';
+    private currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    private apiUrl = Helpers.apiUrl;
+    private apiKey = this.currentUser.apikey;
 
     constructor(private http: Http) { }
 

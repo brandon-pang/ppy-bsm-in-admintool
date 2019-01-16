@@ -2,18 +2,23 @@ import { Injectable } from "@angular/core";
 import { Headers, Http, RequestOptions, Response } from "@angular/http";
 
 import { User } from "../_models/index";
+import {Helpers} from "../../helpers";
 
 @Injectable()
 export class UserService {
+    private apiUrl = Helpers.apiUrl;
+
     constructor(private http: Http) {
     }
 
     verify() {
-        return this.http.get('/api/verify', this.jwt()).map((response: Response) => response.json());
+        return this.http
+            .get('/api/verify', this.jwt())
+            .map((response: Response) => response.json());
     }
 
     forgotPassword(email: string) {
-        return this.http.post('/api/forgot-password', JSON.stringify({ email }), this.jwt()).map((response: Response) => response.json());
+        return this.http.post('/api/forgot-password',JSON.stringify({ email }),this.jwt()).map((response: Response) => response.json());
     }
 
     getAll() {

@@ -1,8 +1,8 @@
 import * as $ from "jquery";
 
 export class Helpers {
-    static apiUrl = 'http://122.199.219.189:9001';
-    static apiKey = 'test_key';
+    public static apiUrl = 'http://122.199.219.189:9001';
+    public static apiKey = 'test_key';
 
     static loadStyles(tag, src) {
         if (Array.isArray(src)) {

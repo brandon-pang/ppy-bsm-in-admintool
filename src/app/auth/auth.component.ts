@@ -6,14 +6,16 @@ import {
     ViewContainerRef,
     ViewEncapsulation,
 } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ScriptLoaderService } from '../_services/script-loader.service';
-import { AuthenticationService } from './_services/authentication.service';
-import { AlertService } from './_services/alert.service';
-import { UserService } from './_services/user.service';
-import { AlertComponent } from './_directives/alert.component';
-import { LoginCustom } from './_helpers/login-custom';
-import { Helpers } from '../helpers';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ScriptLoaderService} from '../_services/script-loader.service';
+import {AuthenticationService} from './_services/authentication.service';
+import {AlertService} from './_services/alert.service';
+import {UserService} from './_services/user.service';
+import {AlertComponent} from './_directives/alert.component';
+import {LoginCustom} from './_helpers/login-custom';
+import {Helpers} from '../helpers';
+import {Md5} from "ts-md5";
+
 
 @Component({
     selector: '.m-grid.m-grid--hor.m-grid--root.m-page',
@@ -25,18 +27,19 @@ export class AuthComponent implements OnInit {
     model: any = {};
     loading = false;
     returnUrl: string;
+    md5 = new Md5();
 
     @ViewChild('alertSignin',
-        { read: ViewContainerRef }) alertSignin: ViewContainerRef;
+        {read: ViewContainerRef}) alertSignin: ViewContainerRef;
     @ViewChild('alertSignup',
-        { read: ViewContainerRef }) alertSignup: ViewContainerRef;
+        {read: ViewContainerRef}) alertSignup: ViewContainerRef;
     @ViewChild('alertForgotPass',
-        { read: ViewContainerRef }) alertForgotPass: ViewContainerRef;
+        {read: ViewContainerRef}) alertForgotPass: ViewContainerRef;
 
     constructor(
         private _router: Router,
         private _script: ScriptLoaderService,
-        private _userService: UserService,
+        //private _userService: UserService,
         private _route: ActivatedRoute,
         private _authService: AuthenticationService,
         private _alertService: AlertService,
@@ -44,7 +47,7 @@ export class AuthComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.model.remember = true;
+        //this.model.remember = true;
         // get return url from route parameters or default to '/'
         this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
         this._router.navigate([this.returnUrl]);
@@ -52,25 +55,65 @@ export class AuthComponent implements OnInit {
         this._script.loadScripts('body', [
             'assets/vendors/base/vendors.bundle.js',
             'assets/demo/default/base/scripts.bundle.js'], true).then(() => {
-                Helpers.setLoading(false);
-                LoginCustom.init();
-            });
+            Helpers.setLoading(false);
+            LoginCustom.init();
+        });
     }
 
     signin() {
+        let res: any = [];
         this.loading = true;
-        this._authService.login(this.model.email, this.model.password).subscribe(
+        let conpass = this.md5.appendStr(this.model.password).end();
+        this._authService.login(this.model.id, conpass).subscribe(
             data => {
-                this._router.navigate([this.returnUrl]);
+                res = data;
+                if (res) {
+                    let result = res.result;
+                    let data = {};
+                    // store user details and jwt token in local storage to keep user logged in between page refreshes
+                    if (result == '100') {
+                        let data = {
+                            userid: this.model.id,
+                            fullName: 'admin',
+                            email: this.model.id,
+                            apikey: res.data[0].API_KEY
+                        }
+                        localStorage.setItem('currentUser', JSON.stringify(data));
+                        this._router.navigate([this.returnUrl]);
+                    } else {
+                        localStorage.removeItem('currentUser');
+                        this.showAlert('alertSignin');
+                        this._alertService.error('아이디 또는 패스워드가 맞지 않습니다.');
+                        this.loading = false;
+                    }
+                }
+
             },
             error => {
                 this.showAlert('alertSignin');
                 this._alertService.error(error);
                 this.loading = false;
             });
+        /*
+        return this._userService.verify().map(
+            data => {
+                if (data !== null) {
+                    // logged in so return true
+                    return true;
+                }
+                // error when verify so redirect to login page with the return url
+                this._router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+                return false;
+            },
+            error => {
+                // error when verify so redirect to login page with the return url
+                this._router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+                return false;
+            });
+            */
     }
 
-    signup() {
+    /*signup() {
         this.loading = true;
         this._userService.create(this.model).subscribe(
             data => {
@@ -87,8 +130,9 @@ export class AuthComponent implements OnInit {
                 this._alertService.error(error);
                 this.loading = false;
             });
-    }
+    }*/
 
+    /*
     forgotPass() {
         this.loading = true;
         this._userService.forgotPassword(this.model.email).subscribe(
@@ -107,6 +151,7 @@ export class AuthComponent implements OnInit {
                 this.loading = false;
             });
     }
+    */
 
     showAlert(target) {
         this[target].clear();

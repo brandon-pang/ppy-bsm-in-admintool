@@ -13837,6 +13837,7 @@ var buildFormInputs = function (fig) {
         else if($self.is('input[type="email"]')) {
             addInputsBasic('email', $self);
         }
+
         else if($self.is('input[type="url"]')) {
             addInputsBasic('url', $self);
         }

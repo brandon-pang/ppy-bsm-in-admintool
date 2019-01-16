@@ -17,8 +17,9 @@ import { Helpers } from "../../../../../../helpers";
 @Injectable()
 
 export class UserDetailService {
+    private currentUser = JSON.parse(localStorage.getItem('currentUser'));
     private apiUrl = Helpers.apiUrl;
-    private apiKey = Helpers.apiKey;
+    private apiKey = this.currentUser.apikey;
 
     constructor(private http: Http) { }
 
