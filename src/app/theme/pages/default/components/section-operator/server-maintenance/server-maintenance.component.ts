@@ -68,7 +68,7 @@ export class ServerMaintenanceComponent implements OnInit, AfterViewInit {
 
     getServerInspectData() {
         let res: any = [];
-        let region:number=0;
+        let region:number = 1;
         let type: number = 0;
         let dataName:string;
         for (let i in this.tableData) {
@@ -84,7 +84,23 @@ export class ServerMaintenanceComponent implements OnInit, AfterViewInit {
                     res = serverInspectData;
                     console.log(' this.serverInspectData', res)
                     if (res.result === 100) {
-                        this.serverInspectData=res.data
+                        this.serverInspectData=res.data;
+                        if(this.serverInspectData[0].inspectState == '0'){
+                            this.serverInspectData[0].descState='오픈';
+                        }else if(this.serverInspectData[0].inspectState == '2'){
+                            this.serverInspectData[0].descState='내부 오픈'
+                        }else if(this.serverInspectData[0].inspectState == '128'){
+                            this.serverInspectData[0].descState='닫음';
+                        }else{
+                            this.serverInspectData[0].descState='에러';
+                        }
+                        for(let i in this.gameInfoData[0].REGION_CODE_LIST){
+                            let chkRegionCode=this.gameInfoData[0].REGION_CODE_LIST[i].Value;
+                            if(chkRegionCode==region){
+                                console.log(chkRegionCode)
+                                this.serverInspectData[0].descRegion=this.gameInfoData[0].REGION_CODE_LIST[i].DescName;
+                            }
+                        }
                         console.log(this.serverInspectData)
                     } else {
                         swal("It can't find "+dataName+" data", "Result Number is "+res.result, "error");
@@ -105,20 +121,21 @@ export class ServerMaintenanceComponent implements OnInit, AfterViewInit {
                     console.log(' this.serverInspectEditData', res)
                     if (res.result === 100) {
                         this.serverInspectEditData=res.data;
-                        this.serverInspectData=res.data;
-                        if(this.serverInspectData[0].serverState == '0'){
+
+                        this.serverInspectData[0].startTime=res.data[0].start;
+                        this.serverInspectData[0].endTime=res.data[0].end;
+
+                        if(res.data[0].serverState == '0'){
                             this.serverInspectData[0].descState='오픈';
-                        }else if(this.serverInspectData[0].serverState == '2'){
+                        }else if(res.data[0].serverState == '2'){
                             this.serverInspectData[0].descState='내부 오픈'
-                        }else if(this.serverInspectData[0].serverState == '128'){
+                        }else if(res.data[0].serverState == '128'){
                             this.serverInspectData[0].descState='닫음';
                         }else{
                             this.serverInspectData[0].descState='에러';
                         }
-
-                        swal("서버 점검 설정 완료", "start "+this.serverInspectData[0].start+" to "+this.serverInspectData[0].end+"<br> state"+this.serverInspectData[0].serverState, "success");
-                        console.log(this.serverInspectEditData)
-
+                        swal("서버 점검 설정 완료", "start "+res.data[0].start+" to "+res.data[0].end+"<br> state"+res.data[0].serverState, "success");
+                        console.log(this.serverInspectEditData);
                     } else {
                         swal("It can't find data", "Result Number is "+res.result, "error");
                     }

@@ -202,33 +202,35 @@
 						인벤 토리를 사용 하시려면 유저 검색이 필요합니다.
 					</div>
 					<ng-template #inven_show>
-						<table class="table table-bordered table-hover">
-							<thead>
-							<tr>
-								<th>#</th>
-								<th>Item Code</th>
-								<th>Level</th>
-								<th>Exp</th>
-								<th>Skin Code</th>
-								<th>Expiry</th>
-								<th>Control</th>
-							</tr>
-							</thead>
-							<tbody>
-							<tr *ngFor="let p of invenData; let i=index">
-								<th scope="row" >{{i + 1}}</th>
-								<td>{{p.descName}}</td>
-								<td>{{p.level}}</td>
-								<td>{{p.exp}}</td>
-								<td>{{p.skinCode}}</td>
-								<td>{{p.expriy}}</td>
-								<td>
-									<button type="button" class="btn btn-danger btn-sm" (click)="setInvenRemoveItem(i, blockPlayerID, p.itemCode)">회수</button>
-									<button type="button" class="btn btn-primary btn-sm" (click)="itemEditOpen(invenEdit, i)">수정</button>
-								</td>
-							</tr>
-							</tbody>
-						</table>
+						<div class="table-responsive">
+							<table class="table table-bordered table-hover">
+								<thead>
+								<tr>
+									<th>#</th>
+									<th>Item Code</th>
+									<th>Level</th>
+									<th>Exp</th>
+									<th>Skin Code</th>
+									<th>Expiry</th>
+									<th>Control</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr *ngFor="let p of invenData; let i=index">
+									<th scope="row" >{{i + 1}}</th>
+									<td>{{p.descName}}</td>
+									<td>{{p.level}}</td>
+									<td>{{p.exp}}</td>
+									<td>{{p.skinCode}}</td>
+									<td>{{p.expriy}}</td>
+									<td>
+										<button type="button" class="btn btn-danger btn-sm" (click)="setInvenRemoveItem(i, blockPlayerID, p.itemCode)">회수</button>
+										<button type="button" class="btn btn-primary btn-sm" (click)="itemEditOpen(invenEdit, i)">수정</button>
+									</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
 					</ng-template>
 				</div>
 				<div class="tab-pane" id="m_tabs_7_2" role="tabpanel">
@@ -242,33 +244,38 @@
 						<div class="d-flex justify-content-end m--margin-bottom-10">
 							<button type="button" class="btn btn-brand btn-md" (click)="sendMailEditOpen(sendMailEdit)">우편발송</button>
 						</div>
-
-						<table class="table table-bordered table-hover">
-							<thead>
-							<tr>
-								<th>#</th>
-								<th>PostID</th>
-								<th>Item Code</th>
-								<th>Count</th>
-								<th>Message</th>
-								<th>Sender</th>
-								<th>Expire Date</th>
-								<th>Control</th>
-							</tr>
-							</thead>
-							<tbody>
-							<tr *ngFor="let p of postData; let i=index" >
-								<th scope="row" style="vertical-align: middle;">{{i + 1}}</th>
-								<td style="vertical-align: middle;">{{p.postID}}</td>
-								<td style="vertical-align: middle;">{{p.itemCode}}</td>
-								<td style="vertical-align: middle;">{{p.itemCount}}</td>
-								<td style="vertical-align: middle;">{{p.postMessage}}</td>
-								<td style="vertical-align: middle;">{{p.senderName}}</td>
-								<td style="vertical-align: middle;">{{p.expireTime | date:'yyyy/MM/dd hh:mm'}}</td>
-								<td style="vertical-align: middle;"><button type="button" class="btn btn-warning btn-sm" disabled="true">회수</button></td>
-							</tr>
-							</tbody>
-						</table>
+						<div class="table-responsive">
+							<table class="table table-bordered table-hover">
+								<thead>
+								<tr>
+									<th>#</th>
+									<th>PostID</th>
+									<th>Item Code</th>
+									<th>Count</th>
+									<th>Message</th>
+									<th>Sender</th>
+									<th>Expire Date</th>
+									<th>Control</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr *ngFor="let p of postData; let i=index" >
+									<th scope="row" style="vertical-align: middle;">{{i + 1}}</th>
+									<td style="vertical-align: middle;">{{p.postID}}</td>
+									<td style="vertical-align: middle;">{{p.itemCode}}</td>
+									<td style="vertical-align: middle;">{{p.itemCount}}</td>
+									<td style="vertical-align: middle;">{{p.postMessage}}</td>
+									<td style="vertical-align: middle;">{{p.senderName}}</td>
+									<td style="vertical-align: middle;">{{p.expireTime | date:'yyyy/MM/dd hh:mm'}}</td>
+									<td style="vertical-align: middle;">
+										<button type="button" class="btn btn-warning btn-sm" [disabled]="p.postID==''" (click)="removePostItemData(i, blockPlayerID, p.postID)">
+											회수
+										</button>
+									</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
 					</ng-template>
 				</div>
 				<div class="tab-pane" id="m_tabs_7_5" role="tabpanel">
@@ -279,6 +286,7 @@
 						재화 회수를 사용 하시려면 유저 검색이 필요합니다.
 					</div>
 					<ng-template #gold_show>
+						<div class="table-responsive">
 						<table class="table table-bordered table-hover">
 							<thead>
 							<tr>
@@ -301,6 +309,7 @@
 							</tr>
 							</tbody>
 						</table>
+						</div>
 					</ng-template>
 				</div>
 				<div class="tab-pane" id="m_tabs_7_7" role="tabpanel">
@@ -308,6 +317,7 @@
 						계정 블럭을 사용 하시려면 유저 검색이 필요합니다.
 					</div>
 					<ng-template #block_show>
+						<div class="table-responsive">
 						<table class="table table-bordered table-hover">
 							<thead>
 							<tr>
@@ -320,19 +330,13 @@
 							<tbody>
 							<tr>
 								<td>
-									<div class="form-group m-form__group">
-										<input type="text" class="form-control m-input" readonly placeholder="Not Available" [value]="blockPlayerID" #blockID>
-									</div>
+									<input type="text" class="form-control m-input" readonly placeholder="Not Available" [value]="blockPlayerID" #blockID>
 								</td>
-								<td>
-									<div class="form-group m-form__group">
-										<input type="number" pattern="\d+" class="form-control m-input" placeholder="초 단위로 입력해 주세요" #blockSecond required>
-									</div>
+								<td style="min-width:80px;">
+									<input type="number" pattern="\d+" class="form-control m-input" placeholder="초 단위로 입력해 주세요" #blockSecond required>
 								</td>
-								<td>
-									<div class="form-group m-form__group">
-										<textarea class="form-control m-input" rows="1" placeholder="Reason is.." #blockReason required></textarea>
-									</div>
+								<td style="min-width:140px;">
+									<textarea class="form-control m-input" rows="1" placeholder="Reason is.." #blockReason required></textarea>
 								</td>
 								<td>
 									<button class="btn btn-primary" type="submit"
@@ -343,12 +347,14 @@
 							</tr>
 							</tbody>
 						</table>
+						</div>
 					</ng-template>
 				</div>
 				<div class="tab-pane" id="m_tabs_7_8" role="tabpanel">
 					<div [hidden]="blockPlayerID !== ''">
 						등급 변경을 사용 하시려면 유저 검색이 필요합니다.
 					</div>
+					<div class="table-responsive">
 					<table class="table table-bordered table-hover" [hidden]="blockPlayerID === ''">
 						<thead>
 						<tr>
@@ -359,12 +365,12 @@
 						</thead>
 						<tbody>
 						<tr>
-							<td style="width:40%;">
+							<td style="width:20%;min-width:60px;">
 								<div class="form-group m-form__group">
 									<input type="text" class="form-control m-input" readonly placeholder="Not Available" [value]="blockPlayerID" #gradeID  >
 								</div>
 							</td>
-							<td style="width:40%;">
+							<td style="width:60%; min-width:140px;">
 								<div class="form-group m-form__group">
 									<!--[value]="findData[0]?.rewardTableOrder"-->
 									<select class="form-control m-select2" id="m_select2" name="param" style="width:100%;"  #gradeSelect>
@@ -386,6 +392,7 @@
 						</tr>
 						</tbody>
 					</table>
+					</div>
 				</div>
 			</div>
 		</div>

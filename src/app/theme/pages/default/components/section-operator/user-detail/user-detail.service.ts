@@ -52,6 +52,14 @@ export class UserDetailService {
             .map(this.extractData)
             .catch(handleError);
     }
+    removePostItemData(playerid,postid): Observable<any[]> {
+        let targetUrl = `${this.apiUrl}/WAPI/RemovePost/?key=${this.apiKey}`;
+        let setUrl = `${targetUrl}&playerID=${playerid}&postID=${postid}`;
+        return this.http
+            .get(setUrl)
+            .map(this.extractData)
+            .catch(handleError);
+    }
 
     setSendItemMail(id, itemCode, count, sender, message): Observable<any[]> {
         //Helpers.setLoading(true);

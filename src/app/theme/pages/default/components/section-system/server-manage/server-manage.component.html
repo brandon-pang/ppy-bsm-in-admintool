@@ -24,12 +24,13 @@
             <!--begin::Section-->
             <div class="m-section">
                 <div class="m-section__content">
+                    <div class="table-responsive">
                     <table class="table m-table">
                         <thead class="thead-default">
                             <tr>
-                                <th style="width:20%; vertical-align: middle;">Server State</th>
+                                <th style="width:20%; vertical-align: middle;">All Server</th>
                                 <th style="width:80%" colspan="5">
-                                    All Server ON/OFF &nbsp;&nbsp;
+                                    ON/OFF &nbsp;&nbsp;
                                     <span class="m-switch m-switch--outline m-switch--icon m-switch--danger align-middle">
                                         <label style="display:block; margin-bottom:0;">
                                             <input type="checkbox" checked="checked" name="">
@@ -41,12 +42,12 @@
                         </thead>
                         <tbody *ngIf="serverStatData[0]?.AGENT != undefined">
                             <tr class="bg-primary text-white">
-                                <th>Server Name</th>
-                                <th>Server Type</th>
-                                <th>Server ID</th>
-                                <th>Server Address</th>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>ID</th>
+                                <th>Address</th>
                                 <th>State</th>
-                                <th style="width:10%;">ON/OFF</th>
+                                <th>ON/OFF</th>
                             </tr>
                             <tr *ngFor="let list of serverStatData[0]?.AGENT">
                                 <td scope="row">
@@ -70,10 +71,10 @@
                         </tbody>
                         <tbody *ngIf="serverStatData[0]?.GAME != undefined">
                             <tr class="bg-primary text-white">
-                                <th>Server Name</th>
-                                <th>Server Type</th>
-                                <th>Server ID</th>
-                                <th>Server Address</th>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>ID</th>
+                                <th>Address</th>
                                 <th>State</th>
                                 <th>ON/OFF</th>
                             </tr>
@@ -99,16 +100,16 @@
                         </tbody>
                         <tbody *ngIf="serverStatData[0]?.HOST != undefined">
                             <tr class="bg-primary text-white">
-                                <th>Server Name</th>
-                                <th>Server Type</th>
-                                <th>Server ID</th>
-                                <th>Server Address</th>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>ID</th>
+                                <th>Address</th>
                                 <th>State</th>
                                 <th>ON/OFF</th>
                             </tr>
                             <tr *ngFor="let list of serverStatData[0]?.HOST">
                                 <td>
-                                    <span class="m-badge m-badge--brand m-badge--wide" style="font-size:12pt;">HOST</span>
+                                    <span class="m-badge m-badge--brand m-badge--wide">HOST</span>
                                 </td>
                                 <th class="align-middle">{{list.ServerType}}</th>
                                 <td class="align-middle">{{list.ServerID}}</td>
@@ -128,16 +129,16 @@
                         </tbody>
                         <tbody *ngIf="serverStatData[0]?.CACHE != undefined">
                             <tr class="bg-primary text-white">
-                                <th>Server Name</th>
-                                <th>Server Type</th>
-                                <th>Server ID</th>
-                                <th>Server Address</th>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>ID</th>
+                                <th>Address</th>
                                 <th>State</th>
                                 <th>ON/OFF</th>
                             </tr>
                             <tr *ngFor="let list of serverStatData[0]?.CACHE">
                                 <td>
-                                    <span class="m-badge m-badge--brand m-badge--wide" style="font-size:12pt;">CACHE</span>
+                                    <span class="m-badge m-badge--brand m-badge--wide">CACHE</span>
                                 </td>
                                 <th class="align-middle">{{list.ServerType}}</th>
                                 <td class="align-middle">{{list.ServerID}}</td>
@@ -157,16 +158,16 @@
                         </tbody>
                         <tbody *ngIf="serverStatData[0]?.MONITORING != undefined">
                             <tr class="bg-primary text-white">
-                                <th>Server Name</th>
-                                <th>Server Type</th>
-                                <th>Server ID</th>
-                                <th>Server Address</th>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>ID</th>
+                                <th>Address</th>
                                 <th>State</th>
                                 <th>ON/OFF</th>
                             </tr>
                             <tr *ngFor="let list of serverStatData[0]?.MONITORING">
                                 <td scope="row">
-                                    <span class="m-badge m-badge--brand m-badge--wide" style="font-size:12pt;">MONITORING</span>
+                                    <span class="m-badge m-badge--brand m-badge--wide">MONITORING</span>
                                 </td>
                                 <th class="align-middle">{{list.ServerType}}</th>
                                 <td class="align-middle">{{list.ServerID}}</td>
@@ -185,6 +186,7 @@
                             </tr>
                         </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
         </div>

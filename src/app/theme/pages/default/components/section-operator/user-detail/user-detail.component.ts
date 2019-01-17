@@ -41,6 +41,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
 
     public sendMailData:any=[];
     public invenRemoveItem:any=[];
+    public removePostData:any=[];
     //private sub: any;
     constructor(
         //private route: ActivatedRoute,
@@ -95,7 +96,6 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                 },
                 error => this.errMessage = <any>error);
     }
-
     getParamData(id: string) {
         let res: any = [];
         if (!id) { return; }
@@ -122,7 +122,6 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
             },
             error => this.errMessage = <any>error);
     }
-
     getInventoryData(id: number) {
         let res: any = [];
         let type: number = 0;
@@ -167,7 +166,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                     console.log(' this.invenRemoveItem', res);
                     if (res.result === 100) {
                         this.invenData.splice(rowid,1);
-                        swal("성공", "플레이어 아이디: "+id+' 행번호:'+rowid+" 아이템 삭제 되었습니다.", "success");
+                        swal("성공", rowid+": 아이템 삭제 되었습니다.", "success");
                     } else {
                         swal("Error", "Row No: "+rowid+" Result Number is "+res.result, "error");
                     }
@@ -176,7 +175,6 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                     this.errMessage = <any>error;
                 });
     }
-
     setInvenItem(rowid, id, itemCode, count, level, expriy, skinCode){
         let res: any = [];
         console.log('setInvenItem', id,itemCode,count,level,expriy,skinCode);
@@ -202,7 +200,6 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                     this.errMessage = <any>error;
                 });
     }
-
     getPostItemData(id: number) {
         let res: any = [];
         let type: number = 0;
@@ -228,7 +225,26 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                     this.errMessage = <any>error;
                 });
     }
-
+    removePostItemData(rowid,playerid:string,postid:string){
+        let res:any=[];
+        //팝업창을 띄우고 콜
+        this.userDetailService.removePostItemData(playerid, postid)
+            .subscribe(
+                removePostData => {
+                    res = removePostData;
+                    console.log(' this.removePostData', res)
+                    if (res.result === 100) {
+                        this.removePostData  = res.data;
+                        this.postData.splice(rowid,1);
+                        swal("성공", postid+": 우편이 삭제 되었습니다.", "success");
+                    } else {
+                        swal("It can't find "+postid+" data", "Result Number is "+res.result, "error");
+                    }
+                },
+                error => {
+                    this.errMessage = <any>error;
+                });
+    }
     setSendItemMail(id, itemCode, count, sender, message){
         let res: any = [];
         //팝업창을 띄우고 콜

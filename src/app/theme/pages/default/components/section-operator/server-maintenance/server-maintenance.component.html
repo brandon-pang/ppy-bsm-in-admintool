@@ -30,9 +30,12 @@
                     <div class="m-section">
                         <div class="m-section__content">
                             <span *ngIf="serverInspectData == ''">Date가 설정되지 않았습니다.</span>
+                            <div class="table-responsive">
                             <table class="table table-bordered table-hover" *ngIf="serverInspectData != ''">
                                 <thead>
                                     <tr>
+                                        <th>_id</th>
+                                        <th>Region</th>
                                         <th>Start</th>
                                         <th>End</th>
                                         <th>State</th>
@@ -40,12 +43,15 @@
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let p of serverInspectData;">
-                                        <td>{{p.start}}</td>
-                                        <td>{{p.end}}</td>
-                                        <td><span class="m-badge m-badge--brand m-badge--wide">{{p.descState }}</span></td>
+                                        <td style="min-width:200px;word-break: break-all;">{{p._id}}</td>
+                                        <td style="min-width:80px;">{{p.descRegion}}</td>
+                                        <td style="min-width:150px;">{{p.startTime}}</td>
+                                        <td style="min-width:150px;">{{p.endTime}}</td>
+                                        <td style="min-width:60px;"><span class="m-badge m-badge--brand m-badge--wide">{{p.descState }}</span></td>
                                     </tr>
                                 </tbody>
                             </table>
+                            </div>
                         </div>
                     </div>
                 </div>
