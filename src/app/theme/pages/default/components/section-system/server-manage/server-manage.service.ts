@@ -28,9 +28,62 @@ export class ServerManageService {
             .map(this.extractData)
             .catch(handleError);
     }
+    getServerAllStart(boo:string): Observable<any[]> {
+        let url = `${this.apiUrl}/WAPI/StartAllServer/?key=${this.apiKey}`;
+        let paramUrl=`${url}&autoRestart=${boo}`;
+        return this.http
+            .get(paramUrl)
+            .map(this.extractData)
+            .catch(handleError);
+    }
+
+    getServerAllStop(): Observable<any[]> {
+        let url = `${this.apiUrl}/WAPI/StopAllServer/?key=${this.apiKey}`;
+        return this.http
+            .get(url)
+            .map(this.extractData)
+            .catch(handleError);
+    }
+    getServerAllUpdate(boo): Observable<any[]>{
+        let url = `${this.apiUrl}/WAPI/UpdateAllServer/?key=${this.apiKey}`;
+        let paramUrl=`${url}&autoRestart=${boo}`;
+        return this.http
+            .get(paramUrl)
+            .map(this.extractData)
+            .catch(handleError);
+    }
+
+    getServerSpecStart(sname,boo){
+        let url = `${this.apiUrl}/WAPI/StartServer/?key=${this.apiKey}`;
+        let paramUrl=`${url}&serverName=${sname}&autoRestart=${boo}`;
+        return this.http
+            .get(paramUrl)
+            .map(this.extractData)
+            .catch(handleError);
+    }
+
+
+    getServerSpecStop(sname): Observable<any[]> {
+        let url = `${this.apiUrl}/WAPI/StopServer/?key=${this.apiKey}`;
+        let paramUrl=`${url}&serverName=${sname}`;
+        return this.http
+            .get(paramUrl)
+            .map(this.extractData)
+            .catch(handleError);
+    }
+
+
+    getServerUpdate(sname, boo): Observable<any[]>{
+        let url = `${this.apiUrl}/WAPI/UpdateServer/?key=${this.apiKey}`;
+        let paramUrl=`${url}&serverName=${sname}&autoRestart=${boo}`;
+        return this.http
+            .get(paramUrl)
+            .map(this.extractData)
+            .catch(handleError);
+    }
 
     private extractData(res: Response) {
         let body = res.json();
-        return body.data || {};
+        return body || {};
     }
 }

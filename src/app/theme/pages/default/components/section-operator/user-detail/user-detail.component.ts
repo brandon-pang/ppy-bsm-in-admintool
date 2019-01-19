@@ -1,10 +1,11 @@
 import {AfterViewInit, Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
-import {ModalDismissReasons,NgbDateStruct, NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {ModalDismissReasons, NgbDateStruct, NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import { UserDetailService } from './user-detail.service';
 import { ScriptLoaderService } from '../../../../../../_services/script-loader.service';
 import { Helpers } from "../../../../../../helpers";
 import 'rxjs/add/operator/switchMap';
 import * as $ from 'jquery';
+import {isNgTemplate} from "@angular/compiler";
 declare var swal: any;
 
 @Component({
@@ -13,9 +14,10 @@ declare var swal: any;
     encapsulation: ViewEncapsulation.None,
     providers: [UserDetailService]
 })
+
 export class UserDetailComponent implements OnInit, AfterViewInit {
 
-    @Input()
+    @Input() name;
     errTitle: string = "";
     errMessage: string = "";
     findData: any = [];
@@ -42,6 +44,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
     public sendMailData:any=[];
     public invenRemoveItem:any=[];
     public removePostData:any=[];
+    public userIdData:any=[];
     //private sub: any;
     constructor(
         //private route: ActivatedRoute,
@@ -121,6 +124,52 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                 }
             },
             error => this.errMessage = <any>error);
+    }
+
+    getUserIdData(id:string, content){
+        let res: any = [];
+        if (!id) { return; }
+        let type: number = 0;
+        for (let i in this.tableData) {
+            if (this.tableData[i].DataName === "VendorAccount") {
+                type = +this.tableData[i].Type;
+                console.log(type);
+            }
+        }
+        this.userDetailService.getInventoryData(type, id)
+            .subscribe(
+                userIdData => {
+                    res = userIdData;
+                    console.log(' this.userIdData', res)
+                    if (res.result === 100) {
+                        this.userIdData = res.data[0];
+
+                        let countyCode=this.gameInfoData[0].COUNTRY_CODE_LIST;
+                        let regionCode=this.gameInfoData[0].REGION_CODE_LIST;
+                        for (let i in countyCode) {
+                            if ( this.userIdData.countryCode === countyCode[i].Value ) {
+                                console.log(countyCode[i].DescName);
+                                this.userIdData.countryName=countyCode[i].DescName;
+                            }
+                        }
+                        for (let i in regionCode) {
+                            if ( this.userIdData.regionCode === regionCode[i].Value ) {
+                                console.log(regionCode[i].DescName);
+                                this.userIdData.regionName=regionCode[i].DescName;
+                            }
+                        }
+
+                        this.setEditOpen(content);
+
+                    } else {
+                        swal("It can't find data", "Result Number is "+res.result, "error");
+
+                    }
+                },
+                error => {
+                    this.errMessage = <any>error;
+
+                });
     }
     getInventoryData(id: number) {
         let res: any = [];
@@ -225,7 +274,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                     this.errMessage = <any>error;
                 });
     }
-    removePostItemData(rowid,playerid:string,postid:string){
+    removePostItemData(rowid,playerid:string, postid:string){
         let res:any=[];
         //팝업창을 띄우고 콜
         this.userDetailService.removePostItemData(playerid, postid)
@@ -429,10 +478,4 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
             swal("Good job!", "You clicked the button!", "question");
         });
     }*/
-}
-
-export interface IAlert {
-    id: number;
-    type: string;
-    message: string;
 }

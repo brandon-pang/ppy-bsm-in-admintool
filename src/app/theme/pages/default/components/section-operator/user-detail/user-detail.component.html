@@ -37,17 +37,33 @@
 				<span class="m-section__sub"> <code>NICK NAME : <b>{{ findData[0]?.nickname }}</b></code> , <code>PLAYER ID : <b>{{ findData[0]?.playerID }}</b></code></span>
 				<div class="m-section__content">
 					<div class="row">
-						<div class="col-lg-4">
+						<div class="col-lg-6">
 							<table class="table table-inverse">
 								<tbody>
+								<tr>
+									<th colspan="2" class="bg-light text-center">
+										User Profile
+									</th>
+								</tr>
 								<tr>
 									<th scope="row">User ID</th>
 									<td style="word-break: break-all" >
 										<ul>
-											<li *ngFor="let p of findData[0]?.userID;" class="m--margin-bottom-5">{{p}}</li>
+											<li *ngFor="let p of findData[0]?.userID;" class="m--margin-bottom-5">
+												<div class="txt--userid" (click)="getUserIdData(p, userShowVender)">{{p}}</div>
+											</li>
 										</ul>
 									</td>
 								</tr>
+								<tr>
+									<th scope="row">Profile Icon</th>
+									<td>{{findData[0]?.profileIcon}}</td>
+								</tr>
+								<tr>
+									<th scope="row">countryCode</th>
+									<td>{{findData[0]?.countryCode}}</td>
+								</tr>
+
 								<tr>
 									<th scope="row">Level</th>
 									<td>{{findData[0]?.level}}</td>
@@ -57,8 +73,47 @@
 									<td>{{findData[0]?.exp}}</td>
 								</tr>
 								<tr>
+									<th scope="row">Elo Score</th>
+									<td>{{findData[0]?.eloScore}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Last Login</th>
+									<td>{{findData[0]?.lastLoginDate}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Panelty Time</th>
+									<td id="sty-panelty-time">{{findData[0]?.paneltyTime}}</td>
+								</tr>
+								<tr>
 									<th scope="row">Created Time</th>
 									<td>{{findData[0]?.createdTime}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Tutorial Progress</th>
+									<td>{{findData[0]?.tutorialProgress}}</td>
+								</tr>
+							</table>
+						</div>
+						<div class="col-lg-6">
+							<table class="table table-inverse">
+								<tbody>
+								<tr>
+									<th colspan="2" class="bg-light text-center">
+										User Clan
+									</th>
+								</tr>
+								<tr>
+									<th scope="row">ClanID</th>
+									<td>{{findData[0]?.clanID}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Apply ClanID</th>
+									<td>{{findData[0]?.applyClanID}}</td>
+								</tr>
+								<tr>
+									<th colspan="2">
+										User Gold and GEM
+									</th>
 								</tr>
 								<tr>
 									<th scope="row">Gold</th>
@@ -72,85 +127,70 @@
 									<th scope="row">Bonus Gem</th>
 									<td id="sty-bGem">{{findData[0]?.bonusGem}}</td>
 								</tr>
-								</tbody>
-							</table>
-						</div>
-						<div class="col-lg-4">
-							<table class="table table-inverse">
-								<tbody>
 								<tr>
-									<th scope="row">RewardTableOrder</th>
-									<td>{{findData[0]?.rewardTableOrder}}</td>
+									<th scope="row">Total Charge Gem</th>
+									<td>{{findData[0]?.totalChargeGem}}</td>
 								</tr>
 								<tr>
-									<th scope="row">FreeRewardTime</th>
-									<td>{{findData[0]?.freeRewardTime}}</td>
-								</tr>
-								<tr>
-									<th scope="row">medalRewardTime</th>
-									<td>{{findData[0]?.medalRewardTime}}</td>
-								</tr>
-								<tr>
-									<th scope="row">shopRefreshTime</th>
-									<td>{{findData[0]?.shopRefreshTime}}</td>
-								</tr>
-								<tr>
-									<th scope="row">tutorialProgress</th>
-									<td>{{findData[0]?.tutorialProgress}}</td>
-								</tr>
-								<tr>
-									<th scope="row">clanID</th>
-									<td>{{findData[0]?.clanID}}</td>
-								</tr>
-								<tr>
-									<th scope="row">applyClanID</th>
-									<td>{{findData[0]?.applyClanID}}</td>
-								</tr>
-								<tr>
-									<th scope="row">seasonID</th>
-									<td>{{findData[0]?.seasonID}}</td>
-								</tr>
-
-								</tbody>
-							</table>
-						</div>
-						<div class="col-lg-4">
-							<table class="table table-inverse">
-								<tbody>
-								<tr>
-									<th scope="row">eloScore</th>
-									<td>{{findData[0]?.eloScore}}</td>
-								</tr>
-								<tr>
-									<th scope="row">paneltyTime</th>
-									<td id="sty-panelty-time">{{findData[0]?.paneltyTime}}</td>
-								</tr>
-								<tr>
-									<th scope="row">dailyGoldGetCount</th>
+									<th scope="row">Daily Gold Get Count</th>
 									<td>{{findData[0]?.dailyGoldGetCount}}</td>
 								</tr>
 								<tr>
-									<th scope="row">dailyGoldCountResetTime</th>
+									<th scope="row">Daily Gold Count ResetTime</th>
 									<td>{{findData[0]?.dailyGoldCountResetTime}}</td>
 								</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="col-lg-6">
+							<table class="table table-inverse">
+								<tbody>
 								<tr>
-									<th scope="row">profileIcon</th>
-									<td>{{findData[0]?.profileIcon}}</td>
+									<th colspan="2" class="bg-light text-center">
+										Rewards
+									</th>
 								</tr>
 								<tr>
-									<th scope="row">requestCardID</th>
+									<th scope="row">Reward TO</th>
+									<td>{{findData[0]?.rewardTableOrder}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Free Reward Time</th>
+									<td>{{findData[0]?.freeRewardTime}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Medal RewardTime</th>
+									<td>{{findData[0]?.medalRewardTime}}</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="col-lg-6">
+							<table class="table table-inverse">
+								<tbody>
+								<tr>
+									<th colspan="2" class="bg-light text-center">
+										Etc.
+									</th>
+								</tr>
+								<tr>
+									<th scope="row">Request Card ID</th>
 									<td>{{findData[0]?.requestCardID}}</td>
 								</tr>
 								<tr>
-									<th scope="row">nextRequestCardTime</th>
+									<th scope="row">Next Request Card Time</th>
 									<td>{{findData[0]?.nextRequestCardTime}}</td>
 								</tr>
 								<tr>
-									<th scope="row">countryCode</th>
-									<td>{{findData[0]?.countryCode}}</td>
+									<th scope="row">Season ID</th>
+									<td>{{findData[0]?.seasonID}}</td>
 								</tr>
 								<tr>
-									<th scope="row">clientOption</th>
+									<th scope="row">Shop Refresh Time</th>
+									<td>{{findData[0]?.shopRefreshTime}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Client Option</th>
 									<td>{{findData[0]?.clientOption}}</td>
 								</tr>
 								</tbody>
@@ -398,6 +438,64 @@
 		</div>
 	</div>
 </div>
+
+<ng-template #userShowVender let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title">The Profile of User Detail</h4>
+		<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<table class="table table-bordered table-hover">
+			<tbody>
+			<tr>
+				<td style="width:40%;" class="bg-light m--font-bolder">Player ID</td>
+				<td style="width:60%;">{{userIdData.playerID}}</td>
+			</tr>
+			<tr>
+				<td style="width:40%;" class="bg-light m--font-bolder">User ID</td>
+				<td style="width:60%; word-break: break-all;">{{userIdData.userID}}</td>
+			</tr>
+			<tr>
+				<td style="width:40%;" class="bg-light m--font-bolder">Token</td>
+				<td style="width:60%;">{{userIdData.gameToken}}</td>
+			</tr>
+			<tr>
+				<td style="width:40%;" class="bg-light m--font-bolder">Type</td>
+				<td style="width:60%;">{{userIdData.vendorType}}</td>
+			</tr>
+			<tr>
+				<td style="width:40%;" class="bg-light m--font-bolder">Country</td>
+				<td style="width:60%;">{{userIdData.countryName}}</td>
+			</tr>
+			<tr>
+				<td style="width:40%;" class="bg-light m--font-bolder">RegionCode</td>
+				<td style="width:60%;">{{userIdData.regionCode}}</td>
+			</tr>
+			<tr>
+				<td style="width:40%;" class="bg-light m--font-bolder">Login ServerID</td>
+				<td style="width:60%;">{{userIdData.lastLoginServerID}}</td>
+			</tr>
+			<tr>
+				<td style="width:40%;" class="bg-light m--font-bolder">Login IP</td>
+				<td style="width:60%;">{{userIdData.lastLoginIP}}</td>
+			</tr>
+			<tr>
+				<td style="width:40%;" class="bg-light m--font-bolder">Account Grade</td>
+				<td style="width:60%;">{{userIdData.accountGrade}}</td>
+			</tr>
+			<tr>
+				<td style="width:40%;" class="bg-light m--font-bolder">Block Time</td>
+				<td style="width:60%;">{{userIdData.blockTime}}</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+	</div>
+</ng-template>
 
 <ng-template #sendMailEdit let-c="close" let-d="dismiss">
 	<div class="modal-header">

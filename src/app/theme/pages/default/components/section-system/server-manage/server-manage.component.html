@@ -28,36 +28,47 @@
                     <table class="table m-table">
                         <thead class="thead-default">
                             <tr>
-                                <th style="width:20%; vertical-align: middle;">All Server</th>
-                                <th style="width:80%" colspan="5">
-                                    ON/OFF &nbsp;&nbsp;
-                                    <span class="m-switch m-switch--outline m-switch--icon m-switch--danger align-middle">
-                                        <label style="display:block; margin-bottom:0;">
-                                            <input type="checkbox" checked="checked" name="">
-                                            <span></span>
-                                        </label>
-                                    </span>
+                                <th colspan="4"><button type="button" class="btn btn-info btn-md" (click)="getServerStateList()"><i class="m-menu__link-icon flaticon-refresh m--padding-right-5"></i>새로고침</button></th>
+                                <th colspan="3" class="text-right">
+                                    <span class="m--margin-right-10">All Server ON / OFF</span>
+                                    <button type="button" class="btn btn-danger btn-md" [ngClass]="{'disabled':!allServerOnSet}" (click)="setEditOpen(allServerOn)"><i class="m-menu__link-icon flaticon-light m--padding-right-5"></i>{{allServerOnSet ? 'ON':'OFF'}}</button>
+                                </th>
+                                <th colspan="3" class="text-right" style="min-width:240px;">
+                                    <span class="m--margin-right-10">All Server Update</span>
+                                    <button type="button" class="btn btn-accent btn-md"><i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE</button>
                                 </th>
                             </tr>
                         </thead>
                         <tbody *ngIf="serverStatData[0]?.AGENT != undefined">
                             <tr class="bg-primary text-white">
+                                <th>#</th>
                                 <th>Name</th>
                                 <th>Type</th>
                                 <th>ID</th>
                                 <th>Address</th>
                                 <th>State</th>
+                                <th>C.C</th>
+                                <th>AR</th>
                                 <th>ON/OFF</th>
+                                <th>Update</th>
                             </tr>
                             <tr *ngFor="let list of serverStatData[0]?.AGENT">
-                                <td scope="row">
-                                    <span class="m-badge m-badge--brand m-badge--wide" style="font-size:12pt;">AGENT</span>
+                                <td scope="row" class="align-middle">
+                                    <span class="m-badge m-badge--brand m-badge--wide">AGENT</span>
                                 </td>
-                                <th class="align-middle">{{list.ServerType}}</th>
+                                <th class="align-middle">{{list.ServerName}}</th>
+                                <td class="align-middle">{{list.ServerType}}</td>
                                 <td class="align-middle">{{list.ServerID}}</td>
                                 <td class="align-middle">{{list.ServerAddress}}</td>
                                 <td class="align-middle">
                                     <span class="m-badge m-badge--info m-badge--wide m-badge--rounded">{{list.State}}</span>
+                                </td>
+                                <td class="align-middle">{{list.Concurrent}}</td>
+                                <td>
+                                    <label class="m-checkbox m-checkbox--square">
+                                        <input type="checkbox">
+                                        <span></span>
+                                    </label>
                                 </td>
                                 <td class="align-middle">
                                     <span class="m-switch m-switch--outline m-switch--icon m-switch--success align-middle">
@@ -66,27 +77,42 @@
                                             <span></span>
                                         </label>
                                     </span>
+                                </td>
+                                <td class="align-middle">
+                                    <button type="button" class="btn btn-accent btn-sm"><i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE</button>
                                 </td>
                             </tr>
                         </tbody>
                         <tbody *ngIf="serverStatData[0]?.GAME != undefined">
                             <tr class="bg-primary text-white">
+                                <th>#</th>
                                 <th>Name</th>
                                 <th>Type</th>
                                 <th>ID</th>
                                 <th>Address</th>
                                 <th>State</th>
+                                <th>C.C</th>
+                                <th>AR</th>
                                 <th>ON/OFF</th>
+                                <th>Update</th>
                             </tr>
                             <tr *ngFor="let list of serverStatData[0]?.GAME">
                                 <td scope="row">
-                                    <span class="m-badge m-badge--brand m-badge--wide" style="font-size:12pt;">GAME</span>
+                                    <span class="m-badge m-badge--brand m-badge--wide">GAME</span>
                                 </td>
-                                <th class="align-middle">{{list.ServerType}}</th>
+                                <th class="align-middle">{{list.ServerName}}</th>
+                                <td class="align-middle">{{list.ServerType}}</td>
                                 <td class="align-middle">{{list.ServerID}}</td>
                                 <td class="align-middle">{{list.ServerAddress}}</td>
                                 <td class="align-middle">
                                     <span class="m-badge m-badge--info m-badge--wide m-badge--rounded">{{list.State}}</span>
+                                </td>
+                                <td class="align-middle">{{list.Concurrent}}</td>
+                                <td>
+                                    <label class="m-checkbox m-checkbox--square">
+                                        <input type="checkbox">
+                                        <span></span>
+                                    </label>
                                 </td>
                                 <td class="align-middle">
                                     <span class="m-switch m-switch--outline m-switch--icon m-switch--success align-middle">
@@ -96,26 +122,39 @@
                                         </label>
                                     </span>
                                 </td>
+                                <td class="align-middle"><button type="button" class="btn btn-accent btn-sm"><i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE</button></td>
                             </tr>
                         </tbody>
                         <tbody *ngIf="serverStatData[0]?.HOST != undefined">
                             <tr class="bg-primary text-white">
+                                <th>#</th>
                                 <th>Name</th>
                                 <th>Type</th>
                                 <th>ID</th>
                                 <th>Address</th>
                                 <th>State</th>
+                                <th>C.C</th>
+                                <th>AR</th>
                                 <th>ON/OFF</th>
+                                <th>Update</th>
                             </tr>
                             <tr *ngFor="let list of serverStatData[0]?.HOST">
                                 <td>
                                     <span class="m-badge m-badge--brand m-badge--wide">HOST</span>
                                 </td>
-                                <th class="align-middle">{{list.ServerType}}</th>
+                                <th class="align-middle">{{list.ServerName}}</th>
+                                <td class="align-middle">{{list.ServerType}}</td>
                                 <td class="align-middle">{{list.ServerID}}</td>
                                 <td class="align-middle">{{list.ServerAddress}}</td>
                                 <td class="align-middle">
                                     <span class="m-badge m-badge--info m-badge--wide m-badge--rounded">{{list.State}}</span>
+                                </td>
+                                <td class="align-middle">{{list.Concurrent}}</td>
+                                <td>
+                                    <label class="m-checkbox m-checkbox--square">
+                                        <input type="checkbox">
+                                        <span></span>
+                                    </label>
                                 </td>
                                 <td class="align-middle">
                                     <span class="m-switch m-switch--outline m-switch--icon m-switch--success align-middle">
@@ -125,26 +164,39 @@
                                         </label>
                                     </span>
                                 </td>
+                                <td class="align-middle"><button type="button" class="btn btn-accent btn-sm"><i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE</button></td>
                             </tr>
                         </tbody>
                         <tbody *ngIf="serverStatData[0]?.CACHE != undefined">
                             <tr class="bg-primary text-white">
+                                <th>#</th>
                                 <th>Name</th>
                                 <th>Type</th>
                                 <th>ID</th>
                                 <th>Address</th>
                                 <th>State</th>
+                                <th>C.C</th>
+                                <th>AR</th>
                                 <th>ON/OFF</th>
+                                <th>Update</th>
                             </tr>
                             <tr *ngFor="let list of serverStatData[0]?.CACHE">
                                 <td>
                                     <span class="m-badge m-badge--brand m-badge--wide">CACHE</span>
                                 </td>
-                                <th class="align-middle">{{list.ServerType}}</th>
+                                <th class="align-middle">{{list.ServerName}}</th>
+                                <td class="align-middle">{{list.ServerType}}</td>
                                 <td class="align-middle">{{list.ServerID}}</td>
                                 <td class="align-middle">{{list.ServerAddress}}</td>
                                 <td class="align-middle">
                                     <span class="m-badge m-badge--info m-badge--wide m-badge--rounded">{{list.State}}</span>
+                                </td>
+                                <td class="align-middle">{{list.Concurrent}}</td>
+                                <td>
+                                    <label class="m-checkbox m-checkbox--square">
+                                        <input type="checkbox">
+                                        <span></span>
+                                    </label>
                                 </td>
                                 <td class="align-middle">
                                     <span class="m-switch m-switch--outline m-switch--icon m-switch--success align-middle">
@@ -154,26 +206,39 @@
                                         </label>
                                     </span>
                                 </td>
+                                <td class="align-middle"><button type="button" class="btn btn-accent btn-sm"><i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE</button></td>
                             </tr>
                         </tbody>
                         <tbody *ngIf="serverStatData[0]?.MONITORING != undefined">
                             <tr class="bg-primary text-white">
+                                <th>#</th>
                                 <th>Name</th>
                                 <th>Type</th>
                                 <th>ID</th>
                                 <th>Address</th>
                                 <th>State</th>
+                                <th>C.C</th>
+                                <th>AR</th>
                                 <th>ON/OFF</th>
+                                <th>Update</th>
                             </tr>
                             <tr *ngFor="let list of serverStatData[0]?.MONITORING">
                                 <td scope="row">
                                     <span class="m-badge m-badge--brand m-badge--wide">MONITORING</span>
                                 </td>
-                                <th class="align-middle">{{list.ServerType}}</th>
+                                <th class="align-middle">{{list.ServerName}}</th>
+                                <td class="align-middle">{{list.ServerType}}</td>
                                 <td class="align-middle">{{list.ServerID}}</td>
                                 <td class="align-middle">{{list.ServerAddress}}</td>
                                 <td class="align-middle">
                                     <span class="m-badge m-badge--info m-badge--wide m-badge--rounded">{{list.State}}</span>
+                                </td>
+                                <td class="align-middle">{{list.Concurrent}}</td>
+                                <td>
+                                    <label class="m-checkbox m-checkbox--square">
+                                        <input type="checkbox">
+                                        <span></span>
+                                    </label>
                                 </td>
                                 <td class="align-middle">
                                     <span class="m-switch m-switch--outline m-switch--icon m-switch--success align-middle">
@@ -183,6 +248,7 @@
                                         </label>
                                     </span>
                                 </td>
+                                <td class="align-middle"><button type="button" class="btn btn-accent btn-sm"><i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE</button></td>
                             </tr>
                         </tbody>
                     </table>
@@ -193,3 +259,41 @@
         <!--end::Form-->
     </div>
 </div>
+<ng-template #allServerOn let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">전체서버 ON/OFF</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <table class="table table-bordered table-hover">
+            <tbody>
+            <tr>
+                <td style="width:40%;">모든 서버 ON / OFF</td>
+                <td style="width:60%;">
+                     <span class="m-switch m-switch--outline m-switch--icon m-switch--danger align-middle">
+                        <label style="display:block; margin-bottom:0;">
+                            <input type="checkbox" [checked]="allServerOnSet" name="" #serverAllBoo>
+                            <span></span>
+                        </label>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:40%;">Auto Restart</td>
+                <td style="width:60%;">
+                    <label class="m-checkbox m-checkbox--square">
+                        <input type="checkbox" [checked]="allServerArSet" #serverAllAr>
+                        <span></span>
+                    </label>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="c('Close click')" (click)="getCheckStatAllServer(serverAllBoo.checked, serverAllAr.checked)">Submit</button>
+        <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+    </div>
+</ng-template>

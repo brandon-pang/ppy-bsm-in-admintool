@@ -33,7 +33,7 @@ export class UserDetailService {
             .catch(handleError)
     }
 
-    getInventoryData(type: number, id: number): Observable<any[]> {
+    getInventoryData(type, id): Observable<any[]> {
         //Helpers.setLoading(true);
         let targetUrl = `${this.apiUrl}/WAPI/GetTableData/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&type=${type}&hashKey=${id}`;

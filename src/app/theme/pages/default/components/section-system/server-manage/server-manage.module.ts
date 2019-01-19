@@ -5,6 +5,7 @@ import { ServerManageComponent } from './server-manage.component';
 import { LayoutModule } from '../../../../../layouts/layout.module';
 import { DefaultComponent } from '../../../default.component';
 import { ObjKeyPipe } from "./objkey.pipe";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 const routes: Routes = [
     {
@@ -20,7 +21,10 @@ const routes: Routes = [
 ];
 @NgModule({
     imports: [
-        CommonModule, RouterModule.forChild(routes), LayoutModule
+        CommonModule,
+        RouterModule.forChild(routes),
+        LayoutModule,
+        NgbModule.forRoot()
     ], exports: [
         RouterModule
     ], declarations: [
