@@ -35,7 +35,7 @@
                                 </th>
                                 <th colspan="3" class="text-right" style="min-width:240px;">
                                     <span class="m--margin-right-10">All Server Update</span>
-                                    <button type="button" class="btn btn-accent btn-md"><i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE</button>
+                                    <button type="button" class="btn btn-accent btn-md" (click)="setEditOpen(allServerUpdate)"><i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE</button>
                                 </th>
                             </tr>
                         </thead>
@@ -50,7 +50,7 @@
                                 <th>C.C</th>
                                 <th>AR</th>
                                 <th>ON/OFF</th>
-                                <th>Update</th>
+                                <th>Controls</th>
                             </tr>
                             <tr *ngFor="let list of serverStatData[0]?.AGENT">
                                 <td scope="row" class="align-middle">
@@ -66,20 +66,21 @@
                                 <td class="align-middle">{{list.Concurrent}}</td>
                                 <td>
                                     <label class="m-checkbox m-checkbox--square">
-                                        <input type="checkbox">
+                                        <input type="checkbox" disabled="true" [checked]="serverArSet">
                                         <span></span>
                                     </label>
                                 </td>
                                 <td class="align-middle">
                                     <span class="m-switch m-switch--outline m-switch--icon m-switch--success align-middle">
                                         <label style="display:block; margin-bottom:0;">
-                                            <input type="checkbox" checked="checked" name="">
+                                            <input type="checkbox" checked="checked" disabled="true" [checked]="serverOnSet" name="">
                                             <span></span>
                                         </label>
                                     </span>
                                 </td>
                                 <td class="align-middle">
-                                    <button type="button" class="btn btn-accent btn-sm"><i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE</button>
+                                    <button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn,list.ServerName, true, true)" ><i class="m-menu__link-icon flaticon-computer m--padding-right-5"></i>ON/OFF</button>
+                                    <button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate,list.ServerName, true)"><i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -110,19 +111,22 @@
                                 <td class="align-middle">{{list.Concurrent}}</td>
                                 <td>
                                     <label class="m-checkbox m-checkbox--square">
-                                        <input type="checkbox">
+                                        <input type="checkbox" disabled>
                                         <span></span>
                                     </label>
                                 </td>
                                 <td class="align-middle">
                                     <span class="m-switch m-switch--outline m-switch--icon m-switch--success align-middle">
                                         <label style="display:block; margin-bottom:0;">
-                                            <input type="checkbox" checked="checked" name="">
+                                            <input type="checkbox" checked="checked" name="" disabled>
                                             <span></span>
                                         </label>
                                     </span>
                                 </td>
-                                <td class="align-middle"><button type="button" class="btn btn-accent btn-sm"><i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE</button></td>
+                                <td class="align-middle">
+                                    <button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn,list.ServerName, true, true)"><i class="m-menu__link-icon flaticon-computer m--padding-right-5"></i>ON/OFF</button>
+                                    <button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate,list.ServerName, true)"><i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE</button>
+                                </td>
                             </tr>
                         </tbody>
                         <tbody *ngIf="serverStatData[0]?.HOST != undefined">
@@ -152,19 +156,22 @@
                                 <td class="align-middle">{{list.Concurrent}}</td>
                                 <td>
                                     <label class="m-checkbox m-checkbox--square">
-                                        <input type="checkbox">
+                                        <input type="checkbox" disabled>
                                         <span></span>
                                     </label>
                                 </td>
                                 <td class="align-middle">
                                     <span class="m-switch m-switch--outline m-switch--icon m-switch--success align-middle">
                                         <label style="display:block; margin-bottom:0;">
-                                            <input type="checkbox" checked="checked" name="">
+                                            <input type="checkbox" checked="checked" name="" disabled>
                                             <span></span>
                                         </label>
                                     </span>
                                 </td>
-                                <td class="align-middle"><button type="button" class="btn btn-accent btn-sm"><i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE</button></td>
+                                <td class="align-middle">
+                                    <button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn,list.ServerName, true, true)"><i class="m-menu__link-icon flaticon-computer m--padding-right-5"></i>ON/OFF</button>
+                                    <button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate,list.ServerName, true)"><i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE</button>
+                                </td>
                             </tr>
                         </tbody>
                         <tbody *ngIf="serverStatData[0]?.CACHE != undefined">
@@ -194,19 +201,22 @@
                                 <td class="align-middle">{{list.Concurrent}}</td>
                                 <td>
                                     <label class="m-checkbox m-checkbox--square">
-                                        <input type="checkbox">
+                                        <input type="checkbox" disabled>
                                         <span></span>
                                     </label>
                                 </td>
                                 <td class="align-middle">
                                     <span class="m-switch m-switch--outline m-switch--icon m-switch--success align-middle">
                                         <label style="display:block; margin-bottom:0;">
-                                            <input type="checkbox" checked="checked" name="">
+                                            <input type="checkbox" checked="checked" name="" disabled>
                                             <span></span>
                                         </label>
                                     </span>
                                 </td>
-                                <td class="align-middle"><button type="button" class="btn btn-accent btn-sm"><i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE</button></td>
+                                <td class="align-middle">
+                                    <button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn,list.ServerName, true, true)"><i class="m-menu__link-icon flaticon-computer m--padding-right-5"></i>ON/OFF</button>
+                                    <button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate,list.ServerName, true)"><i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE</button>
+                                </td>
                             </tr>
                         </tbody>
                         <tbody *ngIf="serverStatData[0]?.MONITORING != undefined">
@@ -236,19 +246,22 @@
                                 <td class="align-middle">{{list.Concurrent}}</td>
                                 <td>
                                     <label class="m-checkbox m-checkbox--square">
-                                        <input type="checkbox">
+                                        <input type="checkbox" disabled>
                                         <span></span>
                                     </label>
                                 </td>
                                 <td class="align-middle">
                                     <span class="m-switch m-switch--outline m-switch--icon m-switch--success align-middle">
                                         <label style="display:block; margin-bottom:0;">
-                                            <input type="checkbox" checked="checked" name="">
+                                            <input type="checkbox" checked="checked" name="" disabled>
                                             <span></span>
                                         </label>
                                     </span>
                                 </td>
-                                <td class="align-middle"><button type="button" class="btn btn-accent btn-sm"><i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE</button></td>
+                                <td class="align-middle">
+                                    <button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn,list.ServerName, true, true)"><i class="m-menu__link-icon flaticon-computer m--padding-right-5"></i>ON/OFF</button>
+                                    <button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate,list.ServerName, true)"><i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE</button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -294,6 +307,106 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-primary" (click)="c('Close click')" (click)="getCheckStatAllServer(serverAllBoo.checked, serverAllAr.checked)">Submit</button>
+        <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+    </div>
+</ng-template>
+<ng-template #allServerUpdate let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">전체서버 Update</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <table class="table table-bordered table-hover">
+            <tbody>
+            <tr>
+                <td class="text-center">전체서버 업데이트를 하시겠습니까?</td>
+            </tr>
+            <tr>
+                <td class="text-center">
+                    <label class="m-checkbox m-checkbox--square">
+                        <input type="checkbox" [checked]="allServerUpArSet" #serverAllUpAr>Auto Restart (option)
+                        <span></span>
+                    </label>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="c('Close click')" (click)="getServerAllUpdate(serverAllUpAr.checked)">Update</button>
+        <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+    </div>
+</ng-template>
+<ng-template #specServerOn let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">{{nowClickServerName}} 서버 ON/OFF</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <table class="table table-bordered table-hover">
+            <tbody>
+            <tr>
+                <td style="width:40%;">서버 이름</td>
+                <td style="width:60%;">{{nowClickServerName}}</td>
+            </tr>
+            <tr>
+                <td style="width:40%;">서버 ON/OFF</td>
+                <td style="width:60%;">
+                     <span class="m-switch m-switch--outline m-switch--icon m-switch--success align-middle">
+                        <label style="display:block; margin-bottom:0;">
+                            <input type="checkbox" [checked]="serverOnSet" name="" #serverOnOff>
+                            <span></span>
+                        </label>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:40%;">Auto Restart</td>
+                <td style="width:60%;">
+                    <label class="m-checkbox m-checkbox--square">
+                        <input type="checkbox" [checked]="serverArSet" #serverAr>
+                        <span></span>
+                    </label>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="c('Close click')" (click)="getCheckStatServer(serverOnOff.checked, serverAr.checked, nowClickServerName)">Submit</button>
+        <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+    </div>
+</ng-template>
+<ng-template #serverUpdate let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">{{nowClickServerName}} 서버 Update</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <table class="table table-bordered table-hover">
+            <tbody>
+            <tr>
+                <td class="text-center">{{nowClickServerName}} 서버를 업데이트를 하시겠습니까?</td>
+            </tr>
+            <tr>
+                <td class="text-center">
+                    <label class="m-checkbox m-checkbox--square">
+                        <input type="checkbox" [checked]="allServerUpArSet" #serverUpAr>Auto Restart (option)
+                        <span></span>
+                    </label>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="c('Close click')" (click)="getServerUpdate(nowClickServerName, serverUpAr.checked)">Update</button>
         <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
     </div>
 </ng-template>

@@ -20,16 +20,21 @@ export class ServerManageComponent implements OnInit {
     public serverStatData: any = [];
 
     public serverAllStartReturn: any = [];
-    public serverSpecStartReturn: any = [];
-
     public serverAllStopReturn: any = [];
-    public serverSpecStopReturn: any = [];
-
     public serverAllUpdateReturn: any = [];
-    public serverSpecUpdateReturn: any = [];
+
+    public serverStartReturn:any=[];
+    public serverStopReturn:any=[];
+    public serverUpdateReturn:any=[];
 
     public allServerOnSet:boolean=true;
     public allServerArSet:boolean=false;
+    public allServerUpArSet:boolean=false;
+    public nowClickServerName:string='';
+    public serverOnSet:boolean=true;
+    public serverArSet:boolean=false;
+
+
     constructor(private modalService:NgbModal,private serverManageService: ServerManageService) {
     }
 
@@ -61,7 +66,17 @@ export class ServerManageComponent implements OnInit {
             this.getServerAllStop(arBoo)
         }
         else if(serverBoo){
-            this.getServerAllStart(arBoo)
+            this.getServerSpecStop(arBoo)
+        }
+    }
+
+    getCheckStatServer(serverBoo, arBoo, sname){
+        console.log(serverBoo, arBoo,sname);
+        if(!serverBoo){
+            this.getServerSpecStop(sname)
+        }
+        else if(serverBoo){
+            this.getServerSpecStart(sname,arBoo)
         }
     }
 
@@ -87,7 +102,6 @@ export class ServerManageComponent implements OnInit {
                 });
 
     }
-
     getServerAllStop(boo){
         let res: any = [];
         this.serverManageService.getServerAllStop()
@@ -107,50 +121,109 @@ export class ServerManageComponent implements OnInit {
                 error => this.errMessage = <any>error);
     }
     getServerAllUpdate(boo){
-        this.serverManageService. getServerAllUpdate(boo)
+        let res: any = [];
+        this.serverManageService.getServerAllUpdate(boo)
             .subscribe(
                 serverAllUpdateReturn => {
-                    this.serverAllUpdateReturn = serverAllUpdateReturn;
-                    Helpers.setLoading(false);
-                    console.log('this serverStat', this.serverStatData)
+                    res = serverAllUpdateReturn;
+                    if (res.result === 100) {
+                        this.serverAllUpdateReturn = res.data[0];
+                        this.allServerUpArSet=boo;
+                        swal("Update All Server", "모든 업데이트 되었습니다.", "success");
+                        console.log('this serverStat',  this.serverAllUpdateReturn)
+                    } else {
+                        swal("Error","Result Number is "+res.result, "error");
+                    }
                 },
-                error => this.errMessage = <any>error);
+                error => {
+                    this.errMessage = <any>error
+                });
     }
+
     getServerSpecStart(sname,boo){
+        let res: any = [];
         this.serverManageService.getServerSpecStart(sname,boo)
             .subscribe(
-                serverSpecStartReturn => {
-                    this.serverSpecStartReturn = serverSpecStartReturn;
-                    Helpers.setLoading(false);
-                    console.log('this serverStat', this.serverStatData)
+                serverStartReturn => {
+                    res = serverStartReturn;
+                    console.log('getServerSpecStart', res);
+                    if (res.result === 100) {
+                        //this.serverStartReturn = res.data[0];
+                        this.serverOnSet=true;
+                        this.serverArSet=boo;
+                        swal("Start "+sname+" Server", "서버가 켜졌습니다.", "success");
+                        console.log('this.serverStartReturn ',  this.serverStartReturn)
+                    } else {
+                        swal("Error","Result Number is "+res.result, "error");
+                    }
                 },
-                error => this.errMessage = <any>error);
+                error => {
+                    this.errMessage = <any>error
+                });
     }
 
     getServerSpecStop(sname){
+        let res: any = [];
         this.serverManageService.getServerSpecStop(sname)
             .subscribe(
-                serverSpecStopReturn => {
-                    this.serverSpecStopReturn = serverSpecStopReturn;
-                    Helpers.setLoading(false);
-                    console.log('this serverStat', this.serverStatData)
+                serverStopReturn => {
+                    res = serverStopReturn;
+                    console.log('getServerSpecStop', res);
+                    if (res.result === 100) {
+                        //this.serverStartReturn = res.data[0];
+                        this.serverOnSet=false;
+                        swal("Stop "+sname+" Server", "서버가 꺼졌습니다.", "success");
+                        console.log('this.serverStopReturn ',  this.serverStopReturn)
+                    } else {
+                        swal("Error","Result Number is "+res.result, "error");
+                    }
                 },
-                error => this.errMessage = <any>error);
+                error => {
+                    this.errMessage = <any>error
+                });
     }
 
 
     getServerUpdate(sname,boo){
+        let res: any = [];
         this.serverManageService.getServerUpdate(sname,boo)
             .subscribe(
-                serverSpecUpdateReturn => {
-                    this.serverSpecUpdateReturn = serverSpecUpdateReturn;
-                    Helpers.setLoading(false);
-                    console.log('this serverStat', this.serverStatData)
+                serverUpdateReturn => {
+                    res = serverUpdateReturn;
+                    console.log('serverUpdateReturn', res);
+                    if (res.result === 100) {
+                        this.serverArSet=boo;
+                        swal("Update "+sname+" Server", "서버 업데이트 되었습니다.", "success");
+                        console.log(' this.serverUpdateReturn ', this.serverUpdateReturn)
+                    } else {
+                        swal("Error","Result Number is "+res.result, "error");
+                    }
                 },
-                error => this.errMessage = <any>error);
+                error => {
+                    this.errMessage = <any>error
+                });
     }
 
     setEditOpen(content) {
+        this.modalService.open(content).result.then((result) => {
+            this.modalClose = `Closed with: ${result}`;
+        }, (reason) => {
+            this.modalClose = `Dismissed ${this.modalDismissReason(reason)}`;
+        });
+    }
+    setSpecEditOpen(content,sname,setVal,arVal) {
+        this.nowClickServerName=sname;
+        this.serverOnSet=setVal;
+        this.serverArSet=arVal;
+        this.modalService.open(content).result.then((result) => {
+            this.modalClose = `Closed with: ${result}`;
+        }, (reason) => {
+            this.modalClose = `Dismissed ${this.modalDismissReason(reason)}`;
+        });
+    }
+    setUpdateEditOpen(content,sname,boo) {
+        this.nowClickServerName=sname;
+        this.serverArSet=boo;
         this.modalService.open(content).result.then((result) => {
             this.modalClose = `Closed with: ${result}`;
         }, (reason) => {

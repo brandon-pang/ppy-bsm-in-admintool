@@ -9,8 +9,8 @@
       <change beforePath="$PROJECT_DIR$/dist/3.841f5dc4fe77b22ba1ed.chunk.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/3rdpartylicenses.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/4.8d520fc0ce33da64c67e.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/5.cb997d08ea8ebabb5694.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/6.c692e9e3c455fb70cf3a.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/5.edc7d9faddfaa1fe3715.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/6.cbf8cac03f934d9bde84.chunk.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/7.ea470540bbdcea8d2407.chunk.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/8.847f7e40531d86cf7169.chunk.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/9.eac6c4ac56aeb8499b63.chunk.js" beforeDir="false" />
@@ -231,19 +231,13 @@
       <change beforePath="$PROJECT_DIR$/dist/assets/vendors/custom/jqvmap/jqvmap.bundle.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/color.c7a33805ffda0d32bd2a.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/inline.93e44e758ecad9c56a23.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/inline.56c914d5c6d635cfe394.bundle.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/line.567f57385ea3dde2c9ae.gif" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/main.9bfab37313f48149e41f.bundle.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/polyfills.1d9ccd1a53200318a1ff.bundle.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/styles.ac89bfdd6de82636b768.bundle.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.service.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -256,16 +250,18 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5867876">
+    <splitter split-orientation="horizontal" split-proportion="0.72862697">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="499">
-                  <caret line="101" column="80" selection-start-line="101" selection-start-column="80" selection-end-line="101" selection-end-column="80" />
+                <state relative-caret-position="317">
+                  <caret line="195" column="65" selection-start-line="195" selection-start-column="65" selection-end-line="195" selection-end-column="65" />
                   <folding>
                     <element signature="e#0#69#0" expanded="true" />
+                    <element signature="n#!!block;n#getServerAllStop#0;n#ServerManageComponent#0" />
+                    <element signature="n#!!block;n#getServerAllUpdate#0;n#ServerManageComponent#0" />
                   </folding>
                 </state>
               </provider>
@@ -274,26 +270,23 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="655">
-                  <caret line="295" column="153" selection-start-line="295" selection-start-column="153" selection-end-line="295" selection-end-column="153" />
+                <state relative-caret-position="493">
+                  <caret line="262" column="151" selection-start-line="262" selection-start-column="151" selection-end-line="262" selection-end-column="151" />
                   <folding>
                     <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#label#0;n#span#0;n#td#4;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#label#0;n#span#0;n#td#4;n#tr#1;n#tbody#3;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.module.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="375">
-                  <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="27" />
-                  <folding>
-                    <element signature="e#0#41#0" expanded="true" />
+                    <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#label#0;n#span#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -306,8 +299,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.service.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="382">
-                  <caret line="43" column="34" lean-forward="true" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
+                <state relative-caret-position="562">
+                  <caret line="55" column="22" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="22" />
                   <folding>
                     <element signature="e#0#43#0" expanded="true" />
                   </folding>
@@ -440,17 +433,17 @@
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.html" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.html" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.html" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.ts" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1440" />
-    <option name="y" value="23" />
-    <option name="width" value="1920" />
-    <option name="height" value="1177" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1712" />
+    <option name="y" value="173" />
+    <option name="width" value="1648" />
+    <option name="height" value="1027" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -724,7 +717,7 @@
       <workItem from="1547514802637" duration="41000" />
       <workItem from="1547578870455" duration="14869000" />
       <workItem from="1547745389177" duration="6076000" />
-      <workItem from="1547841737694" duration="17095000" />
+      <workItem from="1547841737694" duration="25419000" />
     </task>
     <task id="LOCAL-00001" summary="우편함에서 우편발송 부분 수정">
       <created>1547083774443</created>
@@ -821,7 +814,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="258219000" />
+    <option name="totallyTimeSpent" value="266543000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -833,16 +826,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="23" width="1920" height="1177" extended-state="0" />
+    <frame x="1440" y="23" width="1920" height="1177" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7646356" visible="true" weight="0.18694049" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7646356" visible="true" weight="0.18694049" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" sideWeight="0.23536439" side_tool="true" visible="true" weight="0.18694049" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3299539" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.22857143" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22857143" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.2829493" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1294,36 +1287,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2708">
           <caret line="223" column="49" lean-forward="true" selection-start-line="223" selection-start-column="49" selection-end-line="223" selection-end-column="49" />
           <folding>
             <element signature="e#0#89#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="655">
-          <caret line="295" column="153" selection-start-line="295" selection-start-column="153" selection-end-line="295" selection-end-column="153" />
-          <folding>
-            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1335,22 +1304,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.ts">
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="101" column="80" selection-start-line="101" selection-start-column="80" selection-end-line="101" selection-end-column="80" />
+        <state relative-caret-position="375">
+          <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
           <folding>
-            <element signature="e#0#69#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="43" column="34" lean-forward="true" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
+        <state relative-caret-position="562">
+          <caret line="55" column="22" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="22" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="262" column="151" selection-start-line="262" selection-start-column="151" selection-end-line="262" selection-end-column="151" />
+          <folding>
+            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#span#0;n#td#4;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#span#0;n#td#4;n#tr#1;n#tbody#3;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#span#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="195" column="65" selection-start-line="195" selection-start-column="65" selection-end-line="195" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#69#0" expanded="true" />
+            <element signature="n#!!block;n#getServerAllStop#0;n#ServerManageComponent#0" />
+            <element signature="n#!!block;n#getServerAllUpdate#0;n#ServerManageComponent#0" />
           </folding>
         </state>
       </provider>
