@@ -34,13 +34,13 @@
 									</button>
 								</th>
 
-								<th colspan="2" class="text-right">
+								<th colspan="2" class="text-right" style="min-width:240px;">
 									<span class="m--margin-right-10">All Server ON / OFF</span>
 									<button type="button" class="btn btn-md" [ngClass]="{'btn-danger':!allServerOnSet, 'btn-info':allServerOnSet}" (click)="setEditOpen(allServerOn)">
 										<i class="m-menu__link-icon flaticon-light m--padding-right-5"></i>{{allServerOnSet ? 'ON' : 'OFF'}}
 									</button>
 								</th>
-								<th colspan="2" class="text-right" style="min-width:240px;">
+								<th colspan="2" class="text-right" style="min-width:230px;">
 									<span class="m--margin-right-10">All Server Update</span>
 									<button type="button" class="btn btn-accent btn-md" (click)="setEditOpen(allServerUpdate)" [disabled]="!allServerOnSet">
 										<i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE
@@ -56,9 +56,9 @@
 								<th class="text-center">ID</th>
 								<th class="text-center">Address</th>
 								<th class="text-center">State</th>
-								<th class="text-center">Current User</th>
-								<th class="text-center">Auto Restart</th>
-								<th class="text-center" style="min-width:200px;">Controls</th>
+								<th class="text-center">Users</th>
+								<th class="text-center" style="min-width:100px;">Auto Res.</th>
+								<th class="text-center" style="min-width:240px;">Controls</th>
 							</tr>
 							<tr *ngFor="let list of serverStatData[0]?.AGENT">
 								<td scope="row" class="align-middle text-center">
@@ -95,9 +95,9 @@
 								<th class="text-center">ID</th>
 								<th class="text-center">Address</th>
 								<th class="text-center">State</th>
-								<th class="text-center">Current User</th>
-								<th class="text-center">Auto Restart</th>
-								<th class="text-center" style="min-width:200px;">Controls</th>
+								<th class="text-center">Users</th>
+								<th class="text-center">Auto Res.</th>
+								<th class="text-center">Controls</th>
 							</tr>
 							<tr *ngFor="let list of serverStatData[0]?.GAME">
 								<td scope="row" class="align-middle text-center">
@@ -134,9 +134,9 @@
 								<th class="text-center">ID</th>
 								<th class="text-center">Address</th>
 								<th class="text-center">State</th>
-								<th class="text-center">Current User</th>
-								<th class="text-center">Auto Restart</th>
-								<th class="text-center" style="min-width:200px;">Controls</th>
+								<th class="text-center">Users</th>
+								<th class="text-center">Auto Res.</th>
+								<th class="text-center">Controls</th>
 							</tr>
 							<tr *ngFor="let list of serverStatData[0]?.HOST">
 								<td scope="row" class="align-middle text-center">
@@ -173,9 +173,9 @@
 								<th class="text-center">ID</th>
 								<th class="text-center">Address</th>
 								<th class="text-center">State</th>
-								<th class="text-center">Current User</th>
-								<th class="text-center">Auto Restart</th>
-								<th class="text-center" style="min-width:200px;">Controls</th>
+								<th class="text-center">Users</th>
+								<th class="text-center">Auto Res.</th>
+								<th class="text-center">Controls</th>
 							</tr>
 							<tr *ngFor="let list of serverStatData[0]?.CACHE">
 								<td scope="row" class="align-middle text-center">
@@ -212,9 +212,9 @@
 								<th class="text-center">ID</th>
 								<th class="text-center">Address</th>
 								<th class="text-center">State</th>
-								<th class="text-center">Current User</th>
-								<th class="text-center">Auto Restart</th>
-								<th class="text-center" style="min-width:200px;">Controls</th>
+								<th class="text-center">Users</th>
+								<th class="text-center">Auto Res.</th>
+								<th class="text-center">Controls</th>
 							</tr>
 							<tr *ngFor="let list of serverStatData[0]?.MONITORING">
 								<td scope="row" class="align-middle text-center">
