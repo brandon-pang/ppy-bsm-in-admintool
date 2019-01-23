@@ -29,8 +29,8 @@ export class ServerManageComponent implements OnInit {
     public serverUpdateReturn: any = [];
 
     public allServerOnSet: boolean = true;
-    public allServerArSet: boolean = false;
-    public allServerUpArSet: boolean = false;
+    public allServerArSet: boolean = true;
+    public allServerUpArSet: boolean = true;
     public nowClickServerName: string = '';
     public serverOnSet: boolean = true;
     public serverArSet: boolean = false;
@@ -99,12 +99,11 @@ export class ServerManageComponent implements OnInit {
                             let setServerName=returnData[i]
                             for (let a in setServerName) {
                                 if (setServerName[a].Result == 'success') {
-                                    serverData[i][a].Concurrent=boo;
+                                    //serverData[i][a].Concurrent=boo;
                                     serverData[i][a].State='ACTIVE';
                                 }
                             }
                         }
-
                         swal("Start All Server", "모든 서버가 구동중 입니다.", "success");
                         console.log('this serverStat', this.serverAllStartReturn)
                     } else {
@@ -133,7 +132,7 @@ export class ServerManageComponent implements OnInit {
                             let setServerName=returnData[i]
                             for (let a in setServerName) {
                                 if (setServerName[a].Result == 'success') {
-                                    serverData[i][a].Concurrent=false;
+                                    //serverData[i][a].Concurrent=false;
                                     serverData[i][a].State='INACTIVE';
                                 }
                             }
@@ -162,7 +161,7 @@ export class ServerManageComponent implements OnInit {
                             let setServerName=returnData[i]
                             for (let a in setServerName) {
                                 if (setServerName[a].Result == 'success') {
-                                    serverData[i][a].Concurrent=boo;
+                                    //serverData[i][a].Concurrent=boo;
                                 }
                             }
                         }
@@ -191,7 +190,7 @@ export class ServerManageComponent implements OnInit {
                             let serverName = serverData[i][0].ServerName;
 
                             if (sname == serverName) {
-                                serverData[i][0].Concurrent = boo;
+                                //serverData[i][0].Concurrent = boo;
                                 serverData[i][0].State = 'ACTIVE';
                             }
                         }
@@ -221,7 +220,7 @@ export class ServerManageComponent implements OnInit {
                             console.log()
                             let serverName = serverData[i][0].ServerName;
                             if (sname == serverName) {
-                                serverData[i][0].Concurrent = false;
+                                //serverData[i][0].Concurrent = false;
                                 serverData[i][0].State = 'INACTIVE';
                             }
                         }
@@ -251,11 +250,29 @@ export class ServerManageComponent implements OnInit {
                         for (let i in serverData) {
                             let serverName = serverData[i][0].ServerName;
                             if (sname == serverName) {
-                                serverData[i][0].Concurrent = boo;
+                                //serverData[i][0].Concurrent = boo;
                             }
                         }
                         swal("Update " + sname + " Server", "서버 업데이트 되었습니다.", "success");
                         console.log(' this.serverUpdateReturn ', this.serverUpdateReturn)
+                    } else {
+                        swal("Error", "Result Number is " + res.result, "error");
+                    }
+                },
+                error => {
+                    this.errMessage = <any>error
+                });
+    }
+
+    getAllKickUser(msg) {
+        let res: any = [];
+        this.serverManageService.getAllKickUser(msg)
+            .subscribe(
+                kickUserReturn => {
+                    res = kickUserReturn;
+                    console.log(res)
+                    if (res.result === 100) {
+                        swal("메시지 전송 완료", "유저에게 메시지 '"+msg+"' 보냈습니다.", "success");
                     } else {
                         swal("Error", "Result Number is " + res.result, "error");
                     }

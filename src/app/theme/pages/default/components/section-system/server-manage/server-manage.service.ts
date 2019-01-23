@@ -82,6 +82,15 @@ export class ServerManageService {
             .catch(handleError);
     }
 
+    getAllKickUser(msg): Observable<any[]>{
+        let url = `${this.apiUrl}/WAPI/AllKick/?key=${this.apiKey}`;
+        let paramUrl=`${url}&message=${msg}`;
+        return this.http
+            .get(paramUrl)
+            .map(this.extractData)
+            .catch(handleError);
+    }
+
     private extractData(res: Response) {
         let body = res.json();
         return body || {};

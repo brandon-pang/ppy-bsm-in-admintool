@@ -25,11 +25,15 @@
 						<table class="table m-table">
 							<thead class="thead-default">
 							<tr>
-								<th colspan="4">
-									<button type="button" class="btn btn-info btn-md" (click)="getServerStateList()">
+								<th colspan="5">
+									<button type="button" class="btn btn-primary btn-md" (click)="getServerStateList()">
 										<i class="m-menu__link-icon flaticon-refresh m--padding-right-5"></i>새로고침
 									</button>
+									<button type="button" class="btn btn-info btn-md" (click)="setEditOpen(allKickUser)">
+										<i class="m-menu__link-icon flaticon-users m--padding-right-5"></i>Kick All Users
+									</button>
 								</th>
+
 								<th colspan="2" class="text-right">
 									<span class="m--margin-right-10">All Server ON / OFF</span>
 									<button type="button" class="btn btn-md" [ngClass]="{'btn-danger':!allServerOnSet, 'btn-info':allServerOnSet}" (click)="setEditOpen(allServerOn)">
@@ -52,7 +56,8 @@
 								<th class="text-center">ID</th>
 								<th class="text-center">Address</th>
 								<th class="text-center">State</th>
-								<th class="text-center">AR</th>
+								<th class="text-center">Current User</th>
+								<th class="text-center">Auto Restart</th>
 								<th class="text-center" style="min-width:200px;">Controls</th>
 							</tr>
 							<tr *ngFor="let list of serverStatData[0]?.AGENT">
@@ -66,16 +71,17 @@
 								<td class="align-middle text-center">
 									<span class="m-badge m-badge--wide m-badge--rounded" [ngClass]="{'m-badge--info': list.State=='ACTIVE','m-badge--danger': list.State=='INACTIVE' }">{{list.State}}</span>
 								</td>
+								<td class="align-middle text-center">{{list.Concurrent}}</td>
 								<td class="text-center">
 									<label class="m-checkbox m-checkbox--square">
-										<input type="checkbox" disabled [checked]="list.Concurrent"> <span></span>
+										<input type="checkbox" #specAutoRestart> <span></span>
 									</label>
 								</td>
 								<td class="align-middle text-center">
-									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State, list.Concurrent)">
+									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State, specAutoRestart.checked)">
 										<i class="m-menu__link-icon flaticon-computer m--padding-right-5"></i>ON/OFF
 									</button>
-									<button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate, list.ServerName, list.Concurrent)" [disabled]="list.State=='INACTIVE'">
+									<button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate, list.ServerName, specAutoRestart.checked)" [disabled]="list.State=='INACTIVE'">
 										<i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE
 									</button>
 								</td>
@@ -89,7 +95,8 @@
 								<th class="text-center">ID</th>
 								<th class="text-center">Address</th>
 								<th class="text-center">State</th>
-								<th class="text-center">AR</th>
+								<th class="text-center">Current User</th>
+								<th class="text-center">Auto Restart</th>
 								<th class="text-center" style="min-width:200px;">Controls</th>
 							</tr>
 							<tr *ngFor="let list of serverStatData[0]?.GAME">
@@ -103,16 +110,17 @@
 								<td class="align-middle text-center">
 									<span class="m-badge m-badge--wide m-badge--rounded" [ngClass]="{'m-badge--info': list.State=='ACTIVE','m-badge--danger': list.State=='INACTIVE' }">{{list.State}}</span>
 								</td>
+								<td class="align-middle text-center">{{list.Concurrent}}</td>
 								<td class="text-center">
 									<label class="m-checkbox m-checkbox--square">
-										<input type="checkbox" disabled [checked]="list.Concurrent"> <span></span>
+										<input type="checkbox" #specAutoRestart> <span></span>
 									</label>
 								</td>
 								<td class="align-middle text-center">
-									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State, list.Concurrent)">
+									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State, specAutoRestart.checked)">
 										<i class="m-menu__link-icon flaticon-computer m--padding-right-5"></i>ON/OFF
 									</button>
-									<button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate, list.ServerName, list.Concurrent)" [disabled]="list.State=='INACTIVE'">
+									<button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate, list.ServerName, specAutoRestart.checked)" [disabled]="list.State=='INACTIVE'">
 										<i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE
 									</button>
 								</td>
@@ -126,7 +134,8 @@
 								<th class="text-center">ID</th>
 								<th class="text-center">Address</th>
 								<th class="text-center">State</th>
-								<th class="text-center">AR</th>
+								<th class="text-center">Current User</th>
+								<th class="text-center">Auto Restart</th>
 								<th class="text-center" style="min-width:200px;">Controls</th>
 							</tr>
 							<tr *ngFor="let list of serverStatData[0]?.HOST">
@@ -140,16 +149,17 @@
 								<td class="align-middle text-center">
 									<span class="m-badge m-badge--wide m-badge--rounded" [ngClass]="{'m-badge--info': list.State=='ACTIVE','m-badge--danger': list.State=='INACTIVE' }">{{list.State}}</span>
 								</td>
+								<td class="align-middle text-center">{{list.Concurrent}}</td>
 								<td class="text-center">
 									<label class="m-checkbox m-checkbox--square">
-										<input type="checkbox" disabled [checked]="list.Concurrent"> <span></span>
+										<input type="checkbox" #specAutoRestart> <span></span>
 									</label>
 								</td>
 								<td class="align-middle text-center">
-									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State, list.Concurrent)">
+									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State, specAutoRestart.checked)">
 										<i class="m-menu__link-icon flaticon-computer m--padding-right-5"></i>ON/OFF
 									</button>
-									<button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate, list.ServerName, list.Concurrent)" [disabled]="list.State=='INACTIVE'">
+									<button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate, list.ServerName, specAutoRestart.checked)" [disabled]="list.State=='INACTIVE'">
 										<i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE
 									</button>
 								</td>
@@ -163,7 +173,8 @@
 								<th class="text-center">ID</th>
 								<th class="text-center">Address</th>
 								<th class="text-center">State</th>
-								<th class="text-center">AR</th>
+								<th class="text-center">Current User</th>
+								<th class="text-center">Auto Restart</th>
 								<th class="text-center" style="min-width:200px;">Controls</th>
 							</tr>
 							<tr *ngFor="let list of serverStatData[0]?.CACHE">
@@ -177,16 +188,17 @@
 								<td class="align-middle text-center">
 									<span class="m-badge m-badge--wide m-badge--rounded" [ngClass]="{'m-badge--info': list.State=='ACTIVE','m-badge--danger': list.State=='INACTIVE' }">{{list.State}}</span>
 								</td>
+								<td class="align-middle text-center">{{list.Concurrent}}</td>
 								<td class="text-center">
 									<label class="m-checkbox m-checkbox--square">
-										<input type="checkbox" disabled [checked]="list.Concurrent"> <span></span>
+										<input type="checkbox" #specAutoRestart> <span></span>
 									</label>
 								</td>
 								<td class="align-middle text-center">
-									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State, list.Concurrent)">
+									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State, specAutoRestart.checked)">
 										<i class="m-menu__link-icon flaticon-computer m--padding-right-5"></i>ON/OFF
 									</button>
-									<button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate, list.ServerName, list.Concurrent)" [disabled]="list.State=='INACTIVE'">
+									<button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate, list.ServerName, specAutoRestart.checked)" [disabled]="list.State=='INACTIVE'">
 										<i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE
 									</button>
 								</td>
@@ -200,7 +212,8 @@
 								<th class="text-center">ID</th>
 								<th class="text-center">Address</th>
 								<th class="text-center">State</th>
-								<th class="text-center">AR</th>
+								<th class="text-center">Current User</th>
+								<th class="text-center">Auto Restart</th>
 								<th class="text-center" style="min-width:200px;">Controls</th>
 							</tr>
 							<tr *ngFor="let list of serverStatData[0]?.MONITORING">
@@ -214,16 +227,17 @@
 								<td class="align-middle text-center">
 									<span class="m-badge m-badge--wide m-badge--rounded" [ngClass]="{'m-badge--info': list.State=='ACTIVE','m-badge--danger': list.State=='INACTIVE' }">{{list.State}}</span>
 								</td>
+								<td class="align-middle text-center">{{list.Concurrent}}</td>
 								<td class="text-center">
 									<label class="m-checkbox m-checkbox--square">
-										<input type="checkbox" disabled [checked]="list.Concurrent"> <span></span>
+										<input type="checkbox" #specAutoRestart> <span></span>
 									</label>
 								</td>
 								<td class="align-middle text-center">
-									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State, list.Concurrent)">
+									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State, specAutoRestart.checked)">
 										<i class="m-menu__link-icon flaticon-computer m--padding-right-5"></i>ON/OFF
 									</button>
-									<button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate, list.ServerName, list.Concurrent)" [disabled]="list.State=='INACTIVE'">
+									<button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate, list.ServerName, specAutoRestart.checked)" [disabled]="list.State=='INACTIVE'">
 										<i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE
 									</button>
 								</td>
@@ -258,11 +272,13 @@
                     </span>
 				</td>
 			</tr>
-			<tr [hidden]="!serverAllBoo.checked">
+			<tr>
 				<td style="width:40%;">Auto Restart</td>
-				<td style="width:60%;">
+				<td>
 					<label class="m-checkbox m-checkbox--square">
-						<input type="checkbox" [checked]="allServerArSet" #serverAllAr [disabled]="!serverAllBoo.checked"> <span></span> </label>
+						<input type="checkbox" [checked]="allServerArSet" #serverAllAr>
+						<span></span>
+					</label>
 				</td>
 			</tr>
 			</tbody>
@@ -326,18 +342,11 @@
                     </span>
 				</td>
 			</tr>
-			<tr [hidden]="!serverOnOff.checked">
-				<td style="width:40%;">Auto Restart</td>
-				<td style="width:60%;">
-					<label class="m-checkbox m-checkbox--square">
-						<input type="checkbox" [checked]="serverArSet" #serverAr> <span></span> </label>
-				</td>
-			</tr>
 			</tbody>
 		</table>
 	</div>
 	<div class="modal-footer">
-		<button type="button" class="btn btn-primary" (click)="c('Close click')" (click)="getCheckStatServer(serverOnOff.checked, serverAr.checked, nowClickServerName)">Submit</button>
+		<button type="button" class="btn btn-primary" (click)="c('Close click')" (click)="getCheckStatServer(serverOnOff.checked, serverArSet, nowClickServerName)">Submit</button>
 		<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
 	</div>
 </ng-template>
@@ -354,18 +363,35 @@
 			<tr>
 				<td class="text-center">{{nowClickServerName}} 서버를 업데이트를 하시겠습니까?</td>
 			</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary" (click)="c('Close click')" (click)="getServerUpdate(nowClickServerName, serverArSet)">Update</button>
+		<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+	</div>
+</ng-template>
+<ng-template #allKickUser let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title">Kick All User</h4>
+		<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<table class="table table-bordered table-hover">
+			<tbody>
 			<tr>
-				<td class="text-center">
-					<label class="m-checkbox m-checkbox--square">
-						<input type="checkbox" [checked]="serverArSet" #serverUpAr>Auto Restart<span></span>
-					</label>
+				<td style="width:40%;" class="align-middle text-center">메시지 입력</td>
+				<td style="width:60%;">
+					<textarea class="form-control m-input" rows="3" placeholder="Reason is.." #kickReason required></textarea>
 				</td>
 			</tr>
 			</tbody>
 		</table>
 	</div>
 	<div class="modal-footer">
-		<button type="button" class="btn btn-primary" (click)="c('Close click')" (click)="getServerUpdate(nowClickServerName, serverUpAr.checked)">Update</button>
+		<button type="button" class="btn btn-primary" (click)="c('Close click')" (click)="getAllKickUser(kickReason.value)" [disabled]="kickReason.value == ''">Submit</button>
 		<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
 	</div>
 </ng-template>
