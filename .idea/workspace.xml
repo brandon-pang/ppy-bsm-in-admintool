@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="81ed65d7-51fc-4532-98ee-beec78cf8c21" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/server-maintenance/server-maintenance.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/server-maintenance/server-maintenance.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/server-maintenance/server-maintenance.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/server-maintenance/server-maintenance.service.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -16,39 +17,32 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5997409">
+    <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.html">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/server-maintenance/server-maintenance.component.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="503">
-                  <caret line="50" column="81" lean-forward="true" selection-start-line="50" selection-start-column="81" selection-end-line="50" selection-end-column="81" />
+                <state relative-caret-position="376">
+                  <caret line="32" column="58" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="58" />
                   <folding>
-                    <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#th#7;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#4;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#4;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.service.ts">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/server-maintenance/server-maintenance.component.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1095">
-                  <caret line="84" column="18" selection-start-line="84" selection-start-column="4" selection-end-line="84" selection-end-column="18" />
+                <state relative-caret-position="390">
+                  <caret line="87" column="74" lean-forward="true" selection-start-line="87" selection-start-column="74" selection-end-line="87" selection-end-column="74" />
                   <folding>
-                    <element signature="e#0#43#0" expanded="true" />
+                    <element signature="e#0#91#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -57,12 +51,15 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+        <leaf>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.ts">
+            <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/server-maintenance/server-maintenance.service.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="143">
-                  <caret line="274" column="61" selection-start-line="274" selection-start-column="61" selection-end-line="274" selection-end-column="61" />
+                <state relative-caret-position="336">
+                  <caret line="32" selection-start-line="32" selection-end-line="32" />
+                  <folding>
+                    <element signature="e#0#43#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -170,8 +167,6 @@
         <option value="$PROJECT_DIR$/src/assets/vendors/base/vendors.bundle.js" />
         <option value="$PROJECT_DIR$/src/app/auth/auth.component.ts" />
         <option value="$PROJECT_DIR$/src/app/auth/templates/login-1.component.html" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/server-maintenance/server-maintenance.service.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/server-maintenance/server-maintenance.component.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/server-maintenance/server-maintenance.component.html" />
         <option value="$PROJECT_DIR$/src/app/theme/layouts/header-nav/header-nav.component.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/layouts/header-nav/header-nav.component.html" />
@@ -183,10 +178,12 @@
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.service.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.html" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/server-maintenance/server-maintenance.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/server-maintenance/server-maintenance.component.ts" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1440" />
     <option name="y" value="23" />
     <option name="width" value="1920" />
@@ -269,6 +266,18 @@
               <item name="default" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="section-operator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BSM-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BSM-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="theme" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="default" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="section-operator" type="462c0819:PsiDirectoryNode" />
+              <item name="server-maintenance" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BSM-admin" type="b2602c69:ProjectViewProjectNode" />
@@ -465,7 +474,8 @@
       <workItem from="1547578870455" duration="14869000" />
       <workItem from="1547745389177" duration="6076000" />
       <workItem from="1547841737694" duration="40895000" />
-      <workItem from="1548293911676" duration="84000" />
+      <workItem from="1548293911676" duration="441000" />
+      <workItem from="1548390883734" duration="244000" />
     </task>
     <task id="LOCAL-00001" summary="우편함에서 우편발송 부분 수정">
       <created>1547083774443</created>
@@ -562,7 +572,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="282103000" />
+    <option name="totallyTimeSpent" value="282704000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -574,12 +584,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="23" width="1920" height="1177" extended-state="0" />
+    <frame x="1440" y="23" width="1920" height="1177" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7639956" visible="true" weight="0.18694049" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7625" visible="true" weight="0.21695629" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" sideWeight="0.2360044" side_tool="true" visible="true" weight="0.18694049" />
+      <window_info id="npm" order="2" sideWeight="0.2375" side_tool="true" visible="true" weight="0.21695629" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3299539" />
@@ -592,7 +602,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4997367" weight="0.52073735" />
       <window_info anchor="bottom" id="TypeScript" order="9" weight="0.3299539" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5002633" side_tool="true" weight="0.3299539" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.16036867" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.115207374" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -857,16 +867,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/server-maintenance/server-maintenance.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2190">
-          <caret line="146" column="1" lean-forward="true" selection-start-line="146" selection-start-column="1" selection-end-line="146" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#91#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/default.component.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -886,20 +886,6 @@
           <caret line="13" lean-forward="true" selection-start-line="12" selection-start-column="26" selection-end-line="13" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/server-maintenance/server-maintenance.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="32" column="58" lean-forward="true" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="58" />
-          <folding>
-            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -928,16 +914,6 @@
           <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
           <folding>
             <element signature="e#0#84#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/server-maintenance/server-maintenance.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="60" column="58" selection-start-line="60" selection-start-column="45" selection-end-line="60" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1064,9 +1040,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="176" column="70" selection-start-line="176" selection-start-column="70" selection-end-line="176" selection-end-column="70" />
+          <folding>
+            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#7;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#4;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#4;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1095">
+        <state relative-caret-position="583">
           <caret line="84" column="18" selection-start-line="84" selection-start-column="4" selection-end-line="84" selection-end-column="18" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
@@ -1081,23 +1078,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.html">
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/server-maintenance/server-maintenance.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="50" column="81" lean-forward="true" selection-start-line="50" selection-start-column="81" selection-end-line="50" selection-end-column="81" />
+        <state relative-caret-position="376">
+          <caret line="32" column="58" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="58" />
           <folding>
-            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#7;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#4;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#4;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/server-maintenance/server-maintenance.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/server-maintenance/server-maintenance.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="87" column="74" lean-forward="true" selection-start-line="87" selection-start-column="74" selection-end-line="87" selection-end-column="74" />
+          <folding>
+            <element signature="e#0#91#0" expanded="true" />
           </folding>
         </state>
       </provider>

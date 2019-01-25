@@ -22,14 +22,6 @@ export class ServerMaintenanceService {
 
     constructor(private http: Http) { }
 
-    getServerStateList(): Observable<any[]> {
-        //Helpers.setLoading(true);
-        let url = `${this.apiUrl}/WAPI/ServerStateList/?key=${this.apiKey}`;
-        return this.http
-            .get(url)
-            .map(this.extractData)
-            .catch(handleError);
-    }
     getGameInfoData():Observable<any[]>{
         //Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/GetCodeInfo/?key=${this.apiKey}`;

@@ -85,7 +85,7 @@ export class ServerMaintenanceComponent implements OnInit, AfterViewInit {
                     console.log(' this.serverInspectData', res)
                     if (res.result === 100) {
                         this.serverInspectData=res.data;
-                        if(this.serverInspectData[0].inspectState == '0'){
+                        if(this.serverInspectData[0].inspectState == '1'){
                             this.serverInspectData[0].descState='오픈';
                         }else if(this.serverInspectData[0].inspectState == '2'){
                             this.serverInspectData[0].descState='내부 오픈'
