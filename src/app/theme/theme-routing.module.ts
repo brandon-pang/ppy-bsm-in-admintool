@@ -26,6 +26,10 @@ const routes: Routes = [
                 "loadChildren": ".\/pages\/default\/components\/section-operator\/user-detail\/user-detail.module#UserDetailModule"
             },
             {
+                "path": "components\/operator\/notification-push",
+                "loadChildren": ".\/pages\/default\/components\/section-operator\/notification-push\/notification-push.module#NotificationPushModule"
+            },
+            {
                 "path": "components\/operator\/server-maintenance",
                 "loadChildren": ".\/pages\/default\/components\/section-operator\/server-maintenance\/server-maintenance.module#ServerMaintenanceModule"
             },

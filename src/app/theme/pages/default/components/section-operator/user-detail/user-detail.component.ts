@@ -171,6 +171,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
 
                 });
     }
+
     getInventoryData(id: number) {
         let res: any = [];
         let type: number = 0;
@@ -410,6 +411,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
             ['assets/demo/default/custom/components/forms/widgets/bootstrap-datetimepicker.js']);
         this._script.loadScripts('app-widgets-bootstrap-datetimepicker',
             ['assets/demo/default/custom/components/forms/widgets/select2.js']);
+
         this.modalService.open(content).result.then((result) => {
             this.modalClose = `Closed with: ${result}`;
         }, (reason) => {
@@ -419,8 +421,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
 
     itemEditOpen(content,id) {
         this.InvenRowId=id;
-        this._script.loadScripts('app-widgets-bootstrap-datetimepicker',
-            ['assets/demo/default/custom/components/forms/widgets/bootstrap-datetimepicker.js']);
+        this._script.loadScripts('app-widgets-bootstrap-datetimepicker',['assets/demo/default/custom/components/forms/widgets/bootstrap-datetimepicker.js']);
 
         this.modalService.open(content).result.then((result) => {
 
