@@ -43,6 +43,7 @@ export class NotificationPushComponent implements OnInit{
                     res = getPushJobData;
                     if (res.result === 100) {
                         this.getPushJobData=res.data;
+                        console.log('this.getPushJobData',res)
                         //swal("성공", "리스트 조회가 완료 되었습니다.", "success");
                         console.log(this.getPushJobData);
                         if(this.getPushJobData.length !==0){
@@ -59,7 +60,6 @@ export class NotificationPushComponent implements OnInit{
                                 }
                             }
                         }
-
                     } else {
                         swal("It can't find data", "Result Number is "+res.result, "error");
                     }

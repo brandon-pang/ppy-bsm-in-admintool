@@ -13,6 +13,7 @@ export class AuthenticationService {
     login(id: string, password) {
         let targetUrl = `${this.apiUrl}/WAPI/Auth/?`;
         let setUrl = `${targetUrl}user=${id}&hash=${password}`;
+        //console.log(password);
         return this.http
             .get(setUrl)
             .map((response: Response) => {

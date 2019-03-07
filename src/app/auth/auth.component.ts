@@ -63,12 +63,13 @@ export class AuthComponent implements OnInit {
     signin() {
         let res: any = [];
         this.loading = true;
-        let conpass = this.md5.appendStr(this.model.password).end();
+        let conpass = Md5.hashStr(this.model.password);
         this._authService.login(this.model.id, conpass).subscribe(
             data => {
                 res = data;
                 if (res) {
                     let result = res.result;
+                    console.log(res);
                     let data = {};
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
                     if (result == '100') {
