@@ -304,6 +304,11 @@
             <path>
               <item name="BSM-admin" type="b2602c69:ProjectViewProjectNode" />
               <item name="BSM-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BSM-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BSM-admin" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -729,7 +734,7 @@
       <workItem from="1551117343173" duration="15776000" />
       <workItem from="1551229661258" duration="2565000" />
       <workItem from="1551302800107" duration="10000" />
-      <workItem from="1551924048523" duration="1609000" />
+      <workItem from="1551924048523" duration="1928000" />
     </task>
     <task id="LOCAL-00001" summary="우편함에서 우편발송 부분 수정">
       <created>1547083774443</created>
@@ -833,7 +838,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="309309000" />
+    <option name="totallyTimeSpent" value="309628000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -847,7 +852,7 @@
   <component name="ToolWindowManager">
     <frame x="1440" y="23" width="1920" height="1177" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.75289017" visible="true" weight="0.19273302" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.75289017" visible="true" weight="0.19273302" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" sideWeight="0.24710983" side_tool="true" visible="true" weight="0.19273302" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -862,7 +867,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4997367" weight="0.52073735" />
       <window_info anchor="bottom" id="TypeScript" order="9" weight="0.3299539" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5002633" side_tool="true" weight="0.3299539" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.36221197" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.36221197" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
