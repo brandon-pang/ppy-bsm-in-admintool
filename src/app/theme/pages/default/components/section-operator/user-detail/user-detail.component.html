@@ -85,15 +85,16 @@
 								</tr>
 								<tr>
 									<th scope="row">Grade</th>
-									<td>{{findData[0]?.gradeDescName}}</td>
+									<td id="sty-grade">{{findData[0]?.gradeDescName}}</td>
 								</tr>
 								<tr>
 									<th scope="row">Panelty Time</th>
-									<td id="sty-panelty-time">{{findData[0]?.paneltyTime}}</td>
+									<td>{{findData[0]?.paneltyTime}}</td>
 								</tr>
 								<tr>
 									<th scope="row">Block Time</th>
-									<td>{{findData[0]?.blockTime}}</td>
+									<td id="sty-panelty-time">{{findData[0]?.blockTime}} <span id="time" style="font-size:11px; color:darkred;"></span></td>
+
 								</tr>
 								<tr>
 									<th scope="row">Tutorial Progress</th>
