@@ -117,6 +117,35 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                     setTimeout(() => {
                         this.getInventoryData(this.findData[0].playerID);
                         this.getPostItemData(this.findData[0].playerID);
+
+                        let grd=this.findData[0].accountGrade;
+                        console.log(grd)
+                        let countryCode=this.gameInfoData[0].COUNTRY_CODE_LIST;
+                        let regionCode=this.gameInfoData[0].REGION_CODE_LIST;
+
+                        if(grd === 0){
+                            this.findData[0].gradeDescName='영구블럭'
+                        }else if(grd === 1){
+                            this.findData[0].gradeDescName='일반'
+                        }else if(grd === 2){
+                            this.findData[0].gradeDescName='내부 관계자'
+                        }else{
+                            this.findData[0].gradeDescName='오류'
+                        }
+
+                        for (let a in countryCode) {
+                            if ( Number(this.findData[0].countryCode) === countryCode[a].Value ) {
+                                console.log(countryCode[a].DescName);
+                                this.findData[0].countryDescName=countryCode[a].DescName;
+                            }
+                        }
+
+                        for (let b in regionCode) {
+                            if ( Number(this.findData[0].regionCode) === regionCode[b].Value ) {
+                                console.log(regionCode[b].DescName);
+                                this.findData[0].regionDescName=regionCode[b].DescName;
+                            }
+                        }
                     }, 500);
                 } else {
                     console.log(' this.findData', res)
@@ -192,7 +221,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                     for (let i in this.invenData) {
                         for (let a in this.gameInfoData[0].ITEM_CODE_LIST) {
                             if ( Number(this.invenData[i].itemCode) === this.gameInfoData[0].ITEM_CODE_LIST[a].Value ) {
-                                console.log(this.gameInfoData[0].ITEM_CODE_LIST[a].DescName);
+                                //console.log(this.gameInfoData[0].ITEM_CODE_LIST[a].DescName);
                                 this.invenData[i].descName=this.gameInfoData[0].ITEM_CODE_LIST[a].DescName;
                             }
                         }
@@ -318,7 +347,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
 
     setUserBlock(id:string,sec:string,txt:string){
         let res: any = [];
-        console.log('setUserBlock', id, sec, txt);
+        //console.log('setUserBlock', id, sec, txt);
         this.userDetailService.setUserBlock(id, sec, txt)
             .subscribe(
                 blockData => {
@@ -327,7 +356,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                     console.log(' this.blockData', res)
                     if (res.result === 100) {
                         swal(id+" has been block", "Time to "+res.data[0].BlockTime, "success");
-                        this.findData[0].paneltyTime=res.data[0].BlockTime;
+                        this.findData[0].blockTime=res.data[0].BlockTime;
                         $('#sty-panelty-time').css({"color":"blue", "font-weight":"bold"})
                     } else {
                         swal("It can't find data", "Result Number is "+res.result, "error");
@@ -341,14 +370,25 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
 
     setChangeUserGrade(id:string, grade:string){
         let res: any = [];
-        console.log('setUserGrade', id, grade);
+        //console.log('setUserGrade', id, grade);
         this.userDetailService.setChangeUserGrade(id, grade)
             .subscribe(
                 userGradeData => {
                     res = userGradeData;
                     this.userGradeData  = res.data;
-                    console.log(' this.userGradeData', res)
+                    //console.log(' this.userGradeData', res)
                     if (res.result === 100) {
+                        let grd=res.data[0].newGrade;
+                        if(grd === 0){
+                            this.findData[0].gradeDescName='영구블럭'
+                        }else if(grd === 1){
+                            this.findData[0].gradeDescName='일반'
+                        }else if(grd === 2){
+                            this.findData[0].gradeDescName='내부 관계자'
+                        }else{
+                            this.findData[0].gradeDescName='오류'
+                        }
+
                         swal(id+"님 유저 등급이 변경 되었습니다.", "새로운 등급: "+ res.data[0].newGrade, "success");
                     } else {
                         swal("It can't find data", "Result Number is "+res.result, "error");

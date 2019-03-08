@@ -46,8 +46,8 @@
 									</th>
 								</tr>
 								<tr>
-									<th scope="row">User ID</th>
-									<td style="word-break: break-all" >
+									<th scope="row" style="width:40%">User ID</th>
+									<td style="word-break: break-all; width:60%">
 										<ul>
 											<li *ngFor="let p of findData[0]?.userID;" class="m--margin-bottom-5">
 												<div class="txt--userid text-primary" style="cursor: pointer;" (click)="getUserIdData(p, userShowVender)">{{p}}</div>
@@ -60,10 +60,13 @@
 									<td>{{findData[0]?.profileIcon}}</td>
 								</tr>
 								<tr>
-									<th scope="row">countryCode</th>
-									<td>{{findData[0]?.countryCode}}</td>
+									<th scope="row">Country Code</th>
+									<td>{{findData[0]?.countryDescName}}</td>
 								</tr>
-
+								<tr>
+									<th scope="row">Region Code</th>
+									<td>{{findData[0]?.regionDescName}}</td>
+								</tr>
 								<tr>
 									<th scope="row">Level</th>
 									<td>{{findData[0]?.level}}</td>
@@ -77,16 +80,20 @@
 									<td>{{findData[0]?.eloScore}}</td>
 								</tr>
 								<tr>
-									<th scope="row">Last Login</th>
-									<td>{{findData[0]?.lastLoginDate}}</td>
+									<th scope="row">Created Date</th>
+									<td>{{findData[0]?.createdTime}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Grade</th>
+									<td>{{findData[0]?.gradeDescName}}</td>
 								</tr>
 								<tr>
 									<th scope="row">Panelty Time</th>
 									<td id="sty-panelty-time">{{findData[0]?.paneltyTime}}</td>
 								</tr>
 								<tr>
-									<th scope="row">Created Time</th>
-									<td>{{findData[0]?.createdTime}}</td>
+									<th scope="row">Block Time</th>
+									<td>{{findData[0]?.blockTime}}</td>
 								</tr>
 								<tr>
 									<th scope="row">Tutorial Progress</th>
@@ -96,7 +103,32 @@
 						</div>
 						<div class="col-lg-6">
 							<table class="table table-inverse">
+								<tr>
+									<th colspan="2" class="bg-light text-center">
+										User Last Login
+									</th>
+								</tr>
 								<tbody>
+								<tr>
+									<th scope="row">Last Login IP</th>
+									<td>{{findData[0]?.lastLoginIP}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Last Login SERVER</th>
+									<td>{{findData[0]?.lastLoginServerID}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Last Log-out</th>
+									<td>{{findData[0]?.lastLogoutTime}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Last Log-in</th>
+									<td>{{findData[0]?.lastLoginTime}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Last Log-out</th>
+									<td>{{findData[0]?.lastLogoutTime}}</td>
+								</tr>
 								<tr>
 									<th colspan="2" class="bg-light text-center">
 										User Clan
