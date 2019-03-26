@@ -146,6 +146,42 @@ export class UserDetailService {
             .map(this.extractData)
             .catch(handleError);
     }
+    getFriendListData(type,id): Observable<any[]> {
+        //Helpers.setLoading(true);
+        let targetUrl = `${this.apiUrl}/WAPI/GetTableData/?key=${this.apiKey}`;
+        let setUrl = `${targetUrl}&type=${type}&hashKey=${id}`;
+        return this.http
+            .get(setUrl)
+            .map(this.extractData)
+            .catch(handleError);
+    }
+    getClanListData(type, id): Observable<any[]> {
+        //Helpers.setLoading(true);
+        let targetUrl = `${this.apiUrl}/WAPI/GetTableData/?key=${this.apiKey}`;
+        let setUrl = `${targetUrl}&type=${type}&hashKey=${id}`;
+        return this.http
+            .get(setUrl)
+            .map(this.extractData)
+            .catch(handleError);
+    }
+    getGoogleBillingData(type, id): Observable<any[]> {
+        //Helpers.setLoading(true);
+        let targetUrl = `${this.apiUrl}/WAPI/GetTableData/?key=${this.apiKey}`;
+        let setUrl = `${targetUrl}&type=${type}&hashKey=${id}`;
+        return this.http
+            .get(setUrl)
+            .map(this.extractData)
+            .catch(handleError);
+    }
+    getAppleBillingData(type, id): Observable<any[]> {
+        //Helpers.setLoading(true);
+        let targetUrl = `${this.apiUrl}/WAPI/GetTableData/?key=${this.apiKey}`;
+        let setUrl = `${targetUrl}&type=${type}&hashKey=${id}`;
+        return this.http
+            .get(setUrl)
+            .map(this.extractData)
+            .catch(handleError);
+    }
 
     private extractData(res: Response) {
         //Helpers.setLoading(false);

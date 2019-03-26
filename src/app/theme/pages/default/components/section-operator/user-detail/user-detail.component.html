@@ -245,30 +245,30 @@
 			<div class="m-portlet__head-tools">
 				<ul class="nav nav-tabs m-tabs m-tabs-line  m-tabs-line--right" role="tablist">
 					<li class="nav-item m-tabs__item">
-						<a class="nav-link m-tabs__link active show" data-toggle="tab" href="#m_tabs_7_1" role="tab" aria-selected="true"> 인벤토리 </a>
+						<a class="nav-link m-tabs__link active show" data-toggle="tab" href="#m_tabs_7_1" role="tab" aria-selected="true" (click)="[friendTab=false, billingTab=false]"> 인벤토리 </a>
 					</li>
 					<li class="nav-item m-tabs__item">
-						<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_7_2" role="tab" aria-selected="false"> 소셜 </a>
+						<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_7_2" role="tab" aria-selected="false" (click)="[friendTab=true, billingTab=false]"> 소셜 </a>
 					</li>
 					<li class="nav-item m-tabs__item">
-						<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_7_3" role="tab" aria-selected="false"> 우편함 </a>
+						<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_7_3" role="tab" aria-selected="false" (click)="[friendTab=false, billingTab=false]"> 우편함 </a>
 					</li>
 					<li class="nav-item m-tabs__item">
-						<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_7_5" role="tab" aria-selected="false"> 구매이력 </a>
+						<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_7_5" role="tab" aria-selected="false" (click)="[friendTab=false, billingTab=true]"> 구매이력 </a>
 					</li>
 					<li class="nav-item m-tabs__item">
-						<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_7_6" role="tab" aria-selected="false"> 재화회수 </a>
+						<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_7_6" role="tab" aria-selected="false" (click)="[friendTab=false, billingTab=false]"> 재화회수 </a>
 					</li>
 					<li class="nav-item m-tabs__item">
-						<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_7_7" role="tab" aria-selected="false"> 계정블럭 </a>
+						<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_7_7" role="tab" aria-selected="false" (click)="[friendTab=false, billingTab=false]"> 계정블럭 </a>
 					</li>
 					<li class="nav-item m-tabs__item">
-						<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_7_8" role="tab" aria-selected="false"> 등급변경 </a>
+						<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_7_8" role="tab" aria-selected="false" (click)="[friendTab=false, billingTab=false]"> 등급변경 </a>
 					</li>
 				</ul>
 			</div>
 		</div>
-		<div class="m-portlet__body">
+		<div class="m-portlet__body" style="padding-bottom:10px;">
 			<div class="tab-content">
 				<div class="tab-pane active show" id="m_tabs_7_1" role="tabpanel">
 					<div *ngIf="blockPlayerID === '';else inven_show">
@@ -307,7 +307,14 @@
 					</ng-template>
 				</div>
 				<div class="tab-pane" id="m_tabs_7_2" role="tabpanel">
-					API가 현재 개발중 입니다.
+                    <ul class="nav nav-tabs m-tabs m-tabs-line" role="tablist">
+                        <li class="nav-item m-tabs__item">
+                            <a class="nav-link m-tabs__link active show" data-toggle="tab" href="#s_tabs_2_1" role="tab" aria-selected="true">Friend</a>
+                        </li>
+                        <li class="nav-item m-tabs__item">
+                            <a class="nav-link m-tabs__link" data-toggle="tab" href="#s_tabs_2_2" role="tab" aria-selected="false">Clan</a>
+                        </li>
+                    </ul>
 				</div>
 				<div class="tab-pane" id="m_tabs_7_3" role="tabpanel">
 					<div *ngIf="blockPlayerID === '';else post_show">
@@ -352,7 +359,14 @@
 					</ng-template>
 				</div>
 				<div class="tab-pane" id="m_tabs_7_5" role="tabpanel">
-					API가 현재 개발중 입니다.
+                    <ul class="nav nav-tabs m-tabs m-tabs-line" role="tablist">
+                        <li class="nav-item m-tabs__item">
+                            <a class="nav-link m-tabs__link active show" data-toggle="tab" href="#b_tabs_5_1" role="tab" aria-selected="true">Google Billing</a>
+                        </li>
+                        <li class="nav-item m-tabs__item">
+                            <a class="nav-link m-tabs__link" data-toggle="tab" href="#b_tabs_5_2" role="tab" aria-selected="false">Apple Billing</a>
+                        </li>
+                    </ul>
 				</div>
 				<div class="tab-pane" id="m_tabs_7_6" role="tabpanel">
 					<div *ngIf="blockPlayerID === '';else gold_show">
@@ -440,13 +454,13 @@
 						<tr>
 							<td style="width:20%;min-width:60px;">
 								<div class="form-group m-form__group">
-									<input type="text" class="form-control m-input" readonly placeholder="Not Available" [value]="blockPlayerID" #gradeID  >
+									<input type="text" class="form-control m-input" readonly placeholder="Not Available" [value]="blockPlayerID" #gradeID>
 								</div>
 							</td>
 							<td style="width:60%; min-width:140px;">
 								<div class="form-group m-form__group">
 									<!--[value]="findData[0]?.rewardTableOrder"-->
-									<select class="form-control m-select2" id="m_select2" name="param" style="width:100%;"  #gradeSelect>
+									<select class="form-control" style="width:100%;" [value]="nowGrade"  #gradeSelect>
 										<option value="0">영구블럭</option>
 										<option value="1">일반</option>
 										<option value="2">내부관계자</option>
@@ -469,6 +483,140 @@
 				</div>
 			</div>
 		</div>
+        <div class="m-portlet__body" *ngIf="friendTab" style="padding-top: 0;">
+            <div *ngIf="friendListData.length === 0 || friendListData=='undefined'">데이타가 존재 하지 않습니다.</div>
+            <div class="tab-content">
+                <div class="tab-pane active show" id="s_tabs_2_1" role="tabpanel" *ngIf="friendListData.length > 0">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Item Code</th>
+                                <th>Level</th>
+                                <th>Exp</th>
+                                <th>Skin Code</th>
+                                <th>Expiry</th>
+                                <th>Control</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let p of invenData; let i=index">
+                                <th scope="row" >{{i + 1}}</th>
+                                <td>{{p.descName}}</td>
+                                <td>{{p.level}}</td>
+                                <td>{{p.exp}}</td>
+                                <td>{{p.skinCode}}</td>
+                                <td>{{p.expriy}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-danger btn-sm" (click)="setInvenRemoveItem(i, blockPlayerID, p.itemCode)">회수</button>
+                                    <button type="button" class="btn btn-primary btn-sm" (click)="itemEditOpen(invenEdit, i)">수정</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane" id="s_tabs_2_2" role="tabpanel" *ngIf="appleBillingData.length > 0">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Item Clan</th>
+                                <th>Level</th>
+                                <th>Exp</th>
+                                <th>Skin Code</th>
+                                <th>Expiry</th>
+                                <th>Control</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let p of invenData; let i=index">
+                                <th scope="row" >{{i + 1}}</th>
+                                <td>{{p.descName}}</td>
+                                <td>{{p.level}}</td>
+                                <td>{{p.exp}}</td>
+                                <td>{{p.skinCode}}</td>
+                                <td>{{p.expriy}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-danger btn-sm" (click)="setInvenRemoveItem(i, blockPlayerID, p.itemCode)">회수</button>
+                                    <button type="button" class="btn btn-primary btn-sm" (click)="itemEditOpen(invenEdit, i)">수정</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m-portlet__body" *ngIf="billingTab" style="padding-top: 0;">
+            <div class="tab-content">
+                <div *ngIf="googleBillingData.length === 0 || appleBillingData.length === 0 || googleBillingData=='undefined' || appleBillingData=== 'undefined' ">데이타가 존재 하지 않습니다.</div>
+                <div class="tab-pane active show" id="s_tabs_5_1" role="tabpanel" *ngIf="googleBillingData.length > 0">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Item Code</th>
+                                <th>Level</th>
+                                <th>Exp</th>
+                                <th>Skin Code</th>
+                                <th>Expiry</th>
+                                <th>Control</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let p of invenData; let i=index">
+                                <th scope="row" >{{i + 1}}</th>
+                                <td>{{p.descName}}</td>
+                                <td>{{p.level}}</td>
+                                <td>{{p.exp}}</td>
+                                <td>{{p.skinCode}}</td>
+                                <td>{{p.expriy}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-danger btn-sm" (click)="setInvenRemoveItem(i, blockPlayerID, p.itemCode)">회수</button>
+                                    <button type="button" class="btn btn-primary btn-sm" (click)="itemEditOpen(invenEdit, i)">수정</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane" id="s_tabs_5_2" role="tabpanel" *ngIf="appleBillingData.length > 0">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Item Clan</th>
+                                <th>Level</th>
+                                <th>Exp</th>
+                                <th>Skin Code</th>
+                                <th>Expiry</th>
+                                <th>Control</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let p of invenData; let i=index">
+                                <th scope="row" >{{i + 1}}</th>
+                                <td>{{p.descName}}</td>
+                                <td>{{p.level}}</td>
+                                <td>{{p.exp}}</td>
+                                <td>{{p.skinCode}}</td>
+                                <td>{{p.expriy}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-danger btn-sm" (click)="setInvenRemoveItem(i, blockPlayerID, p.itemCode)">회수</button>
+                                    <button type="button" class="btn btn-primary btn-sm" (click)="itemEditOpen(invenEdit, i)">수정</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
 	</div>
 </div>
 
@@ -497,30 +645,6 @@
 			<tr>
 				<td style="width:40%;" class="bg-light m--font-bolder">Type</td>
 				<td style="width:60%;">{{userIdData.vendorType}}</td>
-			</tr>
-			<tr>
-				<td style="width:40%;" class="bg-light m--font-bolder">Country</td>
-				<td style="width:60%;">{{userIdData.countryName}}</td>
-			</tr>
-			<tr>
-				<td style="width:40%;" class="bg-light m--font-bolder">RegionCode</td>
-				<td style="width:60%;">{{userIdData.regionCode}}</td>
-			</tr>
-			<tr>
-				<td style="width:40%;" class="bg-light m--font-bolder">Login ServerID</td>
-				<td style="width:60%;">{{userIdData.lastLoginServerID}}</td>
-			</tr>
-			<tr>
-				<td style="width:40%;" class="bg-light m--font-bolder">Login IP</td>
-				<td style="width:60%;">{{userIdData.lastLoginIP}}</td>
-			</tr>
-			<tr>
-				<td style="width:40%;" class="bg-light m--font-bolder">Account Grade</td>
-				<td style="width:60%;">{{userIdData.accountGrade}}</td>
-			</tr>
-			<tr>
-				<td style="width:40%;" class="bg-light m--font-bolder">Block Time</td>
-				<td style="width:60%;">{{userIdData.blockTime}}</td>
 			</tr>
 			</tbody>
 		</table>

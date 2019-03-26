@@ -50,6 +50,15 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
     public countMin:any = '';
     public countSec:any = '';
 
+    public nowGrade:number = 0;
+
+    public friendListData: any = [];
+    public clanListData: any = [];
+    public googleBillingData: any = [];
+    public appleBillingData: any = [];
+    public friendTab:boolean=false;
+    public billingTab:boolean=false;
+
     //private sub: any;
     constructor(
         //private route: ActivatedRoute,
@@ -129,12 +138,14 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                         setTimeout(() => {
                             this.getInventoryData(this.findData[0].playerID);
                             this.getPostItemData(this.findData[0].playerID);
-
+                            this.getFriendListData(this.findData[0].playerID);
+                            this.getGoogleBillingData(this.findData[0].playerID);
+                            this.getAppleBillingData(this.findData[0].playerID);
                             let grd = this.findData[0].accountGrade;
                             console.log(grd)
                             let countryCode = this.gameInfoData[0].COUNTRY_CODE_LIST;
                             let regionCode = this.gameInfoData[0].REGION_CODE_LIST;
-
+                            this.nowGrade=grd;
                             if (grd === 0) {
                                 this.findData[0].gradeDescName = '영구블럭'
                             } else if (grd === 1) {
@@ -534,6 +545,109 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
         });
     }
 
+    getFriendListData(id: string) {
+        let res: any = [];
+        if (!id) {
+            return;
+        }
+        let type: number = 0;
+        for (let i in this.tableData) {
+            if (this.tableData[i].DataName === "Friend") {
+                type = +this.tableData[i].Type;
+                console.log(type);
+            }
+        }
+        this.userDetailService.getFriendListData(type,id)
+            .subscribe(
+                friendListData => {
+                    res = friendListData;
+                    console.log(' this.friendListData', res)
+                    if (res.result === 100) {
+                        if(res.data.length > 0){
+                            this.friendListData = res.data;
+                        }else{
+                            this.friendListData = [];
+                        }
+                    } else {
+                        swal("It can't find data", "Result Number is " + res.result, "error");
+
+                    }
+                },
+                error => {
+                    this.errMessage = <any>error;
+
+                });
+    }
+    getGoogleBillingData(id: string) {
+        let res: any = [];
+        if (!id) {
+            return;
+        }
+        let type: number = 0;
+        for (let i in this.tableData) {
+            if (this.tableData[i].DataName === "GoogleBilling") {
+                type = +this.tableData[i].Type;
+                console.log(type);
+            }
+        }
+        this.userDetailService.getGoogleBillingData(type,id)
+            .subscribe(
+                googleBillingData => {
+                    res = googleBillingData;
+                    console.log(' this.googleBillingData', res)
+                    console.log(' this.googleBillingData', res.data.length)
+                    if (res.result === 100) {
+                        if(res.data.length > 0){
+                            this.googleBillingData = res.data;
+                        }else{
+                            this.googleBillingData = [];
+                        }
+
+
+                    } else {
+                        swal("It can't find data", "Result Number is " + res.result, "error");
+
+                    }
+                },
+                error => {
+                    this.errMessage = <any>error;
+
+                });
+    }
+    getAppleBillingData(id: string) {
+        let res: any = [];
+        if (!id) {
+            return;
+        }
+        let type: number = 0;
+        for (let i in this.tableData) {
+            if (this.tableData[i].DataName === "AppleBilling") {
+                type = +this.tableData[i].Type;
+                console.log(type);
+            }
+        }
+        this.userDetailService.getAppleBillingData(type,id)
+            .subscribe(
+                appleBillingData => {
+                    res = appleBillingData;
+                    console.log(' this.appleBillingData', res)
+                    if (res.result === 100) {
+                        if(res.data.length > 0){
+                            this.appleBillingData = res.data;
+                        }else{
+                            this.appleBillingData = [];
+                        }
+                    } else {
+                        swal("It can't find data", "Result Number is " + res.result, "error");
+
+                    }
+                },
+                error => {
+                    this.errMessage = <any>error;
+
+                });
+    }
+
     private modalDismissReason(reason: any): string {
         if (reason === ModalDismissReasons.ESC) {
             return 'by pressing ESC';
@@ -544,14 +658,6 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
         }
     }
 
-    getClanData(clanID: number) {
-
-
-    }
-
-    getClanMember(clanID: number) {
-
-    }
 
     /*
     getAlretClick(){

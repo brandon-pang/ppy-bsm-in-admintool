@@ -29,22 +29,16 @@ var Select2 = function() {
         // loading data from array
         var data = [{
             id: 0,
-            text: 'Enhancement'
+            text: '영구블럭'
         }, {
             id: 1,
-            text: 'Bug'
+            text: '일반'
         }, {
             id: 2,
-            text: 'Duplicate'
-        }, {
-            id: 3,
-            text: 'Invalid'
-        }, {
-            id: 4,
-            text: 'Wontfix'
+            text: '내부관리자'
         }];
 
-        $('#m_select2_5').select2({
+        $('.m_select2_5').select2({
             placeholder: "Select a value",
             data: data
         });
@@ -171,7 +165,7 @@ var Select2 = function() {
             $('#m_select2_4_modal').select2({
                 placeholder: "Select a state",
                 allowClear: true
-            }); 
+            });
         });
     }
 
