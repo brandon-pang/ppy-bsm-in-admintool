@@ -11,7 +11,7 @@
       <change beforePath="$PROJECT_DIR$/dist/3rdpartylicenses.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/4.8d520fc0ce33da64c67e.chunk.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/5.d14ee752a4721c1275e6.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/6.f5dbf3521f68bfde3232.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/6.5dcb290a07e2221c2572.chunk.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/7.ebbb5ec2c9447193ba64.chunk.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/8.4f675cc6caf8467384fc.chunk.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/9.b947ba11bba26cd5839b.chunk.js" beforeDir="false" />
@@ -232,49 +232,11 @@
       <change beforePath="$PROJECT_DIR$/dist/assets/vendors/custom/jqvmap/jqvmap.bundle.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/color.c7a33805ffda0d32bd2a.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/inline.55477948a54df178d5e4.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/inline.dfde96a6e55aa7851dc7.bundle.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/line.567f57385ea3dde2c9ae.gif" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/main.e0ed9e78aee6d9010c48.bundle.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/polyfills.6ba58b16684180df39a9.bundle.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/styles.ac89bfdd6de82636b768.bundle.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/007e2612021a9b96c50c9533794ca081.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/007e2612021a9b96c50c9533794ca081.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/0c69e1beedaf55c2d3a6069a6b94c618.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/0c69e1beedaf55c2d3a6069a6b94c618.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/178b6dfc867277b02c9614f41dbb03e0.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/178b6dfc867277b02c9614f41dbb03e0.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/269268755904accab2ab9e06f14d6b8c.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/269268755904accab2ab9e06f14d6b8c.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/2ef61f076324c98d2affe2c854f99c2e.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/2ef61f076324c98d2affe2c854f99c2e.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/2f4c4060d3ada5336139fe9a5a1c4e85.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/2f4c4060d3ada5336139fe9a5a1c4e85.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/40220122fdbfe2cc190ee79c5a94ba75.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/40220122fdbfe2cc190ee79c5a94ba75.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/407c6402e32060549bf6107508cdcdcd.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/407c6402e32060549bf6107508cdcdcd.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/4ed7995753bfcd3769c8f168107537b6.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/4ed7995753bfcd3769c8f168107537b6.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/596ba1207d31a8bfd48dad4c69688748.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/596ba1207d31a8bfd48dad4c69688748.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/5a9dde7a7b2882daf4ca0cdda19cd27e.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/5a9dde7a7b2882daf4ca0cdda19cd27e.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/64594af334901bb60a8e086b5d6b4c08.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/64594af334901bb60a8e086b5d6b4c08.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/7b2ddf7bbdb7f1fe905380c31d298b09.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/7b2ddf7bbdb7f1fe905380c31d298b09.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/8dd90d642d6dccd0ab3eac1aa14e0795.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/8dd90d642d6dccd0ab3eac1aa14e0795.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/927fe7b3ed66c5c5bb93035c078ef6aa.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/927fe7b3ed66c5c5bb93035c078ef6aa.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/9d96d01ee9d35bfba895e71cdc3ffc42.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/9d96d01ee9d35bfba895e71cdc3ffc42.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/9e4b371e0d3c898fae60ee6de8b47e53.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/9e4b371e0d3c898fae60ee6de8b47e53.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/a8b1163ce9aa9971d7bf4baff6d348d5.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/a8b1163ce9aa9971d7bf4baff6d348d5.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/b00e7f50a522ceaa3e56e30bd41870b2.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/b00e7f50a522ceaa3e56e30bd41870b2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/bdb9a5cd0c364b72b3c85ba5a88d831e.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/bdb9a5cd0c364b72b3c85ba5a88d831e.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/c155b7b6785f7d7b017f50fac3a1549a.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/c155b7b6785f7d7b017f50fac3a1549a.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/c6aa85c1e4199d4e30aed390b8119de1.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/c6aa85c1e4199d4e30aed390b8119de1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/c828784f73cbe80632c323812ec4bd26.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/c828784f73cbe80632c323812ec4bd26.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/c948f178e107e0cd67ed31d2d36cf1fa.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/c948f178e107e0cd67ed31d2d36cf1fa.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/dc9cd8e51d94361b64fcb17fe9ca473f.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/dc9cd8e51d94361b64fcb17fe9ca473f.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/e25a8f8562392429803720a6c73113a4.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/e25a8f8562392429803720a6c73113a4.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/e347ba0e24b0ef0a01c7a209f7bc44fb.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/e347ba0e24b0ef0a01c7a209f7bc44fb.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/e44d7640db4afda7f9a0d0bf150054a7.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/e44d7640db4afda7f9a0d0bf150054a7.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/ebb66c33d906d2bafea13689a7d200ce.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/ebb66c33d906d2bafea13689a7d200ce.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/f27c1087eb799444798efbeed7e64d4e.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/f27c1087eb799444798efbeed7e64d4e.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/f378a631fff8e8e017be4cc02ec6887d.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/f378a631fff8e8e017be4cc02ec6887d.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/fa796bab99cd8bc9fd09371d349acf2a.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/fa796bab99cd8bc9fd09371d349acf2a.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/fdb4c19376230e66ca5048f41750469a.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/fdb4c19376230e66ca5048f41750469a.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/ff912aa4c93745395313abff70e82bb3.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/ff912aa4c93745395313abff70e82bb3.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/demo/default/custom/components/forms/widgets/select2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/demo/default/custom/components/forms/widgets/select2.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -328,8 +290,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="510">
-                  <caret line="519" column="105" lean-forward="true" selection-start-line="519" selection-start-column="70" selection-end-line="519" selection-end-column="105" />
+                <state relative-caret-position="-746">
+                  <caret line="519" column="105" selection-start-line="519" selection-start-column="70" selection-end-line="519" selection-end-column="105" />
                   <folding>
                     <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#th#0;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -416,7 +378,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.service.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="450">
+                <state relative-caret-position="679">
                   <caret line="174" selection-start-line="174" selection-end-line="175" />
                   <folding>
                     <element signature="e#0#43#0" expanded="true" />
@@ -835,7 +797,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.Angular CLI Server">
+  <component name="RunManager" selected="npm.build">
     <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
       <method v="2" />
     </configuration>
@@ -945,7 +907,7 @@
       <workItem from="1552076375500" duration="4056000" />
       <workItem from="1552332807995" duration="157000" />
       <workItem from="1552506922689" duration="105000" />
-      <workItem from="1553632283550" duration="8413000" />
+      <workItem from="1553632283550" duration="8857000" />
     </task>
     <task id="LOCAL-00001" summary="우편함에서 우편발송 부분 수정">
       <created>1547083774443</created>
@@ -1056,7 +1018,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="329037000" />
+    <option name="totallyTimeSpent" value="329481000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -1071,13 +1033,13 @@
     <frame x="1440" y="23" width="1920" height="1177" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.74969625" visible="true" weight="0.16008425" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.74969625" visible="true" weight="0.16008425" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" sideWeight="0.25030378" side_tool="true" visible="true" weight="0.19273302" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3299539" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.26359448" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26359448" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.2829493" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1573,7 +1535,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
+        <state relative-caret-position="679">
           <caret line="174" selection-start-line="174" selection-end-line="175" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
@@ -1583,8 +1545,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="519" column="105" lean-forward="true" selection-start-line="519" selection-start-column="70" selection-end-line="519" selection-end-column="105" />
+        <state relative-caret-position="-746">
+          <caret line="519" column="105" selection-start-line="519" selection-start-column="70" selection-end-line="519" selection-end-column="105" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#th#0;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
