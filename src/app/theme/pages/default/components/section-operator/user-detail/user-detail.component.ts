@@ -138,9 +138,12 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                         setTimeout(() => {
                             this.getInventoryData(this.findData[0].playerID);
                             this.getPostItemData(this.findData[0].playerID);
+
                             this.getFriendListData(this.findData[0].playerID);
+
                             this.getGoogleBillingData(this.findData[0].playerID);
                             this.getAppleBillingData(this.findData[0].playerID);
+
                             let grd = this.findData[0].accountGrade;
                             console.log(grd)
                             let countryCode = this.gameInfoData[0].COUNTRY_CODE_LIST;
@@ -602,8 +605,6 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                         }else{
                             this.googleBillingData = [];
                         }
-
-
                     } else {
                         swal("It can't find data", "Result Number is " + res.result, "error");
 
@@ -630,10 +631,11 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
             .subscribe(
                 appleBillingData => {
                     res = appleBillingData;
-                    console.log(' this.appleBillingData', res)
+
                     if (res.result === 100) {
                         if(res.data.length > 0){
                             this.appleBillingData = res.data;
+                            console.log(' this.appleBillingData', res.data)
                         }else{
                             this.appleBillingData = [];
                         }

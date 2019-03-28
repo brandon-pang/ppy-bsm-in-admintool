@@ -492,26 +492,19 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Item Code</th>
-                                <th>Level</th>
-                                <th>Exp</th>
-                                <th>Skin Code</th>
-                                <th>Expiry</th>
-                                <th>Control</th>
+                                <th>PlayerID</th>
+                                <th>Purchase ID</th>
+                                <th>Shop Code</th>
+                                <th>State</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr *ngFor="let p of invenData; let i=index">
+                            <tr *ngFor="let p of googleBillingData; let i=index">
                                 <th scope="row" >{{i + 1}}</th>
-                                <td>{{p.descName}}</td>
-                                <td>{{p.level}}</td>
-                                <td>{{p.exp}}</td>
-                                <td>{{p.skinCode}}</td>
-                                <td>{{p.expriy}}</td>
-                                <td>
-                                    <button type="button" class="btn btn-danger btn-sm" (click)="setInvenRemoveItem(i, blockPlayerID, p.itemCode)">회수</button>
-                                    <button type="button" class="btn btn-primary btn-sm" (click)="itemEditOpen(invenEdit, i)">수정</button>
-                                </td>
+                                <td>{{p.playerID}}</td>
+                                <td>{{p.purchaseID}}</td>
+                                <td>{{p.shopCode}}</td>
+                                <td>{{p.state}}</td>
                             </tr>
                             </tbody>
                         </table>
@@ -521,28 +514,21 @@
                     <div class="table-responsive">
                         <table class="table table-bordered table-hover">
                             <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Item Clan</th>
-                                <th>Level</th>
-                                <th>Exp</th>
-                                <th>Skin Code</th>
-                                <th>Expiry</th>
-                                <th>Control</th>
-                            </tr>
+							<tr>
+								<th>#</th>
+								<th>PlayerID</th>
+								<th>Purchase ID</th>
+								<th>Shop Code</th>
+								<th>State</th>
+							</tr>
                             </thead>
                             <tbody>
-                            <tr *ngFor="let p of invenData; let i=index">
-                                <th scope="row" >{{i + 1}}</th>
-                                <td>{{p.descName}}</td>
-                                <td>{{p.level}}</td>
-                                <td>{{p.exp}}</td>
-                                <td>{{p.skinCode}}</td>
-                                <td>{{p.expriy}}</td>
-                                <td>
-                                    <button type="button" class="btn btn-danger btn-sm" (click)="setInvenRemoveItem(i, blockPlayerID, p.itemCode)">회수</button>
-                                    <button type="button" class="btn btn-primary btn-sm" (click)="itemEditOpen(invenEdit, i)">수정</button>
-                                </td>
+                            <tr *ngFor="let p of appleBillingData; let i=index">
+								<th scope="row" >{{i + 1}}</th>
+								<td>{{p.playerID}}</td>
+								<td>{{p.purchaseID}}</td>
+								<td>{{p.shopCode}}</td>
+								<td>{{p.state}}</td>
                             </tr>
                             </tbody>
                         </table>
@@ -553,66 +539,66 @@
         <div class="m-portlet__body" *ngIf="billingTab" style="padding-top: 0;">
             <div class="tab-content">
                 <div *ngIf="googleBillingData.length === 0 || appleBillingData.length === 0 || googleBillingData=='undefined' || appleBillingData=== 'undefined' ">데이타가 존재 하지 않습니다.</div>
-                <div class="tab-pane active show" id="s_tabs_5_1" role="tabpanel" *ngIf="googleBillingData.length > 0">
+                <div class="tab-pane active show" id="b_tabs_5_1" role="tabpanel" *ngIf="googleBillingData.length > 0">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-hover">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Item Code</th>
-                                <th>Level</th>
-                                <th>Exp</th>
-                                <th>Skin Code</th>
-                                <th>Expiry</th>
-                                <th>Control</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr *ngFor="let p of invenData; let i=index">
-                                <th scope="row" >{{i + 1}}</th>
-                                <td>{{p.descName}}</td>
-                                <td>{{p.level}}</td>
-                                <td>{{p.exp}}</td>
-                                <td>{{p.skinCode}}</td>
-                                <td>{{p.expriy}}</td>
-                                <td>
-                                    <button type="button" class="btn btn-danger btn-sm" (click)="setInvenRemoveItem(i, blockPlayerID, p.itemCode)">회수</button>
-                                    <button type="button" class="btn btn-primary btn-sm" (click)="itemEditOpen(invenEdit, i)">수정</button>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+						<table class="table table-bordered table-hover">
+							<thead>
+							<tr>
+								<th>#</th>
+								<th>_id</th>
+								<th>order ID</th>
+								<th>Purchase ID</th>
+								<th>Shop Code</th>
+								<th>State</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr *ngFor="let p of googleBillingData; let i=index">
+								<th scope="row" >{{i + 1}}</th>
+								<td>{{p._id}}</td>
+								<td>{{p.orderID}}</td>
+								<td>{{p.purchaseID}}</td>
+								<td>{{p.shopCode}}</td>
+								<td>
+									<span class="m-badge m-badge--wide m-badge--rounded" *ngIf="p.state == 0">NONE</span>
+									<span class="m-badge m-badge--wide m-badge--rounded m-badge--warning"*ngIf="p.state == 1">구매 중</span>
+									<span class="m-badge m-badge--wide m-badge--rounded m-badge--info" *ngIf="p.state == 2">구매완료</span>
+									<span class="m-badge m-badge--wide m-badge--rounded m-badge--brand" *ngIf="p.state == 3">환불완료</span>
+								</td>
+							</tr>
+							</tbody>
+						</table>
                     </div>
                 </div>
-                <div class="tab-pane" id="s_tabs_5_2" role="tabpanel" *ngIf="appleBillingData.length > 0">
+                <div class="tab-pane" id="b_tabs_5_2" role="tabpanel" *ngIf="appleBillingData.length > 0">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-hover">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Item Clan</th>
-                                <th>Level</th>
-                                <th>Exp</th>
-                                <th>Skin Code</th>
-                                <th>Expiry</th>
-                                <th>Control</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr *ngFor="let p of invenData; let i=index">
-                                <th scope="row" >{{i + 1}}</th>
-                                <td>{{p.descName}}</td>
-                                <td>{{p.level}}</td>
-                                <td>{{p.exp}}</td>
-                                <td>{{p.skinCode}}</td>
-                                <td>{{p.expriy}}</td>
-                                <td>
-                                    <button type="button" class="btn btn-danger btn-sm" (click)="setInvenRemoveItem(i, blockPlayerID, p.itemCode)">회수</button>
-                                    <button type="button" class="btn btn-primary btn-sm" (click)="itemEditOpen(invenEdit, i)">수정</button>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+						<table class="table table-bordered table-hover">
+							<thead>
+							<tr>
+								<th>#</th>
+								<th>_id</th>
+								<th>tansactionID</th>
+								<th>Purchase Date</th>
+								<th>Shop Code</th>
+								<th>State</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr *ngFor="let a of appleBillingData; let i=index">
+								<th scope="row" >{{i + 1}}</th>
+								<td>{{a._id}}</td>
+								<td>{{a.transactionID}}</td>
+								<td>{{a.purchaseDate}}</td>
+								<td>{{a.shopCode}}</td>
+								<td>
+									<span class="m-badge m-badge--wide m-badge--rounded" *ngIf="a.state == 0">NONE</span>
+									<span class="m-badge m-badge--wide m-badge--rounded m-badge--warning"*ngIf="a.state == 1">구매 중</span>
+									<span class="m-badge m-badge--wide m-badge--rounded m-badge--info" *ngIf="a.state == 2">구매완료</span>
+									<span class="m-badge m-badge--wide m-badge--rounded m-badge--brand" *ngIf="a.state == 3">환불완료</span>
+								</td>
+							</tr>
+							</tbody>
+						</table>
                     </div>
                 </div>
             </div>
