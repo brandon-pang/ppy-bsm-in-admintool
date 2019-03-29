@@ -54,6 +54,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
 
     public friendListData: any = [];
     public clanListData: any = [];
+    public clanListMemberData: any = [];
     public googleBillingData: any = [];
     public appleBillingData: any = [];
     public friendTab:boolean=false;
@@ -140,6 +141,8 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                             this.getPostItemData(this.findData[0].playerID);
 
                             this.getFriendListData(this.findData[0].playerID);
+
+                            this.getClanListData(this.findData[0].playerID);
 
                             this.getGoogleBillingData(this.findData[0].playerID);
                             this.getAppleBillingData(this.findData[0].playerID);
@@ -570,6 +573,86 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                             this.friendListData = res.data;
                         }else{
                             this.friendListData = [];
+                        }
+                    } else {
+                        swal("It can't find data", "Result Number is " + res.result, "error");
+
+                    }
+                },
+                error => {
+                    this.errMessage = <any>error;
+
+                });
+    }
+    getClanListData(id: string) {
+        let res: any = [];
+        if (!id) {
+            return;
+        }
+        let type: number = 0;
+        for (let i in this.tableData) {
+            if (this.tableData[i].DataName === "Clan") {
+                type = +this.tableData[i].Type;
+                console.log(type);
+            }
+        }
+        this.userDetailService.getClanListData(type,id)
+            .subscribe(
+                friendListData => {
+                    res = friendListData;
+                    console.log(' this.clanListData', res)
+                    if (res.result === 100) {
+                        if(res.data.length > 0){
+                            this.clanListData = res.data;
+                            let countryCode = this.gameInfoData[0].COUNTRY_CODE_LIST;
+                            for (let a in countryCode) {
+                                if (Number( this.clanListData[0].countryCode) === countryCode[a].Value) {
+                                    console.log(countryCode[a].DescName);
+                                    this.clanListData[0].countryDescName = countryCode[a].DescName;
+                                }
+                            }
+                            this.getClanMemberListData(id);
+                        }else{
+                            this.clanListData = [];
+                        }
+                    } else {
+                        swal("It can't find data", "Result Number is " + res.result, "error");
+                    }
+                },
+                error => {
+                    this.errMessage = <any>error;
+
+                });
+    }
+    getClanMemberListData(id: string) {
+        let res: any = [];
+        if (!id) {
+            return;
+        }
+        let type: number = 0;
+        for (let i in this.tableData) {
+            if (this.tableData[i].DataName === "ClanMember") {
+                type = +this.tableData[i].Type;
+                console.log(type);
+            }
+        }
+        this.userDetailService.getClanListData(type,id)
+            .subscribe(
+                friendListData => {
+                    res = friendListData;
+                    console.log(' this.clanListMemberData', res)
+                    if (res.result === 100) {
+                        if(res.data.length > 0){
+                            this.clanListMemberData = res.data;
+                            let clanID = this.clanListData[0].clanID;
+                            let clanName = this.clanListData[0].name;
+                            for (let a in this.clanListMemberData) {
+                                if (Number( this.clanListMemberData[a].clanID) === clanID) {
+                                    this.clanListMemberData[a].clanName = clanName;
+                                }
+                            }
+                        }else{
+                            this.clanListMemberData = [];
                         }
                     } else {
                         swal("It can't find data", "Result Number is " + res.result, "error");

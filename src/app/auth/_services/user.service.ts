@@ -1,13 +1,9 @@
 import { Injectable } from "@angular/core";
 import { Headers, Http, RequestOptions, Response } from "@angular/http";
-
 import { User } from "../_models/index";
-import {Helpers} from "../../helpers";
 
 @Injectable()
 export class UserService {
-    private apiUrl = Helpers.apiUrl;
-
     constructor(private http: Http) {
     }
 

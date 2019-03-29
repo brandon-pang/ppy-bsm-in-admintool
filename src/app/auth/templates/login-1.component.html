@@ -15,6 +15,11 @@
 				<form (ngSubmit)="f.form.valid && signin()" #f="ngForm" class="m-login__form m-form" action="">
 					<ng-template #alertSignin></ng-template>
 					<div class="form-group m-form__group">
+						<select class="form-control" [(ngModel)]="selectedLevel" [ngModelOptions]="{standalone: true}">
+							<option *ngFor="let p of levels" [ngValue]="p">{{p.name}}</option>
+						</select>
+					</div>
+					<div class="form-group m-form__group">
 						<input class="form-control m-input" type="text" placeholder="Username" name="id" [(ngModel)]="model.id" #id="ngModel" autocomplete="off">
 					</div>
 					<div class="form-group m-form__group">
@@ -30,6 +35,7 @@
 						</div>
 						<div class="col m&#45;&#45;align-right m-login__form-right"></div>
 					</div>-->
+
 					<div class="m-login__form-action">
 						<button [disabled]="loading" [ngClass]="{'m-loader m-loader--right m-loader--light': loading}" id="m_login_signin_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary">
 							Sign In

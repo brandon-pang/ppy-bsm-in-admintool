@@ -17,7 +17,7 @@ import { Helpers } from "../../../../../../helpers";
 
 export class ServerMaintenanceService {
     private currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    private apiUrl = Helpers.apiUrl;
+    private apiUrl = this.currentUser.connectIP;
     private apiKey = this.currentUser.apikey;
 
     constructor(private http: Http) { }

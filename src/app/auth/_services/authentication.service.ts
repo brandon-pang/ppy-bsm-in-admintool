@@ -5,13 +5,11 @@ import { Helpers } from '../../helpers';
 
 @Injectable()
 export class AuthenticationService {
-    private apiUrl = Helpers.apiUrl;
-
     constructor(private http: Http) {
     }
 
-    login(id: string, password) {
-        let targetUrl = `${this.apiUrl}/WAPI/Auth/?`;
+    login(id: string, password, connectIP) {
+        let targetUrl = `${connectIP}/WAPI/Auth/?`;
         let setUrl = `${targetUrl}user=${id}&hash=${password}`;
         //console.log(password);
         return this.http

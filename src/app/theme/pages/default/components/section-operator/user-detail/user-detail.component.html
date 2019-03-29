@@ -484,10 +484,10 @@
 			</div>
 		</div>
         <div class="m-portlet__body" *ngIf="friendTab" style="padding-top: 0;">
-            <div *ngIf="friendListData.length === 0 || friendListData=='undefined'">데이타가 존재 하지 않습니다.</div>
             <div class="tab-content">
-                <div class="tab-pane active show" id="s_tabs_2_1" role="tabpanel" *ngIf="friendListData.length > 0">
-                    <div class="table-responsive">
+                <div class="tab-pane active show" id="s_tabs_2_1" role="tabpanel" >
+					<div *ngIf="friendListData.length === 0 || friendListData.length ==='undefined'">데이타가 존재 하지 않습니다.</div>
+                    <div class="table-responsive" *ngIf="friendListData.length > 0">
                         <table class="table table-bordered table-hover">
                             <thead>
                             <tr>
@@ -499,7 +499,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr *ngFor="let p of googleBillingData; let i=index">
+                            <tr *ngFor="let p of friendListData; let i=index">
                                 <th scope="row" >{{i + 1}}</th>
                                 <td>{{p.playerID}}</td>
                                 <td>{{p.purchaseID}}</td>
@@ -510,25 +510,64 @@
                         </table>
                     </div>
                 </div>
-                <div class="tab-pane" id="s_tabs_2_2" role="tabpanel" *ngIf="appleBillingData.length > 0">
-                    <div class="table-responsive">
+                <div class="tab-pane" id="s_tabs_2_2" role="tabpanel" >
+					<div *ngIf="clanListData.length === 0 || clanListData.length ==='undefined'">데이타가 존재 하지 않습니다.</div>
+                    <div class="table-responsive" *ngIf="clanListData.length > 0">
+						<div>CLAN</div>
+						<table class="table table-bordered table-hover">
+							<thead>
+							<tr>
+								<th>#</th>
+								<td>_id</td>
+								<td>Country</td>
+								<td>Clan Name [ClanID] </td>
+								<td>Master Nick [MasterID]</td>
+								<td>Notice</td>
+								<td>CNT / M.CNT</td>
+								<td>Score</td>
+								<td>Created Time</td>
+							</tr>
+							</thead>
+							<tbody>
+							<tr *ngFor="let p of clanListData; let i=index">
+								<th scope="row" >{{i + 1}}</th>
+								<td>{{p._id}}</td>
+								<td>{{p.countryDescName}} [{{p.countryCode}}]</td>
+								<td>{{p.name}} [{{p.clanID}}]</td>
+								<td>{{p.masterNickname}} [{{p.masterPlayerID}}]</td>
+								<td>{{p.notice}}</td>
+								<td>{{p.currentMemberCount}} / {{p.maxMemberCount}}</td>
+								<td>{{p.score}}</td>
+								<td>{{p.createdTime}}</td>
+							</tr>
+							</tbody>
+						</table>
+						<div>CLAN MEMBERS</div>
                         <table class="table table-bordered table-hover">
                             <thead>
 							<tr>
 								<th>#</th>
-								<th>PlayerID</th>
-								<th>Purchase ID</th>
-								<th>Shop Code</th>
-								<th>State</th>
+								<td>_id</td>
+								<td>Clan Name</td>
+								<td>Authority</td>
+								<td>Profile</td>
+								<td>NickName [ID]</td>
+								<td>Compet. Play</td>
+								<td>Elo Score</td>
+								<td>Joined Date</td>
 							</tr>
                             </thead>
                             <tbody>
-                            <tr *ngFor="let p of appleBillingData; let i=index">
+                            <tr *ngFor="let p of clanListMemberData; let i=index">
 								<th scope="row" >{{i + 1}}</th>
-								<td>{{p.playerID}}</td>
-								<td>{{p.purchaseID}}</td>
-								<td>{{p.shopCode}}</td>
-								<td>{{p.state}}</td>
+								<td>{{p._id}}</td>
+								<td>{{p.clanName}} [{{p.clanID}}]</td>
+								<td>{{p.authority}}</td>
+								<td>{{p.profileIcon}}</td>
+								<td>{{p.nickname}} [{{p.playerID}}]</td>
+								<td>{{p.competitionPlay}}</td>
+								<td>{{p.eloScore}}</td>
+								<td>{{p.joinedTime}}</td>
                             </tr>
                             </tbody>
                         </table>
@@ -538,9 +577,10 @@
         </div>
         <div class="m-portlet__body" *ngIf="billingTab" style="padding-top: 0;">
             <div class="tab-content">
-                <div *ngIf="googleBillingData.length === 0 || appleBillingData.length === 0 || googleBillingData=='undefined' || appleBillingData=== 'undefined' ">데이타가 존재 하지 않습니다.</div>
-                <div class="tab-pane active show" id="b_tabs_5_1" role="tabpanel" *ngIf="googleBillingData.length > 0">
-                    <div class="table-responsive">
+
+                <div class="tab-pane active show" id="b_tabs_5_1" role="tabpanel" >
+					<div *ngIf="googleBillingData.length === 0 || googleBillingData ==='undefined'">데이타가 존재 하지 않습니다.</div>
+                    <div class="table-responsive" *ngIf="googleBillingData.length > 0">
 						<table class="table table-bordered table-hover">
 							<thead>
 							<tr>
@@ -570,8 +610,9 @@
 						</table>
                     </div>
                 </div>
-                <div class="tab-pane" id="b_tabs_5_2" role="tabpanel" *ngIf="appleBillingData.length > 0">
-                    <div class="table-responsive">
+                <div class="tab-pane" id="b_tabs_5_2" role="tabpanel" >
+					<div *ngIf="appleBillingData.length === 0 || appleBillingData === 'undefined' ">데이타가 존재 하지 않습니다.</div>
+                    <div class="table-responsive" *ngIf="appleBillingData.length > 0">
 						<table class="table table-bordered table-hover">
 							<thead>
 							<tr>

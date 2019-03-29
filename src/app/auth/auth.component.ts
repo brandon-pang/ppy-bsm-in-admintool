@@ -24,11 +24,19 @@ import {Md5} from "ts-md5";
 })
 
 export class AuthComponent implements OnInit {
-    model: any = {};
-    loading = false;
-    returnUrl: string;
-    md5 = new Md5();
+    public model: any = {};
+    public returnUrl: string;
+    levelNum:number;
+    public levels:any = [
+        {num: 0, ip:'http://122.199.219.189:20011', name: "내부: 122.199.219.189"},
+        {num: 1, ip:'http://122.199.219.188:20011', name: "빌드테스트: 122.199.219.188"},
+        {num: 2, ip:'http://bsm-sg.beta1.blackshot.com:20011', name: "IOS 검수: bsm-sg.beta1.blackshot.com"},
+    ];
+    public selectedLevel:any=this.levels[0];
 
+
+    loading = false;
+    md5 = new Md5();
     @ViewChild('alertSignin',
         {read: ViewContainerRef}) alertSignin: ViewContainerRef;
     @ViewChild('alertSignup',
@@ -51,20 +59,21 @@ export class AuthComponent implements OnInit {
         // get return url from route parameters or default to '/'
         this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
         this._router.navigate([this.returnUrl]);
-
         this._script.loadScripts('body', [
             'assets/vendors/base/vendors.bundle.js',
             'assets/demo/default/base/scripts.bundle.js'], true).then(() => {
             Helpers.setLoading(false);
             LoginCustom.init();
         });
+
     }
 
     signin() {
         let res: any = [];
         this.loading = true;
         let conpass = Md5.hashStr(this.model.password);
-        this._authService.login(this.model.id, conpass).subscribe(
+        let connectIP=this.selectedLevel.ip;
+        this._authService.login(this.model.id, conpass, connectIP).subscribe(
             data => {
                 res = data;
                 if (res) {
@@ -77,7 +86,8 @@ export class AuthComponent implements OnInit {
                             userid: this.model.id,
                             fullName: 'admin',
                             email: this.model.id,
-                            apikey: res.data[0].API_KEY
+                            apikey: res.data[0].API_KEY,
+                            connectIP:connectIP
                         }
                         localStorage.setItem('currentUser', JSON.stringify(data));
                         this._router.navigate([this.returnUrl]);

@@ -12,9 +12,11 @@ export class HeaderNavComponent implements OnInit, AfterViewInit {
 
     constructor() {}
     public userID:string='';
+    public userIP:string='';
     ngOnInit() {
         let getUserName=JSON.parse(localStorage.getItem('currentUser'));
         this.userID=getUserName.userid;
+        this.userIP=getUserName.connectIP;
     }
     ngAfterViewInit() {
         mLayout.initHeader();
