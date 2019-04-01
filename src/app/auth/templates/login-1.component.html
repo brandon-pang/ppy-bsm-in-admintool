@@ -15,7 +15,7 @@
 				<form (ngSubmit)="f.form.valid && signin()" #f="ngForm" class="m-login__form m-form" action="">
 					<ng-template #alertSignin></ng-template>
 					<div class="form-group m-form__group">
-						<select class="form-control" name="ip" [(ngModel)]="model.ip" #ip="ngModel">
+						<select class="form-control" name="ip" [(ngModel)]="model.ip" #ip="ngModel" style="height:40px; padding:0; padding-left:15px;">
 							<option value="http://122.199.219.189:20011">내부: 122.199.219.189</option>
 							<option value="http://122.199.219.188:20011">빌드테스트: 122.199.219.188</option>
 							<option value="http://bsm-sg.beta1.blackshot.com:20011">IOS 검수: bsm-sg.beta1.blackshot.com</option>
