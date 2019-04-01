@@ -492,19 +492,17 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>PlayerID</th>
-                                <th>Purchase ID</th>
-                                <th>Shop Code</th>
-                                <th>State</th>
+                                <th>_id</th>
+                                <th>Friend Name</th>
+                                <th>Friend ID</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr *ngFor="let p of friendListData; let i=index">
                                 <th scope="row" >{{i + 1}}</th>
-                                <td>{{p.playerID}}</td>
-                                <td>{{p.purchaseID}}</td>
-                                <td>{{p.shopCode}}</td>
-                                <td>{{p.state}}</td>
+                                <td>{{p._id}}</td>
+                                <td>{{p.friendName}}</td>
+                                <td>{{p.friendPlayerID}}</td>
                             </tr>
                             </tbody>
                         </table>
