@@ -23,7 +23,7 @@ export class ServerMaintenanceService {
     constructor(private http: Http) { }
 
     getGameInfoData():Observable<any[]>{
-        //Helpers.setLoading(true);
+        Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/GetCodeInfo/?key=${this.apiKey}`;
         return this.http
             .get(url)
@@ -32,7 +32,7 @@ export class ServerMaintenanceService {
     }
 
     getTableData(): Observable<any[]> {
-        //Helpers.setLoading(true);
+        Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/GetTableList/?key=${this.apiKey}`;
         return this.http
             .get(url)
@@ -41,6 +41,7 @@ export class ServerMaintenanceService {
     }
 
     getServerInspectData(region, type): Observable<any[]> {
+        Helpers.setLoading(true);
         let targetUrl = `${this.apiUrl}/WAPI/GetTableData/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&type=${type}&hashKey=${region}`;
         return this.http
@@ -50,6 +51,7 @@ export class ServerMaintenanceService {
     }
 
     setServerInspectData(region,startDate,endDate,state,message): Observable<any[]> {
+        Helpers.setLoading(true);
         let targetUrl = `${this.apiUrl}/WAPI/ServerInspect/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&region=${region}&start=${startDate}&end=${endDate}&state=${state}&message=${message}`;
         return this.http
@@ -59,7 +61,7 @@ export class ServerMaintenanceService {
     }
 
     private extractData(res: Response) {
-        //Helpers.setLoading(false);
+        Helpers.setLoading(false);
         let body = res.json();
         return body || {};
     }

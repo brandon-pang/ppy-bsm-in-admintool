@@ -21,7 +21,7 @@ export class ServerManageService {
     constructor(private http: Http) { }
 
     getServerStateList(): Observable<any[]> {
-        //Helpers.setLoading(true);
+        Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/ServerStateList/?key=${this.apiKey}`;
         return this.http
             .get(url)
@@ -29,6 +29,7 @@ export class ServerManageService {
             .catch(handleError);
     }
     getServerAllStart(boo:string): Observable<any[]> {
+        Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/StartAllServer/?key=${this.apiKey}`;
         let paramUrl=`${url}&autoRestart=${boo}`;
         return this.http
@@ -38,6 +39,7 @@ export class ServerManageService {
     }
 
     getServerAllStop(): Observable<any[]> {
+        Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/StopAllServer/?key=${this.apiKey}`;
         return this.http
             .get(url)
@@ -45,6 +47,7 @@ export class ServerManageService {
             .catch(handleError);
     }
     getServerAllUpdate(boo): Observable<any[]>{
+        Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/UpdateAllServer/?key=${this.apiKey}`;
         let paramUrl=`${url}&autoRestart=${boo}`;
         return this.http
@@ -54,6 +57,7 @@ export class ServerManageService {
     }
 
     getServerSpecStart(sname,boo){
+        Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/StartServer/?key=${this.apiKey}`;
         let paramUrl=`${url}&serverName=${sname}&autoRestart=${boo}`;
         return this.http
@@ -64,6 +68,7 @@ export class ServerManageService {
 
 
     getServerSpecStop(sname): Observable<any[]> {
+        Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/StopServer/?key=${this.apiKey}`;
         let paramUrl=`${url}&serverName=${sname}`;
         return this.http
@@ -74,6 +79,7 @@ export class ServerManageService {
 
 
     getServerUpdate(sname, boo): Observable<any[]>{
+        Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/UpdateServer/?key=${this.apiKey}`;
         let paramUrl=`${url}&serverName=${sname}&autoRestart=${boo}`;
         return this.http
@@ -83,6 +89,7 @@ export class ServerManageService {
     }
 
     getAllKickUser(msg): Observable<any[]>{
+        Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/AllKick/?key=${this.apiKey}`;
         let paramUrl=`${url}&message=${msg}`;
         return this.http
@@ -92,6 +99,7 @@ export class ServerManageService {
     }
 
     private extractData(res: Response) {
+        Helpers.setLoading(false);
         let body = res.json();
         return body || {};
     }

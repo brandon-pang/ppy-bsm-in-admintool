@@ -24,7 +24,7 @@ export class UserDetailService {
     constructor(private http: Http) { }
 
     getParamData(id: string): Observable<any[]> {
-        //Helpers.setLoading(true);
+        Helpers.setLoading(true);
         let wikiUrl = `${this.apiUrl}/WAPI/FindNamePlayer/?key=${this.apiKey}`;
         let url = `${wikiUrl}&name=${id}`;
         return this.http
@@ -34,7 +34,7 @@ export class UserDetailService {
     }
 
     getInventoryData(type, id): Observable<any[]> {
-        //Helpers.setLoading(true);
+        Helpers.setLoading(true);
         let targetUrl = `${this.apiUrl}/WAPI/GetTableData/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&type=${type}&hashKey=${id}`;
         return this.http
@@ -44,7 +44,7 @@ export class UserDetailService {
     }
 
     getPostItemData(type: number, id: number): Observable<any[]> {
-        //Helpers.setLoading(true);
+        Helpers.setLoading(true);
         let targetUrl = `${this.apiUrl}/WAPI/GetTableData/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&type=${type}&hashKey=${id}`;
         return this.http
@@ -62,7 +62,7 @@ export class UserDetailService {
     }
 
     setSendItemMail(id, itemCode, count, sender, message): Observable<any[]> {
-        //Helpers.setLoading(true);
+        Helpers.setLoading(true);
         let targetUrl = `${this.apiUrl}/WAPI/AddPost/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&playerID=${id}&itemCode=${itemCode}&count=${count}&senderName=${sender}&message=${message}`;
         return this.http
@@ -73,7 +73,7 @@ export class UserDetailService {
 
 
     getTableData(): Observable<any[]> {
-        //Helpers.setLoading(true);
+        Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/GetTableList/?key=${this.apiKey}`;
         return this.http
             .get(url)
@@ -82,7 +82,7 @@ export class UserDetailService {
     }
 
     getGameInfoData():Observable<any[]>{
-        //Helpers.setLoading(true);
+        Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/GetCodeInfo/?key=${this.apiKey}`;
         return this.http
             .get(url)
@@ -91,7 +91,7 @@ export class UserDetailService {
     }
 
     setUserBlock(id: string, sec: string, text: string): Observable<any[]> {
-        //Helpers.setLoading(true);
+        Helpers.setLoading(true);
         let targetUrl = `${this.apiUrl}/WAPI/UserBlock/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&playerID=${id}&second=${sec}&reason=${text}`;
         return this.http
@@ -101,7 +101,7 @@ export class UserDetailService {
     }
 
     setChangeGold(id:string,param:string): Observable<any[]> {
-        //Helpers.setLoading(true);
+        Helpers.setLoading(true);
         let targetUrl = `${this.apiUrl}/WAPI/ModifyGold/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&playerID=${id}&gold=${param}`;
         return this.http
@@ -111,7 +111,7 @@ export class UserDetailService {
     }
 
     setChangeGem(id:string,param1:string,param2:string): Observable<any[]> {
-        //Helpers.setLoading(true);
+        Helpers.setLoading(true);
         let targetUrl = `${this.apiUrl}/WAPI/ModifyGem/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&playerID=${id}&gem=${param1}&bonusgem=${param2}`;
         return this.http
@@ -147,7 +147,7 @@ export class UserDetailService {
             .catch(handleError);
     }
     getFriendListData(type,id): Observable<any[]> {
-        //Helpers.setLoading(true);
+        Helpers.setLoading(true);
         let targetUrl = `${this.apiUrl}/WAPI/GetTableData/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&type=${type}&hashKey=${id}`;
         return this.http
@@ -156,7 +156,7 @@ export class UserDetailService {
             .catch(handleError);
     }
     getClanListData(type, id): Observable<any[]> {
-        //Helpers.setLoading(true);
+        Helpers.setLoading(true);
         let targetUrl = `${this.apiUrl}/WAPI/GetTableData/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&type=${type}&hashKey=${id}`;
         return this.http
@@ -165,7 +165,7 @@ export class UserDetailService {
             .catch(handleError);
     }
     getGoogleBillingData(type, id): Observable<any[]> {
-        //Helpers.setLoading(true);
+        Helpers.setLoading(true);
         let targetUrl = `${this.apiUrl}/WAPI/GetTableData/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&type=${type}&hashKey=${id}`;
         return this.http
@@ -174,7 +174,7 @@ export class UserDetailService {
             .catch(handleError);
     }
     getAppleBillingData(type, id): Observable<any[]> {
-        //Helpers.setLoading(true);
+        Helpers.setLoading(true);
         let targetUrl = `${this.apiUrl}/WAPI/GetTableData/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&type=${type}&hashKey=${id}`;
         return this.http
@@ -184,7 +184,7 @@ export class UserDetailService {
     }
 
     private extractData(res: Response) {
-        //Helpers.setLoading(false);
+        Helpers.setLoading(false);
         let body = res.json();
         return body || {};
     }
