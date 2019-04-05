@@ -26,14 +26,6 @@ import {Md5} from "ts-md5";
 export class AuthComponent implements OnInit {
     public model: any = {};
     public returnUrl: string;
-    levelNum:number;
-    public levels:any = [
-        {num: 0, ip:'http://122.199.219.189:20011', name: "내부: 122.199.219.189"},
-        {num: 1, ip:'http://122.199.219.188:20011', name: "빌드테스트: 122.199.219.188"},
-        {num: 2, ip:'http://bsm-sg.beta1.blackshot.com:20011', name: "IOS 검수: bsm-sg.beta1.blackshot.com"},
-    ];
-    public selectedLevel:any=this.levels[0];
-
 
     loading = false;
     md5 = new Md5();
@@ -65,16 +57,16 @@ export class AuthComponent implements OnInit {
             Helpers.setLoading(false);
             LoginCustom.init();
         });
-        this.model.ip='http://122.199.219.189:20011';
+        //this.model.ip='http://122.199.219.189:20011';
     }
 
     signin() {
         let res: any = [];
         this.loading = true;
         let conpass = Md5.hashStr(this.model.password);
-        let connectIP=this.model.ip;
+        //let connectIP=this.model.ip;
         //live
-        //let connectIP='http://110.234.23.129:20011';
+        let connectIP='http://110.234.23.129:20011';
         this._authService.login(this.model.id, conpass, connectIP).subscribe(
             data => {
                 res = data;
