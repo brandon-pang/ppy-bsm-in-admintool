@@ -140,17 +140,13 @@
 									<td>{{findData[0]?.clanID}}</td>
 								</tr>
 								<tr>
-									<th scope="row">Apply ClanID</th>
-									<td>{{findData[0]?.applyClanID}}</td>
-								</tr>
-								<tr>
 									<th colspan="2" class="bg-light text-center">
 										User Gold and GEM
 									</th>
 								</tr>
 								<tr>
 									<th scope="row">Gold</th>
-									<td id="sty-gold">{{findData[0]?.gold | number}}</td>
+									<td id="sty-gold">{{findData[0]?.gold.value | number}}</td>
 								</tr>
 								<tr>
 									<th scope="row">Gem</th>
@@ -290,12 +286,12 @@
 								</thead>
 								<tbody>
 								<tr *ngFor="let p of invenData; let i=index">
-									<th scope="row" >{{i + 1}}</th>
+									<th scope="row" >{{i}}</th>
 									<td>{{p.descName}}</td>
 									<td>{{p.level}}</td>
 									<td>{{p.exp}}</td>
 									<td>{{p.skinCode}}</td>
-									<td>{{p.expriy}}</td>
+									<td>{{p.expiry}}</td>
 									<td>
 										<button type="button" class="btn btn-danger btn-sm" (click)="setInvenRemoveItem(i, blockPlayerID, p.itemCode)">회수</button>
 										<button type="button" class="btn btn-primary btn-sm" (click)="itemEditOpen(invenEdit, i)">수정</button>
@@ -340,15 +336,15 @@
 								</thead>
 								<tbody>
 								<tr *ngFor="let p of postData; let i=index" >
-									<th scope="row" style="vertical-align: middle;">{{i + 1}}</th>
-									<td style="vertical-align: middle;">{{p.postID}}</td>
-									<td style="vertical-align: middle;">{{p.itemCode}}</td>
-									<td style="vertical-align: middle;">{{p.itemCount}}</td>
+									<th scope="row" style="vertical-align: middle;">{{i}}</th>
+									<td style="vertical-align: middle;">{{p.postID.value}}</td>
+									<td style="vertical-align: middle;">{{p.code.value}}</td>
+									<td style="vertical-align: middle;">{{p.count.value}}</td>
 									<td style="vertical-align: middle;">{{p.postMessage}}</td>
 									<td style="vertical-align: middle;">{{p.senderName}}</td>
-									<td style="vertical-align: middle;">{{p.expireTime | date:'yyyy/MM/dd hh:mm'}}</td>
+									<td style="vertical-align: middle;">{{p.expireTime}}</td>
 									<td style="vertical-align: middle;">
-										<button type="button" class="btn btn-warning btn-sm" [disabled]="p.postID==''" (click)="removePostItemData(i, blockPlayerID, p.postID)">
+										<button type="button" class="btn btn-warning btn-sm" [disabled]="p.postID.value==''" (click)="removePostItemData(i, blockPlayerID, p.postID.value)">
 											회수
 										</button>
 									</td>
@@ -388,10 +384,10 @@
 							<tbody>
 							<tr>
 								<td style="vertical-align: middle;">{{ findData[0]?.playerID }}</td>
-								<td style="vertical-align: middle;">{{ findData[0]?.gold }}</td>
+								<td style="vertical-align: middle;">{{ findData[0]?.gold.value | number }}</td>
 								<td style="vertical-align: middle;"><button class="btn btn-warning" [ngClass]="{'disabled':blockPlayerID == '' }" [disabled]="blockPlayerID===''" (click)="setEditOpen(goldEdit)">골드 수정</button></td>
 								<td style="vertical-align: middle;">{{ findData[0]?.gem }}</td>
-								<td style="vertical-align: middle;">{{ findData[0]?.bonusGem }}</td>
+								<td style="vertical-align: middle;">{{ findData[0]?.bonusGem.value | number }}</td>
 								<td style="vertical-align: middle;"><button class="btn btn-danger" [ngClass]="{'disabled':blockPlayerID == '' }" [disabled]="blockPlayerID===''" (click)="setEditOpen(gemEdit)">GEM 수정</button></td>
 							</tr>
 							</tbody>
@@ -782,7 +778,7 @@
 				<td style="width:40%;">기간 만료일</td>
 				<td style="width:60%;">
 					<div class="input-group date">
-						<input type="text" class="form-control m-input" readonly id="m_datetimepicker_3_1" [value]="invenData[InvenRowId].expriy | date:'yyyy-MM-dd HH:mm'" #im_expire/>
+						<input type="text" class="form-control m-input" readonly id="m_datetimepicker_3_1" [value]="invenData[InvenRowId].expiry | date:'yyyy-MM-dd HH:mm'" #im_expire/>
 						<div class="input-group-append">
 							<span class="input-group-text"><i class="la la-calendar glyphicon-th"></i></span>
 						</div>

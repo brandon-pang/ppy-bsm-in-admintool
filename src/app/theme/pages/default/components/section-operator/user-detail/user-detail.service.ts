@@ -14,12 +14,16 @@ import 'rxjs/add/operator/toPromise';
 
 import { Helpers } from "../../../../../../helpers";
 
+declare function require(name:string);
+const LosslessJSON = require('lossless-json');
+
 @Injectable()
 
 export class UserDetailService {
     private currentUser = JSON.parse(localStorage.getItem('currentUser'));
     private apiUrl = this.currentUser.connectIP;
     private apiKey = this.currentUser.apikey;
+
 
     constructor(private http: Http) { }
 
@@ -43,7 +47,7 @@ export class UserDetailService {
             .catch(handleError);
     }
 
-    getPostItemData(type: number, id: number): Observable<any[]> {
+    getPostItemData(type: number, id: string): Observable<any[]> {
         Helpers.setLoading(true);
         let targetUrl = `${this.apiUrl}/WAPI/GetTableData/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&type=${type}&hashKey=${id}`;
@@ -185,7 +189,11 @@ export class UserDetailService {
 
     private extractData(res: Response) {
         Helpers.setLoading(false);
-        let body = res.json();
+        //console.log('datas',LosslessJSON.stringify(LosslessJSON.parse(res.text())));
+
+        //let losslessData=LosslessJSON.parse(res.text());
+        let body = LosslessJSON.parse(res.text());
+        console.log('datas',body);
         return body || {};
     }
 }

@@ -33,6 +33,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
     id: string = "0";
     postData: any = [];
     nickName: string = "";
+
     public gameInfoData: any = []
     public tableData: any = [];
     public modalClose: string;
@@ -94,10 +95,10 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                 tableData => {
                     res = tableData;
                     console.log(' this.tableData', res)
-                    if (res.result === 100) {
+                    if (res.result.value == 100) {
                         this.tableData = res.data;
                     } else {
-                        swal("It can't find table data", "Result Number is " + res.result, "error");
+                        swal("It can't find table data", "Result Number is " + res.result.value, "error");
                     }
                 },
                 error => this.errMessage = <any>error);
@@ -110,10 +111,10 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                 gameInfoData => {
                     res = gameInfoData;
                     console.log(' this.gameInfoData', res)
-                    if (res.result === 100) {
+                    if (res.result.value == 100) {
                         this.gameInfoData = res.data;
                     } else {
-                        swal("It can't find table data", "Result Number is " + res.result, "error");
+                        swal("It can't find table data", "Result Number is " + res.result.value, "error");
                     }
                 },
                 error => this.errMessage = <any>error);
@@ -129,48 +130,45 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                 findData => {
                     res = findData;
                     console.log(' this.findData', res)
-                    if (res.result === 100) {
+                    if (res.result.value == 100) {
                         this.findData = res.data;
-                        this.blockPlayerID = this.findData[0].playerID;
+                        this.blockPlayerID = this.findData[0].playerID.value;
                         this.nickName = id;
                         sessionStorage.setItem('nickName', id);
                         sessionStorage.setItem('playerID', this.blockPlayerID);
 
                         setTimeout(() => {
-                            this.getInventoryData(this.findData[0].playerID);
-                            this.getPostItemData(this.findData[0].playerID);
+                            this.getInventoryData(this.blockPlayerID);
+                            this.getPostItemData(this.blockPlayerID);
+                            this.getFriendListData(this.blockPlayerID);
+                            this.getClanListData(this.blockPlayerID);
+                            this.getGoogleBillingData(this.blockPlayerID);
+                            this.getAppleBillingData(this.blockPlayerID);
+                            let grd = this.findData[0].accountGrade.value;
 
-                            this.getFriendListData(this.findData[0].playerID);
-
-                            this.getClanListData(this.findData[0].playerID);
-
-                            this.getGoogleBillingData(this.findData[0].playerID);
-                            this.getAppleBillingData(this.findData[0].playerID);
-
-                            let grd = this.findData[0].accountGrade;
-                            console.log(grd)
                             let countryCode = this.gameInfoData[0].COUNTRY_CODE_LIST;
                             let regionCode = this.gameInfoData[0].REGION_CODE_LIST;
+
                             this.nowGrade=grd;
-                            if (grd === 0) {
+                            if (grd == 0) {
                                 this.findData[0].gradeDescName = '영구블럭'
-                            } else if (grd === 1) {
+                            } else if (grd == 1) {
                                 this.findData[0].gradeDescName = '일반'
-                            } else if (grd === 2) {
+                            } else if (grd == 2) {
                                 this.findData[0].gradeDescName = '내부 관계자'
                             } else {
                                 this.findData[0].gradeDescName = '오류'
                             }
 
                             for (let a in countryCode) {
-                                if (Number(this.findData[0].countryCode) === countryCode[a].Value) {
+                                if (this.findData[0].countryCode.value == countryCode[a].Value.value) {
                                     console.log(countryCode[a].DescName);
                                     this.findData[0].countryDescName = countryCode[a].DescName;
                                 }
                             }
 
                             for (let b in regionCode) {
-                                if (Number(this.findData[0].regionCode) === regionCode[b].Value) {
+                                if (this.findData[0].regionCode.value == regionCode[b].Value.value) {
                                     console.log(regionCode[b].DescName);
                                     this.findData[0].regionDescName = regionCode[b].DescName;
                                 }
@@ -224,9 +222,9 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
         }
         let type: number = 0;
         for (let i in this.tableData) {
-            if (this.tableData[i].DataName === "VendorAccount") {
+            if (this.tableData[i].DataName == "VendorAccount") {
                 type = +this.tableData[i].Type;
-                console.log(type);
+                //console.log(type);
             }
         }
         this.userDetailService.getInventoryData(type, id)
@@ -234,28 +232,29 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                 userIdData => {
                     res = userIdData;
                     console.log(' this.userIdData', res)
-                    if (res.result === 100) {
+                    if (res.result.value == "100") {
                         this.userIdData = res.data[0];
+                        /*
+                       let countyCode = this.gameInfoData[0].COUNTRY_CODE_LIST;
+                       let regionCode = this.gameInfoData[0].REGION_CODE_LIST;
 
-                        let countyCode = this.gameInfoData[0].COUNTRY_CODE_LIST;
-                        let regionCode = this.gameInfoData[0].REGION_CODE_LIST;
-                        for (let i in countyCode) {
-                            if (this.userIdData.countryCode === countyCode[i].Value) {
-                                console.log(countyCode[i].DescName);
-                                this.userIdData.countryName = countyCode[i].DescName;
-                            }
-                        }
-                        for (let i in regionCode) {
-                            if (this.userIdData.regionCode === regionCode[i].Value) {
-                                console.log(regionCode[i].DescName);
-                                this.userIdData.regionName = regionCode[i].DescName;
-                            }
-                        }
-
+                       for (let i in countyCode) {
+                           if (this.userIdData.countryCode.value == countyCode[i].Value.value) {
+                               console.log(countyCode[i].DescName);
+                               this.userIdData.countryName = countyCode[i].DescName;
+                           }
+                       }
+                       for (let i in regionCode) {
+                           if (this.userIdData.regionCode.value == regionCode[i].Value.value) {
+                               console.log(regionCode[i].DescName);
+                               this.userIdData.regionName = regionCode[i].DescName;
+                           }
+                       }
+                       */
                         this.setEditOpen(content);
 
                     } else {
-                        swal("It can't find data", "Result Number is " + res.result, "error");
+                        swal("It can't find data", "Result Number is " + res.result.value, "error");
 
                     }
                 },
@@ -265,7 +264,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                 });
     }
 
-    getInventoryData(id: number) {
+    getInventoryData(id: string) {
         let res: any = [];
         let type: number = 0;
         for (let i in this.tableData) {
@@ -280,12 +279,12 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                     res = invenData;
                     this.invenData = res.data;
                     console.log(' this.invenData', res)
-                    if (res.result === 100) {
-                        console.log(this.gameInfoData[0].ITEM_CODE_LIST[0])
+                    if (res.result == 100) {
+                        //console.log(this.gameInfoData[0].ITEM_CODE_LIST)
                         for (let i in this.invenData) {
                             for (let a in this.gameInfoData[0].ITEM_CODE_LIST) {
-                                if (Number(this.invenData[i].itemCode) === this.gameInfoData[0].ITEM_CODE_LIST[a].Value) {
-                                    //console.log(this.gameInfoData[0].ITEM_CODE_LIST[a].DescName);
+                                if (this.invenData[i].itemCode.value == this.gameInfoData[0].ITEM_CODE_LIST[a].Value.value) {
+                                    console.log('xxx',this.gameInfoData[0].ITEM_CODE_LIST[a].DescName);
                                     this.invenData[i].descName = this.gameInfoData[0].ITEM_CODE_LIST[a].DescName;
                                 }
                             }
@@ -308,7 +307,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                     res = invenRemoveItem;
                     this.invenRemoveItem = res.data;
                     console.log(' this.invenRemoveItem', res);
-                    if (res.result === 100) {
+                    if (res.result == 100) {
                         this.invenData.splice(rowid, 1);
                         swal("성공", rowid + ": 아이템 삭제 되었습니다.", "success");
                     } else {
@@ -329,7 +328,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                     res = invenModifyData;
                     this.invenModifyData = res.data;
                     console.log(' this.invenModifyData', res)
-                    if (res.result === 100) {
+                    if (res.result.value == 100) {
                         swal("성공", "플레이어 아이디: " + id + ' 행번호:' + rowid + " 아이템 정보가 수정 되었습니다.", "success");
                         this.invenData[rowid].exp = res.data[0].exp;
                         this.invenData[rowid].level = res.data[0].level;
@@ -338,7 +337,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                         //$('#sty-gem').css({"color":"blue", "font-weight":"bold"})
                         //$('#sty-bGem').css({"color":"blue", "font-weight":"bold"})
                     } else {
-                        swal("Error", "Result Number is " + res.result, "error");
+                        swal("Error", "Result Number is " + res.result.value, "error");
                     }
                 },
                 error => {
@@ -346,25 +345,26 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                 });
     }
 
-    getPostItemData(id: number) {
+    getPostItemData(id: string) {
         let res: any = [];
         let type: number = 0;
         for (let i in this.tableData) {
-            if (this.tableData[i].DataName === "PostData") {
+            if (this.tableData[i].DataName == "PostData") {
                 type = +this.tableData[i].Type;
                 console.log(type);
             }
         }
+
         //팝업창을 띄우고 콜
         this.userDetailService.getPostItemData(type, id)
             .subscribe(
                 postData => {
                     res = postData;
                     console.log(' this.postData', res)
-                    if (res.result === 100) {
+                    if (res.result.value == '100') {
                         this.postData = res.data;
                     } else {
-                        swal("It can't find " + type + " data", "Result Number is " + res.result, "error");
+                        swal("It can't find " + type + " data", "Result Number is " + res.result.value, "error");
                     }
                 },
                 error => {
@@ -380,7 +380,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                 removePostData => {
                     res = removePostData;
                     console.log(' this.removePostData', res)
-                    if (res.result === 100) {
+                    if (res.result == 100) {
                         this.removePostData = res.data;
                         this.postData.splice(rowid, 1);
                         swal("성공", postid + ": 우편이 삭제 되었습니다.", "success");
@@ -401,12 +401,12 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                 sendMailData => {
                     res = sendMailData;
                     console.log(' this.sendMailData', res)
-                    if (res.result === 100) {
+                    if (res.result == 100) {
                         swal("우편 발송 완료", res.data[0].state, "success");
                         this.sendMailData = res.data;
                         this.getPostItemData(id);
                     } else {
-                        swal("It can't find data", "Result Number is " + res.result, "error");
+                        swal("It can't find data", "Result Number is " + res.result.value, "error");
                     }
                 },
                 error => {
@@ -423,12 +423,12 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                     res = blockData;
                     this.blockData = res.data;
                     console.log(' this.blockData', res)
-                    if (res.result === 100) {
+                    if (res.result.value == 100) {
                         swal(id + " has been block", "Time to " + res.data[0].BlockTime, "success");
                         this.findData[0].blockTime = res.data[0].BlockTime;
                         $('#sty-panelty-time').css({"color": "blue", "font-weight": "bold"})
                     } else {
-                        swal("It can't find data", "Result Number is " + res.result, "error");
+                        swal("It can't find data", "Result Number is " + res.result.value, "error");
                     }
                 },
                 error => {
@@ -446,13 +446,13 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                     res = userGradeData;
                     this.userGradeData = res.data;
                     //console.log(' this.userGradeData', res)
-                    if (res.result === 100) {
-                        let grd = res.data[0].newGrade;
-                        if (grd === 0) {
+                    if (res.result.value == 100) {
+                        let grd = res.data[0].newGrade.value;
+                        if (grd == 0) {
                             this.findData[0].gradeDescName = '영구블럭'
-                        } else if (grd === 1) {
+                        } else if (grd == 1) {
                             this.findData[0].gradeDescName = '일반'
-                        } else if (grd === 2) {
+                        } else if (grd == 2) {
                             this.findData[0].gradeDescName = '내부 관계자'
                         } else {
                             this.findData[0].gradeDescName = '오류'
@@ -461,7 +461,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                         $('#sty-grade').css({"color": "blue", "font-weight": "bold"})
                         swal(id + "님 유저 등급이 변경 되었습니다.", "새로운 등급: " + res.data[0].newGrade, "success");
                     } else {
-                        swal("It can't find data", "Result Number is " + res.result, "error");
+                        swal("It can't find data", "Result Number is " + res.result.value, "error");
                     }
                 },
                 error => {
@@ -479,12 +479,12 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                     res = chgGoldData;
                     this.chgGoldData = res.data;
                     console.log(' this.chgGoldData', res)
-                    if (res.result === 100) {
+                    if (res.result.value == 100) {
                         swal("수정 되었습니다.", "보유중인 골드" + this.findData[0].gold + "에서 " + res.data[0] + "로 변경 되었습니다.", "success");
                         this.findData[0].gold = res.data[0];
                         $('#sty-gold').css({"color": "blue", "font-weight": "bold"})
                     } else {
-                        swal("It can't find data", "Result Number is " + res.result, "error");
+                        swal("It can't find data", "Result Number is " + res.result.value, "error");
                     }
                 },
                 error => {
@@ -502,14 +502,14 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                     res = chgGemData;
                     this.chgGemData = res.data;
                     console.log(' this.chgGemData', res)
-                    if (res.result === 100) {
+                    if (res.result.value == 100) {
                         swal("수정 되었습니다.", "보유중인 GEM은 " + this.findData[0].gem + "에서 " + res.data[0] + "로 변경 되었습니다. <br>" + "보유중인 보너스 GEM은 " + this.findData[0].bonusGem + "에서 " + res.data[1] + "로 변경 되었습니다. \n", "success");
                         this.findData[0].gem = res.data[0];
                         this.findData[0].bonusGem = res.data[1];
                         $('#sty-gem').css({"color": "blue", "font-weight": "bold"})
                         $('#sty-bGem').css({"color": "blue", "font-weight": "bold"})
                     } else {
-                        swal("Error", "Result Number is " + res.result, "error");
+                        swal("Error", "Result Number is " + res.result.value, "error");
                     }
                 },
                 error => {
@@ -568,14 +568,14 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                 friendListData => {
                     res = friendListData;
                     console.log(' this.friendListData', res)
-                    if (res.result === 100) {
+                    if (res.result.value == 100) {
                         if(res.data.length > 0){
                             this.friendListData = res.data;
                         }else{
                             this.friendListData = [];
                         }
                     } else {
-                        swal("It can't find data", "Result Number is " + res.result, "error");
+                        swal("It can't find data", "Result Number is " + res.result.value, "error");
 
                     }
                 },
@@ -601,7 +601,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                 friendListData => {
                     res = friendListData;
                     console.log(' this.clanListData', res)
-                    if (res.result === 100) {
+                    if (res.result.value == 100) {
                         if(res.data.length > 0){
                             this.clanListData = res.data;
                             let countryCode = this.gameInfoData[0].COUNTRY_CODE_LIST;
@@ -616,7 +616,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                             this.clanListData = [];
                         }
                     } else {
-                        swal("It can't find data", "Result Number is " + res.result, "error");
+                        swal("It can't find data", "Result Number is " + res.result.value, "error");
                     }
                 },
                 error => {
@@ -641,7 +641,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                 friendListData => {
                     res = friendListData;
                     console.log(' this.clanListMemberData', res)
-                    if (res.result === 100) {
+                    if (res.result.value == 100) {
                         if(res.data.length > 0){
                             this.clanListMemberData = res.data;
                             let clanID = this.clanListData[0].clanID;
@@ -655,7 +655,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                             this.clanListMemberData = [];
                         }
                     } else {
-                        swal("It can't find data", "Result Number is " + res.result, "error");
+                        swal("It can't find data", "Result Number is " + res.result.value, "error");
 
                     }
                 },
@@ -682,14 +682,14 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                     res = googleBillingData;
                     console.log(' this.googleBillingData', res)
                     console.log(' this.googleBillingData', res.data.length)
-                    if (res.result === 100) {
+                    if (res.result.value == 100) {
                         if(res.data.length > 0){
                             this.googleBillingData = res.data;
                         }else{
                             this.googleBillingData = [];
                         }
                     } else {
-                        swal("It can't find data", "Result Number is " + res.result, "error");
+                        swal("It can't find data", "Result Number is " + res.result.value, "error");
 
                     }
                 },
@@ -705,7 +705,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
         }
         let type: number = 0;
         for (let i in this.tableData) {
-            if (this.tableData[i].DataName === "AppleBilling") {
+            if (this.tableData[i].DataName == "AppleBilling") {
                 type = +this.tableData[i].Type;
                 console.log(type);
             }
@@ -715,7 +715,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                 appleBillingData => {
                     res = appleBillingData;
 
-                    if (res.result === 100) {
+                    if (res.result.value == 100) {
                         if(res.data.length > 0){
                             this.appleBillingData = res.data;
                             console.log(' this.appleBillingData', res.data)
@@ -723,7 +723,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                             this.appleBillingData = [];
                         }
                     } else {
-                        swal("It can't find data", "Result Number is " + res.result, "error");
+                        swal("It can't find data", "Result Number is " + res.result.value, "error");
 
                     }
                 },
