@@ -57,16 +57,16 @@ export class AuthComponent implements OnInit {
             Helpers.setLoading(false);
             LoginCustom.init();
         });
-        //this.model.ip='http://122.199.219.189:20011';
+        this.model.ip='http://122.199.219.189:20011';
     }
 
     signin() {
         let res: any = [];
         this.loading = true;
         let conpass = Md5.hashStr(this.model.password);
-        //let connectIP=this.model.ip;
+        let connectIP=this.model.ip;
         //live
-        let connectIP='http://110.234.23.129:20011';
+        //let connectIP='http://110.234.23.129:20011';
         this._authService.login(this.model.id, conpass, connectIP).subscribe(
             data => {
                 res = data;

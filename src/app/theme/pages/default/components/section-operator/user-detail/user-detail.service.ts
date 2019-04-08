@@ -31,8 +31,11 @@ export class UserDetailService {
         Helpers.setLoading(true);
         let wikiUrl = `${this.apiUrl}/WAPI/FindNamePlayer/?key=${this.apiKey}`;
         let url = `${wikiUrl}&name=${id}`;
+
+        //console.log('param', id);
+        //console.log('param', encodeURI(url));
         return this.http
-            .get(url)
+            .get(encodeURI(url))
             .map(this.extractData)
             .catch(handleError)
     }
@@ -42,7 +45,7 @@ export class UserDetailService {
         let targetUrl = `${this.apiUrl}/WAPI/GetTableData/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&type=${type}&hashKey=${id}`;
         return this.http
-            .get(setUrl)
+            .get(encodeURI(setUrl))
             .map(this.extractData)
             .catch(handleError);
     }
@@ -52,7 +55,7 @@ export class UserDetailService {
         let targetUrl = `${this.apiUrl}/WAPI/GetTableData/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&type=${type}&hashKey=${id}`;
         return this.http
-            .get(setUrl)
+            .get(encodeURI(setUrl))
             .map(this.extractData)
             .catch(handleError);
     }
@@ -70,7 +73,7 @@ export class UserDetailService {
         let targetUrl = `${this.apiUrl}/WAPI/AddPost/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&playerID=${id}&itemCode=${itemCode}&count=${count}&senderName=${sender}&message=${message}`;
         return this.http
-            .get(setUrl)
+            .get(encodeURI(setUrl))
             .map(this.extractData)
             .catch(handleError);
     }
@@ -89,7 +92,7 @@ export class UserDetailService {
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/GetCodeInfo/?key=${this.apiKey}`;
         return this.http
-            .get(url)
+            .get(encodeURI(url))
             .map(this.extractData)
             .catch(handleError);
     }
@@ -109,7 +112,7 @@ export class UserDetailService {
         let targetUrl = `${this.apiUrl}/WAPI/ModifyGold/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&playerID=${id}&gold=${param}`;
         return this.http
-            .get(setUrl)
+            .get(encodeURI(setUrl))
             .map(this.extractData)
             .catch(handleError);
     }
@@ -119,7 +122,7 @@ export class UserDetailService {
         let targetUrl = `${this.apiUrl}/WAPI/ModifyGem/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&playerID=${id}&gem=${param1}&bonusgem=${param2}`;
         return this.http
-            .get(setUrl)
+            .get(encodeURI(setUrl))
             .map(this.extractData)
             .catch(handleError);
     }
@@ -128,7 +131,7 @@ export class UserDetailService {
         let targetUrl = `${this.apiUrl}/WAPI/ChangeUsreGrade/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&playerID=${id}&grade=${grade}`;
         return this.http
-            .get(setUrl)
+            .get(encodeURI(setUrl))
             .map(this.extractData)
             .catch(handleError);
     }
@@ -138,7 +141,7 @@ export class UserDetailService {
         let targetUrl = `${this.apiUrl}/WAPI/ModifyItem/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&playerID=${id}&itemCode=${itemCode}&count=${count}&level=${level}&expriy=${expriy}&skinCode=${skinCode}`;
         return this.http
-            .get(setUrl)
+            .get(encodeURI(setUrl))
             .map(this.extractData)
             .catch(handleError);
     }
@@ -146,7 +149,7 @@ export class UserDetailService {
         let targetUrl = `${this.apiUrl}/WAPI/RemoveItem/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&playerID=${id}&itemCode=${itemCode}`;
         return this.http
-            .get(setUrl)
+            .get(encodeURI(setUrl))
             .map(this.extractData)
             .catch(handleError);
     }
@@ -155,7 +158,7 @@ export class UserDetailService {
         let targetUrl = `${this.apiUrl}/WAPI/GetTableData/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&type=${type}&hashKey=${id}`;
         return this.http
-            .get(setUrl)
+            .get(encodeURI(setUrl))
             .map(this.extractData)
             .catch(handleError);
     }
@@ -164,7 +167,7 @@ export class UserDetailService {
         let targetUrl = `${this.apiUrl}/WAPI/GetTableData/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&type=${type}&hashKey=${id}`;
         return this.http
-            .get(setUrl)
+            .get(encodeURI(setUrl))
             .map(this.extractData)
             .catch(handleError);
     }
@@ -173,7 +176,7 @@ export class UserDetailService {
         let targetUrl = `${this.apiUrl}/WAPI/GetTableData/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&type=${type}&hashKey=${id}`;
         return this.http
-            .get(setUrl)
+            .get(encodeURI(setUrl))
             .map(this.extractData)
             .catch(handleError);
     }
@@ -182,7 +185,7 @@ export class UserDetailService {
         let targetUrl = `${this.apiUrl}/WAPI/GetTableData/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&type=${type}&hashKey=${id}`;
         return this.http
-            .get(setUrl)
+            .get(encodeURI(setUrl))
             .map(this.extractData)
             .catch(handleError);
     }
@@ -193,7 +196,7 @@ export class UserDetailService {
 
         //let losslessData=LosslessJSON.parse(res.text());
         let body = LosslessJSON.parse(res.text());
-        console.log('datas',body);
+        //console.log('datas',body);
         return body || {};
     }
 }

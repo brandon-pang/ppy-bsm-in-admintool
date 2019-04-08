@@ -129,7 +129,8 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
             .subscribe(
                 findData => {
                     res = findData;
-                    console.log(' this.findData', res)
+                    //console.log(' this.findData', res)
+                    //console.log('param', id);
                     if (res.result.value == 100) {
                         this.findData = res.data;
                         this.blockPlayerID = this.findData[0].playerID.value;
@@ -480,8 +481,8 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                     this.chgGoldData = res.data;
                     console.log(' this.chgGoldData', res)
                     if (res.result.value == 100) {
-                        swal("수정 되었습니다.", "보유중인 골드" + this.findData[0].gold + "에서 " + res.data[0] + "로 변경 되었습니다.", "success");
-                        this.findData[0].gold = res.data[0];
+                        swal("수정 되었습니다.", "보유중인 골드" + this.findData[0].gold + "에서 " + res.data[0].gold + "로 변경 되었습니다.", "success");
+                        this.findData[0].gold = res.data[0].gold;
                         $('#sty-gold').css({"color": "blue", "font-weight": "bold"})
                     } else {
                         swal("It can't find data", "Result Number is " + res.result.value, "error");
@@ -503,9 +504,9 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                     this.chgGemData = res.data;
                     console.log(' this.chgGemData', res)
                     if (res.result.value == 100) {
-                        swal("수정 되었습니다.", "보유중인 GEM은 " + this.findData[0].gem + "에서 " + res.data[0] + "로 변경 되었습니다. <br>" + "보유중인 보너스 GEM은 " + this.findData[0].bonusGem + "에서 " + res.data[1] + "로 변경 되었습니다. \n", "success");
-                        this.findData[0].gem = res.data[0];
-                        this.findData[0].bonusGem = res.data[1];
+                        swal("수정 되었습니다.", "보유중인 GEM은 " + this.findData[0].gem + "에서 " + res.data[0].gem + "로 변경 되었습니다. <br>" + "보유중인 보너스 GEM은 " + this.findData[0].bonusGem + "에서 " + res.data[0].bonusGem + "로 변경 되었습니다. \n", "success");
+                        this.findData[0].gem = res.data[0].gem;
+                        this.findData[0].bonusGem = res.data[0].bonusGem;
                         $('#sty-gem').css({"color": "blue", "font-weight": "bold"})
                         $('#sty-bGem').css({"color": "blue", "font-weight": "bold"})
                     } else {

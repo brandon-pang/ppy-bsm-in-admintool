@@ -150,11 +150,11 @@
 								</tr>
 								<tr>
 									<th scope="row">Gem</th>
-									<td id="sty-gem">{{findData[0]?.gem}}</td>
+									<td id="sty-gem">{{findData[0]?.gem.value | number}}</td>
 								</tr>
 								<tr>
 									<th scope="row">Bonus Gem</th>
-									<td id="sty-bGem">{{findData[0]?.bonusGem}}</td>
+									<td id="sty-bGem">{{findData[0]?.bonusGem.value | number}}</td>
 								</tr>
 								<tr>
 									<th scope="row">Total Charge Gem</th>
@@ -386,7 +386,7 @@
 								<td style="vertical-align: middle;">{{ findData[0]?.playerID }}</td>
 								<td style="vertical-align: middle;">{{ findData[0]?.gold.value | number }}</td>
 								<td style="vertical-align: middle;"><button class="btn btn-warning" [ngClass]="{'disabled':blockPlayerID == '' }" [disabled]="blockPlayerID===''" (click)="setEditOpen(goldEdit)">골드 수정</button></td>
-								<td style="vertical-align: middle;">{{ findData[0]?.gem }}</td>
+								<td style="vertical-align: middle;">{{ findData[0]?.gem.value | number }}</td>
 								<td style="vertical-align: middle;">{{ findData[0]?.bonusGem.value | number }}</td>
 								<td style="vertical-align: middle;"><button class="btn btn-danger" [ngClass]="{'disabled':blockPlayerID == '' }" [disabled]="blockPlayerID===''" (click)="setEditOpen(gemEdit)">GEM 수정</button></td>
 							</tr>
