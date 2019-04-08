@@ -60,6 +60,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
     public appleBillingData: any = [];
     public friendTab:boolean=false;
     public billingTab:boolean=false;
+    public intervalID:any='';
 
     //private sub: any;
     constructor(
@@ -129,7 +130,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
             .subscribe(
                 findData => {
                     res = findData;
-                    //console.log(' this.findData', res)
+                    console.log(' this.findData', res)
                     //console.log('param', id);
                     if (res.result.value == 100) {
                         this.findData = res.data;
@@ -190,30 +191,29 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
 
     setCountDown(date) {
         const second = 1000,minute = second * 60,hour = minute * 60,day = hour * 24;
+        let countDown = new Date(date).getTime()
+        let now = new Date().getTime()
+        let distance = countDown - now;
 
-        let countDown = new Date(date).getTime(),
-            x = setInterval(function () {
+        clearInterval(this.intervalID);
+        $('#time').text('');
+
+        if (distance < 0) {
+            clearInterval(this.intervalID);
+            $('#time').text('');
+        }else{
+            this.intervalID=setInterval(function () {
+                let countDown = new Date(date).getTime()
+                let now = new Date().getTime()
                 let countDay,countHour,countMin,countSec;
-
-                let now = new Date().getTime(),
-                    distance = countDown - now;
-                //do something later when date is reached
-                if (distance < 0) {
-                    clearInterval(x);
-                    countDay = 0;
-                    countHour = 0;
-                    countMin = 0;
-                    countSec = 0;
-                    $('#time').text('');
-                } else {
-                    countDay = Math.floor(distance / (day));
-                    countHour = Math.floor((distance % (day)) / (hour));
-                    countMin = Math.floor((distance % (hour)) / (minute));
-                    countSec = Math.floor((distance % (minute)) / second);
-                    $('#time').text("  Time Left: "+countDay+"d  "+countHour+":"+countMin+":"+countSec);
-                }
-
+                let distance = countDown - now;
+                countDay = Math.floor(distance / (day));
+                countHour = Math.floor((distance % (day)) / (hour));
+                countMin = Math.floor((distance % (hour)) / (minute));
+                countSec = Math.floor((distance % (minute)) / second);
+                $('#time').text("  Time Left: "+countDay+"d  "+countHour+":"+countMin+":"+countSec);
             }, second)
+        }
     }
 
     getUserIdData(id: string, content) {
