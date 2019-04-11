@@ -57,14 +57,12 @@ export class ServerManageComponent implements OnInit {
                     } else {
                         swal("Error", "Result Number is " + res.result, "error");
                     }
-                    console.log('this serverStat', this.serverStatData)
                 },
                 error => this.errMessage = <any>error);
     }
 
     getCheckStatAllServer(serverBoo, arBoo) {
         console.log(serverBoo, arBoo);
-
         if (!serverBoo) {
             this.getServerAllStop(arBoo)
         } else if (serverBoo) {
@@ -88,23 +86,27 @@ export class ServerManageComponent implements OnInit {
                 serverAllStartReturn => {
                     res = serverAllStartReturn;
                     console.log('getServerAllStart', res);
+
                     if (res.result === 100) {
                         this.serverAllStartReturn = res.data[0].serverList;
+
                         this.allServerOnSet = true;
                         this.allServerArSet = boo;
 
                         let serverData = this.serverStatData[0];
                         let returnData = this.serverAllStartReturn;
+
                         for (let i in returnData) {
                             let setServerName=returnData[i]
                             for (let a in setServerName) {
                                 if (setServerName[a].Result == 'success') {
-                                    //serverData[i][a].Concurrent=boo;
                                     serverData[i][a].State='ACTIVE';
                                 }
                             }
                         }
                         swal("Start All Server", "모든 서버가 구동중 입니다.", "success");
+                        //리셋
+                        this.getServerStateList();
                         console.log('this serverStat', this.serverAllStartReturn)
                     } else {
                         swal("Error", "Result Number is " + res.result, "error");
@@ -138,6 +140,8 @@ export class ServerManageComponent implements OnInit {
                             }
                         }
                         swal("Stop All Server", "모든 서버가 중단 되었습니다.", "success");
+                        //리셋
+                        this.getServerStateList();
                         console.log('this serverStat', this.serverAllStopReturn)
                     } else {
                         swal("Error", "Result Number is " + res.result, "error");
@@ -166,6 +170,9 @@ export class ServerManageComponent implements OnInit {
                             }
                         }
                         swal("Update All Server", "모든 업데이트 되었습니다.", "success");
+                        //리셋
+                        this.getServerStateList();
+
                         console.log('this serverStat', this.serverAllUpdateReturn)
                     } else {
                         swal("Error", "Result Number is " + res.result, "error");

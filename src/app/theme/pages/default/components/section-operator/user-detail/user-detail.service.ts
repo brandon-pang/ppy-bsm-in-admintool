@@ -190,6 +190,15 @@ export class UserDetailService {
             .catch(handleError);
     }
 
+    refundGoogleBilling(playerid, purchaseid): Observable<any[]> {
+        let targetUrl = `${this.apiUrl}/WAPI/InappRefund/?key=${this.apiKey}`;
+        let setUrl = `${targetUrl}&playerID=${playerid}&purchaseID=${purchaseid}`;
+        return this.http
+            .get(setUrl)
+            .map(this.extractData)
+            .catch(handleError);
+    }
+
     private extractData(res: Response) {
         Helpers.setLoading(false);
         //console.log('datas',LosslessJSON.stringify(LosslessJSON.parse(res.text())));

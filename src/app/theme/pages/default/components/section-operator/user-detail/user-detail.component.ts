@@ -686,6 +686,15 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                     if (res.result.value == 100) {
                         if(res.data.length > 0){
                             this.googleBillingData = res.data;
+                            let shopCodeListData=this.gameInfoData[0].SHOP_CODE_LIST
+                            for (let i in this.googleBillingData) {
+                                for (let a in shopCodeListData) {
+                                    if (this.googleBillingData[i].shopCode.value == shopCodeListData[a].Value.value) {
+                                        console.log('xxx',shopCodeListData[a].DescName);
+                                        this.googleBillingData[i].shopDescName = shopCodeListData[a].DescName;
+                                    }
+                                }
+                            }
                         }else{
                             this.googleBillingData = [];
                         }
@@ -697,6 +706,26 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                 error => {
                     this.errMessage = <any>error;
 
+                });
+    }
+    refundGoogleBilling(rowid, playerid: string, purchaseid: string) {
+        let res: any = [];
+        //팝업창을 띄우고 콜
+        this.userDetailService.refundGoogleBilling(playerid, purchaseid)
+            .subscribe(
+                refundGoogleBilling => {
+                    res = refundGoogleBilling;
+                    console.log(' this.refundGoogleBilling', res)
+                    if (res.result.value == 100) {
+                        this.refundGoogleBilling = res.data;
+                        swal("성공", purchaseid + ": 이(가) 환불이 완료 되었습니다.", "success");
+                        this.googleBillingData.splice(rowid, 1);
+                    } else {
+                        swal("It can't find ID:" + purchaseid, "Result Number is " + res.result.value, "error");
+                    }
+                },
+                error => {
+                    this.errMessage = <any>error;
                 });
     }
     getAppleBillingData(id: string) {

@@ -115,10 +115,6 @@
 									<td>{{findData[0]?.lastLoginIP}}</td>
 								</tr>
 								<tr>
-									<th scope="row">Last Login SERVER</th>
-									<td>{{findData[0]?.lastLoginServerID}}</td>
-								</tr>
-								<tr>
 									<th scope="row">Last Log-out</th>
 									<td>{{findData[0]?.lastLogoutTime}}</td>
 								</tr>
@@ -582,8 +578,10 @@
 								<th>_id</th>
 								<th>order ID</th>
 								<th>Purchase ID</th>
+								<th>Purchase Date</th>
 								<th>Shop Code</th>
 								<th>State</th>
+								<th>Control</th>
 							</tr>
 							</thead>
 							<tbody>
@@ -592,12 +590,17 @@
 								<td>{{p._id}}</td>
 								<td>{{p.orderID}}</td>
 								<td>{{p.purchaseID}}</td>
-								<td>{{p.shopCode}}</td>
+								<td>{{p.purchaseDate}}</td>
+								<td>{{p.shopDescName}}</td>
 								<td>
 									<span class="m-badge m-badge--wide m-badge--rounded" *ngIf="p.state == 0">NONE</span>
 									<span class="m-badge m-badge--wide m-badge--rounded m-badge--warning"*ngIf="p.state == 1">구매 중</span>
 									<span class="m-badge m-badge--wide m-badge--rounded m-badge--info" *ngIf="p.state == 2">구매완료</span>
 									<span class="m-badge m-badge--wide m-badge--rounded m-badge--brand" *ngIf="p.state == 3">환불완료</span>
+								</td>
+								<td>
+									<button type="button" class="btn btn-warning btn-sm" *ngIf="p.state == 2"
+											(click)="refundGoogleBilling(i, blockPlayerID, p.purchaseID.value)">환불</button>
 								</td>
 							</tr>
 							</tbody>
@@ -658,10 +661,6 @@
 			<tr>
 				<td style="width:40%;" class="bg-light m--font-bolder">User ID</td>
 				<td style="width:60%; word-break: break-all;">{{userIdData.userID}}</td>
-			</tr>
-			<tr>
-				<td style="width:40%;" class="bg-light m--font-bolder">Token</td>
-				<td style="width:60%;">{{userIdData.gameToken}}</td>
 			</tr>
 			<tr>
 				<td style="width:40%;" class="bg-light m--font-bolder">Type</td>
