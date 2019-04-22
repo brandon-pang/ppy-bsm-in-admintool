@@ -17,7 +17,7 @@ declare var swal: any;
 
 export class UserDetailComponent implements OnInit, AfterViewInit {
 
-    @Input() name;
+    @Input('ngModel') model:any;
     errTitle: string = "";
     errMessage: string = "";
     findData: any = [];
@@ -32,7 +32,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
     blockReason: string = '';
     id: string = "0";
     postData: any = [];
-    nickName: string = "";
+    nickName: string = '';
 
     public gameInfoData: any = []
     public tableData: any = [];
@@ -61,6 +61,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
     public friendTab:boolean=false;
     public billingTab:boolean=false;
     public intervalID:any='';
+    private selectedLink: string="nickname";
 
     //private sub: any;
     constructor(
@@ -76,9 +77,16 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
         this.getGameItemInfo();
 
         let hasName = sessionStorage.getItem("nickName");
+        let hasId = sessionStorage.getItem("playerID");
 
-        if (hasName !== null) {
-            this.getParamData(hasName);
+        if(this.selectedLink=='nickname'){
+            if (hasName != '' || hasName != null) {
+                this.getParamData(hasName);
+            }
+        }else{
+            if (hasId != '' || hasId != null){
+                this.getPlayerIdData(hasId);
+            }
         }
     }
 
@@ -87,6 +95,19 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
             ['assets/demo/default/custom/components/forms/widgets/select2.js']);
         this._script.loadScripts('app-widgets-bootstrap-datetimepicker',
             ['assets/demo/default/custom/components/base/sweetalert2.js']);
+    }
+
+    setradio(e: string): void
+    {
+        this.selectedLink = e;
+    }
+
+    isSelected(name: string): boolean
+    {
+        if (!this.selectedLink) {
+            return false;
+        }
+        return (this.selectedLink === name);
     }
 
     getTableList(): void {
@@ -123,70 +144,126 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
 
     getParamData(id: string) {
         let res: any = [];
+
         if (!id) {
             return;
         }
+
+        this.nickName='';
         this.userDetailService.getParamData(id)
             .subscribe(
                 findData => {
                     res = findData;
                     console.log(' this.findData', res)
-                    //console.log('param', id);
+                    console.log('param', id);
+
                     if (res.result.value == 100) {
-                        this.findData = res.data;
-                        this.blockPlayerID = this.findData[0].playerID.value;
-                        this.nickName = id;
-                        sessionStorage.setItem('nickName', id);
-                        sessionStorage.setItem('playerID', this.blockPlayerID);
-
-                        setTimeout(() => {
-                            this.getInventoryData(this.blockPlayerID);
-                            this.getPostItemData(this.blockPlayerID);
-                            this.getFriendListData(this.blockPlayerID);
-                            this.getClanListData(this.blockPlayerID);
-                            this.getGoogleBillingData(this.blockPlayerID);
-                            this.getAppleBillingData(this.blockPlayerID);
-                            let grd = this.findData[0].accountGrade.value;
-
-                            let countryCode = this.gameInfoData[0].COUNTRY_CODE_LIST;
-                            let regionCode = this.gameInfoData[0].REGION_CODE_LIST;
-
-                            this.nowGrade=grd;
-                            if (grd == 0) {
-                                this.findData[0].gradeDescName = '영구블럭'
-                            } else if (grd == 1) {
-                                this.findData[0].gradeDescName = '일반'
-                            } else if (grd == 2) {
-                                this.findData[0].gradeDescName = '내부 관계자'
-                            } else {
-                                this.findData[0].gradeDescName = '오류'
-                            }
-
-                            for (let a in countryCode) {
-                                if (this.findData[0].countryCode.value == countryCode[a].Value.value) {
-                                    console.log(countryCode[a].DescName);
-                                    this.findData[0].countryDescName = countryCode[a].DescName;
-                                }
-                            }
-
-                            for (let b in regionCode) {
-                                if (this.findData[0].regionCode.value == regionCode[b].Value.value) {
-                                    console.log(regionCode[b].DescName);
-                                    this.findData[0].regionDescName = regionCode[b].DescName;
-                                }
-                            }
-
-                            if (this.findData[0].blockTime !== '') {
-                                this.setCountDown(this.findData[0].blockTime);
-                            }
-
-                        }, 1000);
+                        if(res.data.length >= 1){
+                            this.getResultOk(res)
+                        }else{
+                            sessionStorage.removeItem('nickName');
+                            swal("It can't find data", "데이타가 존재하지 않습니다.", "error");
+                        }
                     } else {
-                        console.log(' this.findData', res)
-                        swal("It can't find data", "Result Number is " + res.result, "error");
+                        sessionStorage.removeItem('nickName');
+                        this.getResultError(res);
                     }
                 },
                 error => this.errMessage = <any>error);
+    }
+
+    getPlayerIdData(id: string) {
+        let res: any = [];
+        let type: number = 0;
+        if (!id) {
+            return;
+        }
+
+        for (let i in this.tableData) {
+            if (this.tableData[i].DataName == "PlayerAccount") {
+                type = +this.tableData[i].Type;
+                //console.log(type);
+            }
+        }
+        this.blockPlayerID='';
+        this.userDetailService.getInventoryData(type, id)
+            .subscribe(
+                playerIdData => {
+                    res = playerIdData;
+                    if (res.result.value == 100) {
+                        if(res.data.length >= 1){
+                            this.getResultOk(res)
+                        }else{
+                            this.getResultError(res)
+                        }
+                    } else {
+                        this.getResultError(res)
+                    }
+                },
+                error => {
+                    this.errMessage = <any>error;
+                });
+    }
+
+    getResultOk(res){
+        this.findData = res.data;
+        this.blockPlayerID = this.findData[0].playerID.value;
+        this.nickName = this.findData[0].nickname;
+
+        sessionStorage.setItem('nickName', this.nickName);
+        sessionStorage.setItem('playerID', this.blockPlayerID);
+
+        setTimeout(() => {
+            this.getInventoryData(this.blockPlayerID);
+            this.getPostItemData(this.blockPlayerID);
+            this.getFriendListData(this.blockPlayerID);
+            this.getClanListData(this.blockPlayerID);
+            this.getGoogleBillingData(this.blockPlayerID);
+            this.getAppleBillingData(this.blockPlayerID);
+            let grd = this.findData[0].accountGrade.value;
+
+            let countryCode = this.gameInfoData[0].COUNTRY_CODE_LIST;
+            let regionCode = this.gameInfoData[0].REGION_CODE_LIST;
+
+            this.nowGrade=grd;
+            if (grd == 0) {
+                this.findData[0].gradeDescName = '영구블럭'
+            } else if (grd == 1) {
+                this.findData[0].gradeDescName = '일반'
+            } else if (grd == 2) {
+                this.findData[0].gradeDescName = '내부 관계자'
+            } else {
+                this.findData[0].gradeDescName = '오류'
+            }
+
+            for (let a in countryCode) {
+                if (this.findData[0].countryCode.value == countryCode[a].Value.value) {
+                    console.log(countryCode[a].DescName);
+                    this.findData[0].countryDescName = countryCode[a].DescName;
+                }
+            }
+
+            for (let b in regionCode) {
+                if (this.findData[0].regionCode.value == regionCode[b].Value.value) {
+                    console.log(regionCode[b].DescName);
+                    this.findData[0].regionDescName = regionCode[b].DescName;
+                }
+            }
+
+            if (this.findData[0].blockTime !== '') {
+                this.setCountDown(this.findData[0].blockTime);
+            }
+
+        }, 1000);
+    }
+
+    getResultError(res){
+        this.findData = [];
+        this.blockPlayerID = '';
+        this.nickName = '';
+        sessionStorage.removeItem('nickName');
+        sessionStorage.removeItem('playerID');
+        swal("It can't find data", "Result Number is " + res.result, "error");
     }
 
     setCountDown(date) {
@@ -594,7 +671,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
         for (let i in this.tableData) {
             if (this.tableData[i].DataName === "Clan") {
                 type = +this.tableData[i].Type;
-                console.log(type);
+                console.log("Clan",type);
             }
         }
         this.userDetailService.getClanListData(type,id)
@@ -690,7 +767,6 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                             for (let i in this.googleBillingData) {
                                 for (let a in shopCodeListData) {
                                     if (this.googleBillingData[i].shopCode.value == shopCodeListData[a].Value.value) {
-                                        console.log('xxx',shopCodeListData[a].DescName);
                                         this.googleBillingData[i].shopDescName = shopCodeListData[a].DescName;
                                     }
                                 }
@@ -699,8 +775,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                             this.googleBillingData = [];
                         }
                     } else {
-                        swal("It can't find data", "Result Number is " + res.result.value, "error");
-
+                        swal("It can't find data", "Result is " + res.result.value, "error");
                     }
                 },
                 error => {
@@ -715,13 +790,28 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
             .subscribe(
                 refundGoogleBilling => {
                     res = refundGoogleBilling;
-                    console.log(' this.refundGoogleBilling', res)
+                    console.log(' this.refundGoogleBilling', res);
                     if (res.result.value == 100) {
                         this.refundGoogleBilling = res.data;
                         swal("성공", purchaseid + ": 이(가) 환불이 완료 되었습니다.", "success");
                         this.googleBillingData.splice(rowid, 1);
                     } else {
-                        swal("It can't find ID:" + purchaseid, "Result Number is " + res.result.value, "error");
+                        let valueMsg='에러';
+
+                        if(res.result.value=='0'){
+                            valueMsg='권한이 없습니다.';
+                        }else if(res.result.value=='1'){
+                            valueMsg='파라미터 에러';
+                        }else if(res.result.value=='2'){
+                            valueMsg='데이터가 존재하지 않습니다.';
+                        }else if(res.result.value=='3'){
+                            valueMsg='구매 완료 상태가 아닙니다.';
+                        }else if(res.result.value=='4'){
+                            valueMsg='이미 환불 되었습니다.';
+                        }else if(res.result.value=='5'){
+                            valueMsg='회수할 잼이 부족합니다.';
+                        }
+                        swal("It can't find ID:" + purchaseid, "Result is " + valueMsg, "error");
                     }
                 },
                 error => {

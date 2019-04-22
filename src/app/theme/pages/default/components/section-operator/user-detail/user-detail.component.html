@@ -21,13 +21,30 @@
 				<div class="row align-items-center">
 					<div class="col-xl-6">
 						<div class="form-group m-form__group">
-							<label for="searchInput">검색하시려는 유저의 닉네임을 입력해 주세요</label>
-							<div class="input-group">
-								<input type="text" id="searchInput" class="form-control" placeholder="Search for nickname" [value]="nickName" #newPersonName (keydown.enter)="getParamData(newPersonName.value);">
-								<div class="input-group-append">
-									<button class="btn btn-primary" type="button" (click)="getParamData(newPersonName.value);">Search</button>
+							<input type="radio" value="nickname" name="gender" (click)="setradio('nickname')" [checked]="true" ngModel> 닉네임으로 검색 &nbsp;&nbsp;
+							<input type="radio" value="playerid" name="gender" (click)="setradio('playerid')" ngModel> 플레이어 아이디로 검색
+							<br>
+							<pre></pre>
+
+							<div *ngIf="isSelected('nickname')">
+								<label for="searchInput">검색하시려는 유저의 닉네임을 입력해 주세요</label>
+								<div class="input-group">
+									<input type="text" id="searchInput" class="form-control" placeholder="Search for nickname" [value]="nickName" #newPersonName (keydown.enter)="getParamData(newPersonName.value);" >
+									<div class="input-group-append">
+										<button class="btn btn-primary" type="button" (click)="getParamData(newPersonName.value);">Search for Nick</button>
+									</div>
 								</div>
 							</div>
+							<div *ngIf="isSelected('playerid')">
+								<label for="idInput">검색하시려는 플레이어 아이디 입력해 주세요</label>
+								<div class="input-group">
+									<input type="text" id="idInput" class="form-control" placeholder="Search for Player ID" [value]="blockPlayerID" #newPlayerID (keydown.enter)="getPlayerIdData(newPlayerID.value);">
+									<div class="input-group-append">
+										<button class="btn btn-primary" type="button" (click)="getPlayerIdData(newPlayerID.value);">Search for ID</button>
+									</div>
+								</div>
+							</div>
+
 						</div>
 					</div>
 				</div>
@@ -100,6 +117,25 @@
 									<th scope="row">Tutorial Progress</th>
 									<td>{{findData[0]?.tutorialProgress}}</td>
 								</tr>
+								<tr>
+									<th colspan="2" class="bg-light text-center">Quest</th>
+								</tr>
+								<tr>
+									<th scope="row">Changed Quest Day</th>
+									<td>{{findData[0]?.ChangedQuestDay}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Changed Quest Count</th>
+									<td>{{findData[0]?.ChangedQuestCount}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Quest Table Order</th>
+									<td>{{findData[0]?.QuestTableOrder}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Quest Point</th>
+									<td>{{findData[0]?.QuestPoint}}</td>
+								</tr>
 							</table>
 						</div>
 						<div class="col-lg-6">
@@ -134,6 +170,22 @@
 								<tr>
 									<th scope="row">ClanID</th>
 									<td>{{findData[0]?.clanID}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Unabled Time for Joined Clan</th>
+									<td>{{findData[0]?.unableClanJoinTime }}</td>
+								</tr>
+								<tr>
+									<th scope="row">Request Shard Key</th>
+									<td>{{findData[0]?.requestShardKey}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Request Card ID</th>
+									<td>{{findData[0]?.requestCardID}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Next Request Card Time</th>
+									<td>{{findData[0]?.nextRequestCardTime}}</td>
 								</tr>
 								<tr>
 									<th colspan="2" class="bg-light text-center">
@@ -187,6 +239,10 @@
 									<th scope="row">Medal RewardTime</th>
 									<td>{{findData[0]?.medalRewardTime}}</td>
 								</tr>
+								<tr>
+									<th scope="row">Last Event ID</th>
+									<td>{{findData[0]?.lastEventID}}</td>
+								</tr>
 								</tbody>
 							</table>
 						</div>
@@ -198,14 +254,7 @@
 										Etc.
 									</th>
 								</tr>
-								<tr>
-									<th scope="row">Request Card ID</th>
-									<td>{{findData[0]?.requestCardID}}</td>
-								</tr>
-								<tr>
-									<th scope="row">Next Request Card Time</th>
-									<td>{{findData[0]?.nextRequestCardTime}}</td>
-								</tr>
+
 								<tr>
 									<th scope="row">Season ID</th>
 									<td>{{findData[0]?.seasonID}}</td>

@@ -6,12 +6,12 @@
       <change beforePath="$PROJECT_DIR$/dist/0.4b8989388c92bff85208.chunk.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/1.84734fa69348eee9696c.chunk.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/10.207377f08fdd04fb4f75.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/2.2b27cd3487dc2198616f.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/2.f88cc555cbc916c902dc.chunk.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/3.7c7f52dfa5d0b19a26db.chunk.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/3rdpartylicenses.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/4.46c936d98a2b46630f39.chunk.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/5.ee1b6765f65e921d58d6.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/6.47ad6c17bffcfd909a81.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/6.3c6360d8d36be7616ddb.chunk.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/7.bb5e640aa3113461a782.chunk.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/8.ba88c00f29fcc5e68e26.chunk.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/9.b947ba11bba26cd5839b.chunk.js" beforeDir="false" />
@@ -232,50 +232,14 @@
       <change beforePath="$PROJECT_DIR$/dist/assets/vendors/custom/jqvmap/jqvmap.bundle.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/color.c7a33805ffda0d32bd2a.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/inline.c56c92f9a7a9b88e2ce4.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/inline.33cb6adbb0f12ebff686.bundle.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/line.567f57385ea3dde2c9ae.gif" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/main.41968b556e2820026f36.bundle.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/polyfills.6ba58b16684180df39a9.bundle.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/styles.ac89bfdd6de82636b768.bundle.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/007e2612021a9b96c50c9533794ca081.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/007e2612021a9b96c50c9533794ca081.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/0c69e1beedaf55c2d3a6069a6b94c618.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/0c69e1beedaf55c2d3a6069a6b94c618.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/178b6dfc867277b02c9614f41dbb03e0.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/178b6dfc867277b02c9614f41dbb03e0.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/269268755904accab2ab9e06f14d6b8c.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/269268755904accab2ab9e06f14d6b8c.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/2ef61f076324c98d2affe2c854f99c2e.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/2ef61f076324c98d2affe2c854f99c2e.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/2f4c4060d3ada5336139fe9a5a1c4e85.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/2f4c4060d3ada5336139fe9a5a1c4e85.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/40220122fdbfe2cc190ee79c5a94ba75.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/40220122fdbfe2cc190ee79c5a94ba75.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/407c6402e32060549bf6107508cdcdcd.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/407c6402e32060549bf6107508cdcdcd.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/4ed7995753bfcd3769c8f168107537b6.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/4ed7995753bfcd3769c8f168107537b6.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/596ba1207d31a8bfd48dad4c69688748.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/596ba1207d31a8bfd48dad4c69688748.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/5a9dde7a7b2882daf4ca0cdda19cd27e.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/5a9dde7a7b2882daf4ca0cdda19cd27e.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/64594af334901bb60a8e086b5d6b4c08.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/64594af334901bb60a8e086b5d6b4c08.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/7b2ddf7bbdb7f1fe905380c31d298b09.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/7b2ddf7bbdb7f1fe905380c31d298b09.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/8dd90d642d6dccd0ab3eac1aa14e0795.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/8dd90d642d6dccd0ab3eac1aa14e0795.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/927fe7b3ed66c5c5bb93035c078ef6aa.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/927fe7b3ed66c5c5bb93035c078ef6aa.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/9d96d01ee9d35bfba895e71cdc3ffc42.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/9d96d01ee9d35bfba895e71cdc3ffc42.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/9e4b371e0d3c898fae60ee6de8b47e53.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/9e4b371e0d3c898fae60ee6de8b47e53.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/a8b1163ce9aa9971d7bf4baff6d348d5.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/a8b1163ce9aa9971d7bf4baff6d348d5.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/b00e7f50a522ceaa3e56e30bd41870b2.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/b00e7f50a522ceaa3e56e30bd41870b2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/bdb9a5cd0c364b72b3c85ba5a88d831e.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/bdb9a5cd0c364b72b3c85ba5a88d831e.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/c155b7b6785f7d7b017f50fac3a1549a.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/c155b7b6785f7d7b017f50fac3a1549a.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/c6aa85c1e4199d4e30aed390b8119de1.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/c6aa85c1e4199d4e30aed390b8119de1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/c828784f73cbe80632c323812ec4bd26.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/c828784f73cbe80632c323812ec4bd26.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/c948f178e107e0cd67ed31d2d36cf1fa.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/c948f178e107e0cd67ed31d2d36cf1fa.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/dc9cd8e51d94361b64fcb17fe9ca473f.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/dc9cd8e51d94361b64fcb17fe9ca473f.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/e25a8f8562392429803720a6c73113a4.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/e25a8f8562392429803720a6c73113a4.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/e347ba0e24b0ef0a01c7a209f7bc44fb.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/e347ba0e24b0ef0a01c7a209f7bc44fb.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/e44d7640db4afda7f9a0d0bf150054a7.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/e44d7640db4afda7f9a0d0bf150054a7.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/ebb66c33d906d2bafea13689a7d200ce.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/ebb66c33d906d2bafea13689a7d200ce.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/f27c1087eb799444798efbeed7e64d4e.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/f27c1087eb799444798efbeed7e64d4e.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/f378a631fff8e8e017be4cc02ec6887d.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/f378a631fff8e8e017be4cc02ec6887d.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/fa796bab99cd8bc9fd09371d349acf2a.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/fa796bab99cd8bc9fd09371d349acf2a.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/fdb4c19376230e66ca5048f41750469a.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/fdb4c19376230e66ca5048f41750469a.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/ff912aa4c93745395313abff70e82bb3.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular-devkit/build-optimizer/src/.cache/ff912aa4c93745395313abff70e82bb3.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -288,59 +252,40 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5778481">
+    <splitter split-orientation="horizontal" split-proportion="0.6341772">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="496">
-                  <caret line="175" column="24" selection-start-line="175" selection-start-column="24" selection-end-line="175" selection-end-column="24" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-91">
-                  <caret line="43" column="103" selection-start-line="43" selection-start-column="103" selection-end-line="43" selection-end-column="103" />
-                  <folding>
-                    <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#th#7;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#ng-template#2;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#4;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#4;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="462">
-                  <caret line="693" column="78" selection-start-line="693" selection-start-column="66" selection-end-line="693" selection-end-column="78" />
+                <state relative-caret-position="-135">
+                  <caret line="776" column="28" selection-start-line="776" selection-start-column="28" selection-end-line="776" selection-end-column="28" />
                   <folding>
                     <element signature="e#0#89#0" expanded="true" />
+                    <element signature="n#!!block;n#setCountDown#0;n#UserDetailComponent#0" />
+                    <element signature="n#!!block;n#getInventoryData#0;n#UserDetailComponent#0" />
+                    <element signature="n#!!block;n#setInvenRemoveItem#0;n#UserDetailComponent#0" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/app/_services/script-loader.service.ts">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
+                <state relative-caret-position="108">
+                  <caret line="97" column="37" lean-forward="true" selection-start-line="97" selection-start-column="37" selection-end-line="97" selection-end-column="37" />
                   <folding>
-                    <element signature="e#0#43#0" expanded="true" />
+                    <element signature="e#895#901#0" expanded="true" />
+                    <element signature="e#901#907#0" expanded="true" />
+                    <element signature="n#style#0;n#th#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -353,8 +298,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.service.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="468">
-                  <caret line="190" column="5" lean-forward="true" selection-start-line="190" selection-start-column="5" selection-end-line="190" selection-end-column="5" />
+                <state relative-caret-position="-24">
+                  <caret line="33" selection-start-line="33" selection-end-line="33" />
                   <folding>
                     <element signature="e#0#43#0" expanded="true" />
                   </folding>
@@ -376,13 +321,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>name=&quot;remember&quot;</find>
-      <find>for</find>
-      <find>우편발송</find>
-      <find>user gold an</find>
-      <find>ar</find>
-      <find>AR</find>
-      <find>textA</find>
       <find>?</find>
       <find>ngClass</find>
       <find>userShowVender</find>
@@ -406,6 +344,13 @@
       <find>회수</find>
       <find>removePostItemData</find>
       <find>allServerOnSet</find>
+      <find>sessionStorage</find>
+      <find>parame</find>
+      <find>getParamData</find>
+      <find>getParamData</find>
+      <find>null</find>
+      <find>nickName</find>
+      <find>model</find>
     </findStrings>
     <replaceStrings>
       <replace>persones[0].</replace>
@@ -474,18 +419,18 @@
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/notification-push/notification-push.service.ts" />
         <option value="$PROJECT_DIR$/src/app/auth/auth.component.ts" />
         <option value="$PROJECT_DIR$/src/app/auth/templates/login-1.component.html" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.html" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.service.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.html" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.html" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.ts" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1391" />
+    <option name="x" value="1472" />
     <option name="y" value="23" />
-    <option name="width" value="1920" />
+    <option name="width" value="630" />
     <option name="height" value="1177" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -494,6 +439,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -641,7 +587,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -809,7 +754,9 @@
       <workItem from="1554408999520" duration="974000" />
       <workItem from="1554487504860" duration="9966000" />
       <workItem from="1554757249911" duration="5134000" />
-      <workItem from="1555003772156" duration="3583000" />
+      <workItem from="1555003772156" duration="4391000" />
+      <workItem from="1555369623579" duration="38000" />
+      <workItem from="1555950011874" duration="9125000" />
     </task>
     <task id="LOCAL-00001" summary="우편함에서 우편발송 부분 수정">
       <created>1547083774443</created>
@@ -920,7 +867,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="368019000" />
+    <option name="totallyTimeSpent" value="377990000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -935,9 +882,9 @@
     <frame x="1440" y="23" width="1920" height="1177" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7459324" visible="true" weight="0.16798314" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7434293" visible="true" weight="0.16798314" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" sideWeight="0.25406757" side_tool="true" visible="true" weight="0.16798314" />
+      <window_info id="npm" order="2" sideWeight="0.25657073" side_tool="true" visible="true" weight="0.16798314" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3299539" />
@@ -1209,13 +1156,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/typescript/lib/lib.dom.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="14672" column="12" selection-start-line="14672" selection-start-column="12" selection-end-line="14672" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/theme/layouts/header-nav/header-nav.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1363,55 +1303,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/_services/script-loader.service.ts">
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="190" column="5" lean-forward="true" selection-start-line="190" selection-start-column="5" selection-end-line="190" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="604" column="33" lean-forward="true" selection-start-line="604" selection-start-column="33" selection-end-line="604" selection-end-column="33" />
-          <folding>
-            <element signature="n#style#0;n#th#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="693" column="78" selection-start-line="693" selection-start-column="66" selection-end-line="693" selection-end-column="78" />
-          <folding>
-            <element signature="e#0#89#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-1019">
+          <caret line="64" column="38" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-91">
+        <state relative-caret-position="645">
           <caret line="43" column="103" selection-start-line="43" selection-start-column="103" selection-end-line="43" selection-end-column="103" />
           <folding>
             <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -1430,10 +1331,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.ts">
+    <entry file="file://$PROJECT_DIR$/src/app/_services/script-loader.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="175" column="24" selection-start-line="175" selection-start-column="24" selection-end-line="175" selection-end-column="24" />
+        <state>
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-24">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/typescript/lib/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="14685" column="29" lean-forward="true" selection-start-line="14685" selection-start-column="29" selection-end-line="14685" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135">
+          <caret line="776" column="28" selection-start-line="776" selection-start-column="28" selection-end-line="776" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#89#0" expanded="true" />
+            <element signature="n#!!block;n#setCountDown#0;n#UserDetailComponent#0" />
+            <element signature="n#!!block;n#getInventoryData#0;n#UserDetailComponent#0" />
+            <element signature="n#!!block;n#setInvenRemoveItem#0;n#UserDetailComponent#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="97" column="37" lean-forward="true" selection-start-line="97" selection-start-column="37" selection-end-line="97" selection-end-column="37" />
+          <folding>
+            <element signature="e#895#901#0" expanded="true" />
+            <element signature="e#901#907#0" expanded="true" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#ng-template#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

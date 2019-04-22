@@ -32,8 +32,6 @@ export class UserDetailService {
         let wikiUrl = `${this.apiUrl}/WAPI/FindNamePlayer/?key=${this.apiKey}`;
         let url = `${wikiUrl}&name=${id}`;
 
-        //console.log('param', id);
-        //console.log('param', encodeURI(url));
         return this.http
             .get(encodeURI(url))
             .map(this.extractData)
