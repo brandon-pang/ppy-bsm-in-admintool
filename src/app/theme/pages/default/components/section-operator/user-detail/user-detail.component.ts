@@ -209,6 +209,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
         this.findData = res.data;
         this.blockPlayerID = this.findData[0].playerID.value;
         this.nickName = this.findData[0].nickname;
+        let clanID = this.findData[0].clanID.value;
 
         sessionStorage.setItem('nickName', this.nickName);
         sessionStorage.setItem('playerID', this.blockPlayerID);
@@ -217,7 +218,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
             this.getInventoryData(this.blockPlayerID);
             this.getPostItemData(this.blockPlayerID);
             this.getFriendListData(this.blockPlayerID);
-            this.getClanListData(this.blockPlayerID);
+            this.getClanListData(clanID);
             this.getGoogleBillingData(this.blockPlayerID);
             this.getAppleBillingData(this.blockPlayerID);
             let grd = this.findData[0].accountGrade.value;
@@ -667,10 +668,10 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
         if (!id) {
             return;
         }
-        let type: number = 0;
+        let type: string = '';
         for (let i in this.tableData) {
             if (this.tableData[i].DataName === "Clan") {
-                type = +this.tableData[i].Type;
+                type = this.tableData[i].Type;
                 console.log("Clan",type);
             }
         }
@@ -684,7 +685,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                             this.clanListData = res.data;
                             let countryCode = this.gameInfoData[0].COUNTRY_CODE_LIST;
                             for (let a in countryCode) {
-                                if (Number( this.clanListData[0].countryCode) === countryCode[a].Value) {
+                                if (this.clanListData[0].countryCode === countryCode[a].Value) {
                                     console.log(countryCode[a].DescName);
                                     this.clanListData[0].countryDescName = countryCode[a].DescName;
                                 }
@@ -714,7 +715,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                 console.log(type);
             }
         }
-        this.userDetailService.getClanListData(type,id)
+        this.userDetailService.getClanListData(type, id)
             .subscribe(
                 friendListData => {
                     res = friendListData;
@@ -722,10 +723,11 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                     if (res.result.value == 100) {
                         if(res.data.length > 0){
                             this.clanListMemberData = res.data;
-                            let clanID = this.clanListData[0].clanID;
+                            let clanID = this.clanListData[0].clanID.value;
                             let clanName = this.clanListData[0].name;
+
                             for (let a in this.clanListMemberData) {
-                                if (Number( this.clanListMemberData[a].clanID) === clanID) {
+                                if (this.clanListMemberData[a].clanID.value == clanID) {
                                     this.clanListMemberData[a].clanName = clanName;
                                 }
                             }
