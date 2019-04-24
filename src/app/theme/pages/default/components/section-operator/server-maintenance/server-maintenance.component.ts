@@ -1,7 +1,9 @@
 import { AfterViewInit, Input, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {ModalDismissReasons, NgbDateStruct, NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import { ServerMaintenanceService } from "./server-maintenance.service";
 import { ScriptLoaderService } from '../../../../../../_services/script-loader.service';
 import { Helpers } from '../../../../../../helpers';
+import * as $ from 'jquery';
 declare var swal: any;
 
 @Component({
@@ -11,14 +13,19 @@ declare var swal: any;
     providers:[ServerMaintenanceService]
 })
 export class ServerMaintenanceComponent implements OnInit, AfterViewInit {
-    @Input()
-    errMessage:string;
+    @Input() errMessage:string;
+    @Input('ngModel') model:any;
     public gameInfoData:any=[];
     public tableData:any=[];
     public serverInspectData:any=[];
     public serverInspectEditData:any=[];
+    public bundleIdData:any=[];
+    public modalClose: string;
+    public isBundleModify:boolean=true;
+    private newBundleID:any='';
 
     constructor(
+        private modalService: NgbModal,
         private serverMaintenanceService:ServerMaintenanceService,
         private _script: ScriptLoaderService) {}
 
@@ -43,13 +50,13 @@ export class ServerMaintenanceComponent implements OnInit, AfterViewInit {
                     if (res.result === 100) {
                         this.tableData = res.data;
                         this.getServerInspectData();
+                        this.getBundleID();
                     }else{
                         swal("It can't find table data", "Result Number is "+res.result, "error");
                     }
                 },
                 error => this.errMessage = <any>error);
     }
-
     getGameItemInfo(){
         let res: any = [];
         this.serverMaintenanceService.getGameInfoData()
@@ -65,7 +72,49 @@ export class ServerMaintenanceComponent implements OnInit, AfterViewInit {
                 },
                 error => this.errMessage = <any>error);
     }
+    getBundleID(){
+        let res: any = [];
+        this.serverMaintenanceService.getBundleID()
+            .subscribe(
+                bundleIdData => {
+                    res = bundleIdData;
+                    console.log(' this.bundleIdData', res)
+                    if (res.result === 100) {
+                        this.bundleIdData = res.data;
+                    }else{
+                        swal("It can't find table data", "Result Number is "+res.result, "error");
+                    }
+                },
+                error => this.errMessage = <any>error);
+    }
 
+    setBundleID(id){
+        let res: any = [];
+        if(id ===''){
+            return;
+        }
+        this.serverMaintenanceService.setBundleID(id)
+            .subscribe(
+                bundleIdData => {
+                    res = bundleIdData;
+                    console.log(' this.bundleIdReturn', res)
+                    if (res.result === 100) {
+                        if(res.data[0].result){
+                            this.getBundleID();
+                            this.isBundleModify=true;
+                        }else{
+                            swal("Please Retry", "Result Number is "+res.result, "error");
+                            this.newBundleID=id;
+                            this.isBundleModify=false;
+                            $('#sty_bundle').css({"color":"red", "font-weight":"bold"})
+                            $('#sty_bundle').text(id);
+                        }
+                    }else{
+                        swal("A data has found error", "Result Number is "+res.result, "error");
+                    }
+                },
+                error => this.errMessage = <any>error);
+    }
     getServerInspectData() {
         let res: any = [];
         let region:number = 1;
@@ -143,5 +192,23 @@ export class ServerMaintenanceComponent implements OnInit, AfterViewInit {
                 error => {
                     this.errMessage = <any>error;
                 });
+    }
+
+    setEditOpen(content) {
+        this.modalService.open(content).result.then((result) => {
+            this.modalClose = `Closed with: ${result}`;
+        }, (reason) => {
+            this.modalClose = `Dismissed ${this.modalDismissReason(reason)}`;
+        });
+    }
+
+    private modalDismissReason(reason: any): string {
+        if (reason === ModalDismissReasons.ESC) {
+            return 'by pressing ESC';
+        } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+            return 'by clicking on a backdrop';
+        } else {
+            return `with: ${reason}`;
+        }
     }
 }

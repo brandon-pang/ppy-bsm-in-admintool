@@ -346,10 +346,10 @@
 				<div class="tab-pane" id="m_tabs_7_2" role="tabpanel">
                     <ul class="nav nav-tabs m-tabs m-tabs-line" role="tablist">
                         <li class="nav-item m-tabs__item">
-                            <a class="nav-link m-tabs__link active show" data-toggle="tab" href="#s_tabs_2_1" role="tab" aria-selected="true">Friend</a>
+                            <a class="nav-link m-tabs__link" [ngClass]="{'show':isFriendTab,'active':isFriendTab}" (click)="setClickSocialTab(0)">Friend</a>
                         </li>
                         <li class="nav-item m-tabs__item">
-                            <a class="nav-link m-tabs__link" data-toggle="tab" href="#s_tabs_2_2" role="tab" aria-selected="false">Clan</a>
+                            <a class="nav-link m-tabs__link" [ngClass]="{'show':isClanTab,'active':isClanTab}" (click)="setClickSocialTab(1)">Clan</a>
                         </li>
                     </ul>
 				</div>
@@ -398,10 +398,10 @@
 				<div class="tab-pane" id="m_tabs_7_5" role="tabpanel">
                     <ul class="nav nav-tabs m-tabs m-tabs-line" role="tablist">
                         <li class="nav-item m-tabs__item">
-                            <a class="nav-link m-tabs__link active show" data-toggle="tab" href="#b_tabs_5_1" role="tab" aria-selected="true">Google Billing</a>
+                            <a class="nav-link m-tabs__link" [ngClass]="{'show':isGoogleTab,'active':isGoogleTab}" (click)="setClickBuyTab(0)">Google Billing</a>
                         </li>
                         <li class="nav-item m-tabs__item">
-                            <a class="nav-link m-tabs__link" data-toggle="tab" href="#b_tabs_5_2" role="tab" aria-selected="false">Apple Billing</a>
+                            <a class="nav-link m-tabs__link" [ngClass]="{'show':isAppleTab,'active':isAppleTab}" (click)="setClickBuyTab(1)">Apple Billing</a>
                         </li>
                     </ul>
 				</div>
@@ -522,9 +522,9 @@
 		</div>
         <div class="m-portlet__body" *ngIf="friendTab" style="padding-top: 0;">
             <div class="tab-content">
-                <div class="tab-pane active show" id="s_tabs_2_1" role="tabpanel" >
-					<div *ngIf="friendListData.length === 0 || friendListData.length ==='undefined'">데이타가 존재 하지 않습니다.</div>
-                    <div class="table-responsive" *ngIf="friendListData.length > 0">
+                <div class="" *ngIf="isFriendTab">
+					<div *ngIf="friendListData.length === 0">데이타가 존재 하지 않습니다.</div>
+                    <div class="table-responsive" *ngIf="friendListData.length >=1">
                         <table class="table table-bordered table-hover">
                             <thead>
                             <tr>
@@ -545,9 +545,9 @@
                         </table>
                     </div>
                 </div>
-                <div class="tab-pane" id="s_tabs_2_2" role="tabpanel" >
-					<div *ngIf="clanListData.length === 0 || clanListData.length ==='undefined'">데이타가 존재 하지 않습니다.</div>
-                    <div class="table-responsive" *ngIf="clanListData.length > 0">
+                <div class="" *ngIf="isClanTab">
+					<div *ngIf="clanListData.length === 0">데이타가 존재 하지 않습니다.</div>
+                    <div class="table-responsive" *ngIf="clanListData.length >=1 ">
 						<div>CLAN</div>
 						<table class="table table-bordered table-hover">
 							<thead>
@@ -612,10 +612,9 @@
         </div>
         <div class="m-portlet__body" *ngIf="billingTab" style="padding-top: 0;">
             <div class="tab-content">
-
-                <div class="tab-pane active show" id="b_tabs_5_1" role="tabpanel" >
-					<div *ngIf="googleBillingData.length === 0 || googleBillingData ==='undefined'">데이타가 존재 하지 않습니다.</div>
-                    <div class="table-responsive" *ngIf="googleBillingData.length > 0">
+                <div *ngIf="isGoogleTab">
+					<div *ngIf="googleBillingData.length === 0">데이타가 존재 하지 않습니다.</div>
+                    <div class="table-responsive" *ngIf="googleBillingData.length >= 1">
 						<table class="table table-bordered table-hover">
 							<thead>
 							<tr>
@@ -652,9 +651,9 @@
 						</table>
                     </div>
                 </div>
-                <div class="tab-pane" id="b_tabs_5_2" role="tabpanel" >
-					<div *ngIf="appleBillingData.length === 0 || appleBillingData === 'undefined' ">데이타가 존재 하지 않습니다.</div>
-                    <div class="table-responsive" *ngIf="appleBillingData.length > 0">
+                <div  *ngIf="isAppleTab">
+					<div *ngIf="appleBillingData.length === 0">데이타가 존재 하지 않습니다.</div>
+                    <div class="table-responsive" *ngIf="appleBillingData.length >= 1">
 						<table class="table table-bordered table-hover">
 							<thead>
 							<tr>

@@ -21,6 +21,37 @@
 										<i class="la la-gear"></i>
 									</span>
                             <h3 class="m-portlet__head-text">
+                                번들 아이디 조회 및 수정
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-portlet__body">
+                    <span *ngIf="bundleIdData == ''">번들아이디가 존재 하지 않습니다.</span>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover" *ngIf="bundleIdData != ''">
+                            <tbody>
+                            <tr *ngFor="let p of bundleIdData;">
+                                <td style="width:20%; text-align: center; font-weight: 600;"><p style="padding-top:3px; margin:0;">Bundle ID</p></td>
+                                <td style="width:80%; text-align: left;"><span id="sty_bundle">{{p.bundleID}}</span> <button type="button" class="btn btn-primary btn-sm m--margin-left-20" (click)="setEditOpen(modifyBundleId)" *ngIf="isBundleModify">수정</button> <button type="button" class="btn btn-danger btn-sm m--margin-left-20" (click)="setBundleID(newBundleID)" *ngIf="!isBundleModify">재시도</button></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--end::Portlet-->
+        </div>
+        <div class="col-lg-12">
+            <!--begin::Portlet-->
+            <div class="m-portlet m-portlet--tab">
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-caption">
+                        <div class="m-portlet__head-title">
+									<span class="m-portlet__head-icon m--hide">
+										<i class="la la-gear"></i>
+									</span>
+                            <h3 class="m-portlet__head-text">
                                 Maintenance Date and Time
                             </h3>
                         </div>
@@ -140,6 +171,29 @@
             </div>
             <!--end::Portlet-->
         </div>
-
     </div>
 </div>
+<ng-template #modifyBundleId let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">번들아이디 수정</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <table class="table table-bordered table-hover">
+            <tbody>
+            <tr>
+                <td style="width:40%;">Bundle ID</td>
+                <td style="width:60%;">
+                    <input type="number" pattern="\d+" class="form-control m-input" [placeholder]="bundleIdData[0].bundleID" [value]="bundleIdData[0].bundleID" #bundleID>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="c('Close click')" [disabled]="bundleID.value == '' " (click)="setBundleID(bundleID.value)">Submit</button>
+        <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+    </div>
+</ng-template>

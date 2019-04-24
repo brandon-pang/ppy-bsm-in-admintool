@@ -31,6 +31,4 @@ const routes: Routes = [
         UserDetailComponent
     ]
 })
-export class UserDetailModule {
-
-}
+export class UserDetailModule {}

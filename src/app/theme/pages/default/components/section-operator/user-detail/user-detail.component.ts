@@ -62,6 +62,10 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
     public billingTab:boolean=false;
     public intervalID:any='';
     private selectedLink: string="nickname";
+    public isFriendTab:boolean=true;
+    public isClanTab:boolean=false;
+    public isGoogleTab:boolean=true;
+    public isAppleTab:boolean=false;
 
     //private sub: any;
     constructor(
@@ -108,6 +112,25 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
             return false;
         }
         return (this.selectedLink === name);
+    }
+    setClickSocialTab(id:number):void{
+        if(id==0){
+            this.isFriendTab=true;
+            this.isClanTab=false;
+        }else{
+            this.isFriendTab=false;
+            this.isClanTab=true;
+        }
+    }
+
+    setClickBuyTab(id:number):void{
+        if(id==0){
+            this.isGoogleTab=true;
+            this.isAppleTab=false;
+        }else{
+            this.isGoogleTab=false;
+            this.isAppleTab=true;
+        }
     }
 
     getTableList(): void {
@@ -864,30 +887,4 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
             return `with: ${reason}`;
         }
     }
-
-
-    /*
-    getAlretClick(){
-        var self = this;
-        //== Sweetalert Demo 3
-        $('#m_sweetalert_demo_3_1').click(function(e) {
-
-        });
-
-        $('#m_sweetalert_demo_3_2').click(function(e) {
-            swal("Good job!", "You clicked the button!", "error");
-        });
-
-        $('#m_sweetalert_demo_3_3').click(function(e) {
-            swal("Good job!", "You clicked the button!", "success");
-        });
-
-        $('#m_sweetalert_demo_3_4').click(function(e) {
-            swal("Good job!", "You clicked the button!", "info");
-        });
-
-        $('#m_sweetalert_demo_3_5').click(function(e) {
-            swal("Good job!", "You clicked the button!", "question");
-        });
-    }*/
 }

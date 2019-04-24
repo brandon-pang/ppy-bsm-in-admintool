@@ -40,6 +40,24 @@ export class ServerMaintenanceService {
             .catch(handleError);
     }
 
+    getBundleID():Observable<any[]>{
+        Helpers.setLoading(true);
+        let url = `${this.apiUrl}/WAPI/GetCurrentBundleID/?key=${this.apiKey}`;
+        return this.http
+            .get(url)
+            .map(this.extractData)
+            .catch(handleError);
+    }
+
+    setBundleID(id):Observable<any[]>{
+        Helpers.setLoading(true);
+        let url = `${this.apiUrl}/WAPI/SetBundleID/?key=${this.apiKey}&bundleID=${id}`;
+        return this.http
+            .get(url)
+            .map(this.extractData)
+            .catch(handleError);
+    }
+
     getServerInspectData(region, type): Observable<any[]> {
         Helpers.setLoading(true);
         let targetUrl = `${this.apiUrl}/WAPI/GetTableData/?key=${this.apiKey}`;
