@@ -830,6 +830,8 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                         this.refundGoogleBilling = res.data;
                         swal("성공", purchaseid + ": 이(가) 환불이 완료 되었습니다.", "success");
                         this.getGoogleBillingData(playerid);
+                        this.getPlayerIdData(playerid);
+
                     } else {
                         let valueMsg='에러';
                         if(res.result.value=='0'){
