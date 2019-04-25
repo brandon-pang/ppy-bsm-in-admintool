@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81ed65d7-51fc-4532-98ee-beec78cf8c21" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/auth.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/templates/login-1.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/templates/login-1.component.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -21,8 +22,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="354">
-                  <caret line="833" column="24" selection-start-line="833" selection-start-column="24" selection-end-line="833" selection-end-column="24" />
+                <state relative-caret-position="430">
+                  <caret line="833" selection-start-line="833" selection-end-line="833" />
                   <folding>
                     <element signature="e#0#89#0" expanded="true" />
                     <element signature="n#!!block;n#setCountDown#0;n#UserDetailComponent#0" />
@@ -87,20 +88,23 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/app/auth/templates/login-1.component.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="432">
-                  <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+                <state relative-caret-position="162">
+                  <caret line="9" column="43" lean-forward="true" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+                  <folding>
+                    <element signature="n#style#0;n#select#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/app/auth/auth.component.ts">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="346">
-                  <caret line="62" column="10" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
+                  <caret line="62" column="53" lean-forward="true" selection-start-line="62" selection-start-column="53" selection-end-line="62" selection-end-column="53" />
                   <folding>
                     <element signature="e#0#149#0" expanded="true" />
                   </folding>
@@ -223,9 +227,9 @@
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/server-maintenance/server-maintenance.component.ts" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.html" />
         <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.ts" />
         <option value="$PROJECT_DIR$/src/app/auth/templates/login-1.component.html" />
         <option value="$PROJECT_DIR$/src/app/auth/auth.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.ts" />
       </list>
     </option>
   </component>
@@ -540,7 +544,7 @@
       <workItem from="1556123285467" duration="227000" />
       <workItem from="1556123525151" duration="3169000" />
       <workItem from="1556129055785" duration="7416000" />
-      <workItem from="1556153390187" duration="3266000" />
+      <workItem from="1556153390187" duration="3346000" />
     </task>
     <task id="LOCAL-00001" summary="우편함에서 우편발송 부분 수정">
       <created>1547083774443</created>
@@ -651,7 +655,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="394444000" />
+    <option name="totallyTimeSpent" value="394524000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -666,7 +670,7 @@
     <frame x="1440" y="23" width="1920" height="1177" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7378641" visible="true" weight="0.18114798" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7378641" visible="true" weight="0.18114798" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" sideWeight="0.26213592" side_tool="true" visible="true" weight="0.18114798" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -681,7 +685,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4997367" weight="0.52073735" />
       <window_info anchor="bottom" id="TypeScript" order="9" weight="0.3299539" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5002633" side_tool="true" weight="0.3299539" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.24055299" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.24055299" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1166,27 +1170,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/auth/templates/login-1.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/auth/auth.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="62" column="10" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#149#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/theme/pages/default/components/section-operator/user-detail/user-detail.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="833" column="24" selection-start-line="833" selection-start-column="24" selection-end-line="833" selection-end-column="24" />
+        <state relative-caret-position="430">
+          <caret line="833" selection-start-line="833" selection-end-line="833" />
           <folding>
             <element signature="e#0#89#0" expanded="true" />
             <element signature="n#!!block;n#setCountDown#0;n#UserDetailComponent#0" />
@@ -1207,6 +1194,26 @@
             <element signature="n#!!block;n#getClanMemberListData#0;n#UserDetailComponent#0" />
             <element signature="n#!!block;n#getAppleBillingData#0;n#UserDetailComponent#0" />
             <element signature="n#!!block;n#modalDismissReason#0;n#UserDetailComponent#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/auth.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="62" column="53" lean-forward="true" selection-start-line="62" selection-start-column="53" selection-end-line="62" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#149#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/templates/login-1.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="43" lean-forward="true" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+          <folding>
+            <element signature="n#style#0;n#select#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
