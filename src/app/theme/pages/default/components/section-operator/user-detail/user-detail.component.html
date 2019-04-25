@@ -644,7 +644,7 @@
 								</td>
 								<td>
 									<button type="button" class="btn btn-warning btn-sm" *ngIf="p.state == 2"
-											(click)="refundGoogleBilling(i, blockPlayerID, p.purchaseID.value)">환불</button>
+											(click)="setRefundEditOpen(modalRefund,i)">환불</button>
 								</td>
 							</tr>
 							</tbody>
@@ -898,6 +898,46 @@
 	<div class="modal-footer">
 		<button type="button" class="btn btn-primary" (click)="c('Close click')" [disabled]="gemReturn.value == ''"
 				(click)="setChangeGem(blockPlayerID,gemReturn.value,gemBonusReturn.value)">Submit</button>
+		<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+	</div>
+</ng-template>
+
+<ng-template #modalRefund let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title">환불 요청</h4>
+		<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<table class="table table-bordered table-hover">
+			<tbody>
+				<tr>
+					<td style="width:40%;">Player ID</td>
+					<td style="width:60%;">{{blockPlayerID}}</td>
+				</tr>
+				<tr>
+					<td style="width:40%;">Order ID</td>
+					<td style="width:60%;">{{googleBillingData[refundGoogleId].orderID}}</td>
+				</tr>
+				<tr>
+					<td style="width:40%;">Purchase ID</td>
+					<td style="width:60%;">{{googleBillingData[refundGoogleId].purchaseID}}</td>
+				</tr>
+				<tr>
+					<td style="width:40%;">Purchase Date</td>
+					<td style="width:60%;">{{googleBillingData[refundGoogleId].purchaseDate}}</td>
+				</tr>
+				<tr>
+					<td style="width:40%;">Shop Item</td>
+					<td style="width:60%;">{{googleBillingData[refundGoogleId].shopDescName}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary" (click)="c('Close click')" [disabled]="googleBillingData[refundGoogleId].orderID.value == ''"
+				(click)="refundGoogleBilling(blockPlayerID, googleBillingData[refundGoogleId].purchaseID.value)">Submit</button>
 		<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
 	</div>
 </ng-template>

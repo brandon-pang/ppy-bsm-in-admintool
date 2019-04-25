@@ -67,6 +67,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
     public isGoogleTab:boolean=true;
     public isAppleTab:boolean=false;
 
+    public refundGoogleId: number=0;
     //private sub: any;
     constructor(
         //private route: ActivatedRoute,
@@ -653,6 +654,15 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
         });
     }
 
+    setRefundEditOpen(content,id) {
+        this.refundGoogleId=id;
+        this.modalService.open(content).result.then((result) => {
+            this.modalClose = `Closed with: ${result}`;
+        }, (reason) => {
+            this.modalClose = `Dismissed ${this.modalDismissReason(reason)}`;
+        });
+    }
+
     getFriendListData(id: string) {
         let res: any = [];
         if (!id) {
@@ -808,7 +818,7 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
 
                 });
     }
-    refundGoogleBilling(rowid, playerid: string, purchaseid: string) {
+    refundGoogleBilling(playerid, purchaseid) {
         let res: any = [];
         //팝업창을 띄우고 콜
         this.userDetailService.refundGoogleBilling(playerid, purchaseid)
@@ -819,10 +829,9 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                     if (res.result.value == 100) {
                         this.refundGoogleBilling = res.data;
                         swal("성공", purchaseid + ": 이(가) 환불이 완료 되었습니다.", "success");
-                        this.googleBillingData.splice(rowid, 1);
+                        this.getGoogleBillingData(playerid);
                     } else {
                         let valueMsg='에러';
-
                         if(res.result.value=='0'){
                             valueMsg='권한이 없습니다.';
                         }else if(res.result.value=='1'){
