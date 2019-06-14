@@ -369,9 +369,10 @@
 									<th>PostID</th>
 									<th>Item Code</th>
 									<th>Count</th>
-									<th>Message</th>
+									<th>Title/Message</th>
 									<th>Sender</th>
 									<th>Expire Date</th>
+									<th>Type</th>
 									<th>Control</th>
 								</tr>
 								</thead>
@@ -381,9 +382,14 @@
 									<td style="vertical-align: middle;">{{p.postID.value}}</td>
 									<td style="vertical-align: middle;">{{p.code.value}}</td>
 									<td style="vertical-align: middle;">{{p.count.value}}</td>
-									<td style="vertical-align: middle;">{{p.postMessage}}</td>
+									<td style="vertical-align: middle;">Title: {{p.title}}<br>Msg: {{p.postMessage}}</td>
 									<td style="vertical-align: middle;">{{p.senderName}}</td>
 									<td style="vertical-align: middle;">{{p.expireTime}}</td>
+									<!-- -->
+									<td style="vertical-align: middle;" *ngIf="p.type==0">None</td>
+									<td style="vertical-align: middle;" *ngIf="p.type==1">Reward</td>
+									<td style="vertical-align: middle;" *ngIf="p.type==2">Item</td>
+									<!-- -->
 									<td style="vertical-align: middle;">
 										<button type="button" class="btn btn-warning btn-sm" [disabled]="p.postID.value==''" (click)="removePostItemData(i, blockPlayerID, p.postID.value)">
 											회수
@@ -757,10 +763,29 @@
 				</td>
 			</tr>
 			<tr>
+				<td style="width:40%;">타이틀</td>
+				<td style="width:60%;">
+					<div class="form-group m-form__group">
+						<input class="form-control m-input" placeholder="타이틀을 입력해 주세요" value="" #sendMail_title>
+					</div>
+				</td>
+			</tr>
+			<tr>
 				<td style="width:40%;">발송 메시지</td>
 				<td style="width:60%;">
 					<div class="form-group m-form__group">
 						<textarea class="form-control m-input" rows="1" placeholder="Reason is.." #sendMail_message></textarea>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:40%;">우편 타입</td>
+				<td style="width:60%;">
+					<div class="form-group m-form__group">
+						<select class="form-control" style="width:100%;"  required #sendMail_posttype >
+							<option value="1">Reward</option>
+							<option value="2">Item</option>
+						</select>
 					</div>
 				</td>
 			</tr>
@@ -769,7 +794,7 @@
 	</div>
 	<div class="modal-footer">
 		<button type="button" class="btn btn-primary" (click)="c('Close click')" [disabled]="sendMail_itemCode.value == ''"
-				(click)="setSendItemMail(sendMail_ID.value, sendMail_itemCode.value, sendMail_itemCount.value, sendMail_sender.value, sendMail_message.value)">Submit</button>
+				(click)="setSendItemMail(sendMail_ID.value, sendMail_itemCode.value, sendMail_itemCount.value, sendMail_sender.value, sendMail_message.value,sendMail_title.value,sendMail_posttype.value)">Submit</button>
 		<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
 	</div>
 </ng-template>

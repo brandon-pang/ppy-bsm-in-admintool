@@ -66,10 +66,10 @@ export class UserDetailService {
             .catch(handleError);
     }
 
-    setSendItemMail(id, itemCode, count, sender, message): Observable<any[]> {
+    setSendItemMail(id, itemCode, count, sender, message,title,posttype): Observable<any[]> {
         Helpers.setLoading(true);
         let targetUrl = `${this.apiUrl}/WAPI/AddPost/?key=${this.apiKey}`;
-        let setUrl = `${targetUrl}&playerID=${id}&itemCode=${itemCode}&count=${count}&senderName=${sender}&message=${message}`;
+        let setUrl = `${targetUrl}&playerID=${id}&itemCode=${itemCode}&count=${count}&senderName=${sender}&message=${message}&title=${title}&postType=${posttype}`;
         return this.http
             .get(encodeURI(setUrl))
             .map(this.extractData)

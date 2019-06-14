@@ -30,6 +30,10 @@ const routes: Routes = [
                 "loadChildren": ".\/pages\/default\/components\/section-operator\/notification-push\/notification-push.module#NotificationPushModule"
             },
             {
+                "path": "components\/operator\/notice-ingame",
+                "loadChildren": ".\/pages\/default\/components\/section-operator\/notice-ingame\/notice-ingame.module#NoticeIngameModule"
+            },
+            {
                 "path": "components\/operator\/server-maintenance",
                 "loadChildren": ".\/pages\/default\/components\/section-operator\/server-maintenance\/server-maintenance.module#ServerMaintenanceModule"
             },

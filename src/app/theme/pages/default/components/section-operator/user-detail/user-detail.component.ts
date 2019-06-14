@@ -496,10 +496,10 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
                 });
     }
 
-    setSendItemMail(id, itemCode, count, sender, message) {
+    setSendItemMail(id, itemCode, count, sender, message, title, posttype) {
         let res: any = [];
         //팝업창을 띄우고 콜
-        this.userDetailService.setSendItemMail(id, itemCode, count, sender, message)
+        this.userDetailService.setSendItemMail(id, itemCode, count, sender, message, title, posttype)
             .subscribe(
                 sendMailData => {
                     res = sendMailData;

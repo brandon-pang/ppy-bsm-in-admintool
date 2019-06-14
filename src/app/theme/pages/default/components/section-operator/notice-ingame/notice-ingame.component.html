@@ -1,0 +1,26 @@
+<!-- BEGIN: Subheader -->
+<div class="m-subheader" appunwraptag="">
+	<div class="d-flex align-items-center">
+		<div class="mr-auto">
+			<h3 class="m-subheader__title m-subheader__title--separator">인게임 공지사항</h3>
+		</div>
+	</div>
+</div><!-- END: Subheader -->
+<div class="m-content">
+	<div class="m-portlet">
+		<div class="m-portlet__body" style="height: 300px;">
+			<div>
+				<label for="noticetxt">게임 내 유저 전체 공지</label>
+				<div class="input-group">
+					<input type="text" id="noticetxt" class="form-control" placeholder="최대 128자 이내로 적어주세요" #noticeTxt (keydown.enter)="setNoticeData(noticeTxt.value);">
+					<div class="input-group-append">
+						<button class="btn btn-primary" type="button" (click)="setNoticeData(noticeTxt.value);">SEND</button>
+					</div>
+				</div>
+				<p style="color:darkred; font-size:0.9rem; margin-top:10px;">* 메시지 입력 후 SEND 버튼 클릭 시 게임 내에 전체 유저에게 공지 메시지가 출력 됩니다.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
