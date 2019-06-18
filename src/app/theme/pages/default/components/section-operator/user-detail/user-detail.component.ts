@@ -870,11 +870,18 @@ export class UserDetailComponent implements OnInit, AfterViewInit {
             .subscribe(
                 appleBillingData => {
                     res = appleBillingData;
-
                     if (res.result.value == 100) {
                         if(res.data.length > 0){
                             this.appleBillingData = res.data;
                             console.log(' this.appleBillingData', res.data)
+                            let shopCodeListData=this.gameInfoData[0].SHOP_CODE_LIST
+                            for (let i in this.appleBillingData ) {
+                                for (let a in shopCodeListData) {
+                                    if (this.appleBillingData[i].shopCode.value == shopCodeListData[a].Value.value) {
+                                        this.appleBillingData[i].shopDescName = shopCodeListData[a].DescName;
+                                    }
+                                }
+                            }
                         }else{
                             this.appleBillingData = [];
                         }
