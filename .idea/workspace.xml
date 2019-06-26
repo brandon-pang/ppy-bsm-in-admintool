@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="81ed65d7-51fc-4532-98ee-beec78cf8c21" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/auth.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/templates/login-1.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/templates/login-1.component.html" afterDir="false" />
-    </list>
+    <list default="true" id="81ed65d7-51fc-4532-98ee-beec78cf8c21" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -549,7 +546,7 @@
       <workItem from="1556557085443" duration="20000" />
       <workItem from="1560532027310" duration="6531000" />
       <workItem from="1560796697572" duration="16000" />
-      <workItem from="1560878497455" duration="827000" />
+      <workItem from="1560878497455" duration="1799000" />
     </task>
     <task id="LOCAL-00001" summary="우편함에서 우편발송 부분 수정">
       <created>1547083774443</created>
@@ -660,7 +657,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="402183000" />
+    <option name="totallyTimeSpent" value="403155000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -673,9 +670,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="23" width="1920" height="1177" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7342074" visible="true" weight="0.20063192" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7342074" visible="true" weight="0.20063192" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" sideWeight="0.2657926" side_tool="true" weight="0.17114271" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -690,7 +686,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4997367" weight="0.52073735" />
       <window_info anchor="bottom" id="TypeScript" order="9" weight="0.21751152" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5002633" side_tool="true" weight="0.3299539" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.24055299" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.24055299" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
