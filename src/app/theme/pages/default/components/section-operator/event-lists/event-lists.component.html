@@ -1,0 +1,155 @@
+<!-- BEGIN: Subheader -->
+<div class="m-subheader" appunwraptag="">
+	<div class="d-flex align-items-center">
+		<div class="mr-auto">
+			<h3 class="m-subheader__title m-subheader__title--separator">인게임 공지사항</h3>
+		</div>
+	</div>
+</div><!-- END: Subheader -->
+<div class="m-content">
+	<div class="m-portlet">
+		<div class="m-portlet__body">
+			<div class="d-flex justify-content-end m--margin-bottom-10">
+				<button class="btn btn-brand btn-md" type="button" (click)="eventAddOpen(eventAdd)">이벤트 등록</button>
+			</div>
+			<div class="table-responsive">
+				<table class="table table-bordered table-hover">
+					<thead>
+					<tr>
+						<th>#</th>
+						<th>event ID</th>
+						<th>Subject</th>
+						<th>Message</th>
+						<th>Code</th>
+						<th>Count</th>
+						<th>Type</th>
+						<th>Start Date</th>
+						<th>End Date</th>
+						<th>Control</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr *ngFor="let p of eventData; let i=index">
+						<th scope="row" >{{i}}</th>
+						<td>{{p.eventID}}</td>
+						<td>{{p.title}}</td>
+						<td>{{p.postMessage}}</td>
+						<td>{{p.descName}} [ {{p.code}} ]</td>
+						<td>{{p.count}}</td>
+						<td>{{p.postTypeName}}</td>
+						<td>{{p.startDate}}</td>
+						<td>{{p.endDate}}</td>
+						<td>
+							<button type="button" class="btn btn-danger btn-sm" (click)="eventDeleteOpen(eventRemove, i, p.eventID)">삭제</button>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<ng-template #eventRemove let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title">이벤트 삭제</h4>
+		<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<table class="table table-bordered table-hover">
+			<tbody>
+			<tr>
+				<td style="text-align:center;width:100%;">Event ID #{{EventID}} 이벤트를 삭제 하시겠습니까?</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary" (click)="c('Close click')"
+				(click)="setEventListRemove(EventRowId, EventID)">Submit</button>
+		<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+	</div>
+</ng-template>
+
+<ng-template #eventAdd let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title">이벤트 등</h4>
+		<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<table class="table table-bordered table-hover">
+			<tbody>
+			<tr>
+				<td style="width:30%;">아이템</td>
+				<td style="width:70%;">
+					<select class="form-control m-select2" id="m_select2_1" name="param" style="width:100%;"  #eItem required>
+						<option *ngFor="let p of gameInfoData[0].ITEM_CODE_LIST; let i=index"  [value]="p.Value">{{p.DescName}}</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:30%;">지급 갯수</td>
+				<td style="width:70%;">
+					<input type="number" pattern="\d+" class="form-control m-input" [value]="1" #eCode required>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:30%;">제목</td>
+				<td style="width:70%;">
+					<input type="text" class="form-control m-input" placeholder="제목을 입력해 주세요" [value]="" #eTitle required>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:30%;">본문</td>
+				<td style="width:70%;">
+					<input type="text" class="form-control m-input"
+						   placeholder="본문 내용을 입력해 주세요" [value]="" #eBody required>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:30%;">타입</td>
+				<td style="width:70%;">
+					<select class="form-control" name="eType" style="height:40px; padding:0; padding-left:15px;" #eType required>
+						<option value="1">REWARD</option>
+						<option value="2">ITEM</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:30%;">이벤트 시작 날짜</td>
+				<td style="width:70%;">
+					<div class="input-group date">
+						<input type="text" class="form-control m-input" readonly id="m_datetimepicker_3_1" [value]="" #sDate required/>
+						<div class="input-group-append">
+							<span class="input-group-text"><i class="la la-calendar glyphicon-th"></i></span>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:30%;">이벤트 종료 날짜</td>
+				<td style="width:70%;">
+					<div class="input-group date">
+						<input type="text" class="form-control m-input" readonly id="m_datetimepicker_3_2" [value]="" #eDate required/>
+						<div class="input-group-append">
+							<span class="input-group-text"><i class="la la-calendar glyphicon-th"></i></span>
+						</div>
+					</div>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary" (click)="c('Close click')" [disabled]="eTitle.value == '' && eBody.value == ''"
+				(click)="setEventListAdd(eTitle.value, eCode.value, eTitle.value,
+				eBody.value, eType.value, sDate.value, eDate.value)">Submit</button>
+		<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+	</div>
+</ng-template>
+
+

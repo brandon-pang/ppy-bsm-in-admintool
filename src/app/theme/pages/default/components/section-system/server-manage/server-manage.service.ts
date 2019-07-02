@@ -55,7 +55,30 @@ export class ServerManageService {
             .map(this.extractData)
             .catch(handleError);
     }
-
+    getUpdateAllData(): Observable<any[]>{
+        Helpers.setLoading(true);
+        let url = `${this.apiUrl}/WAPI/UpdateAllData/?key=${this.apiKey}`;
+        return this.http
+            .get(url)
+            .map(this.extractData)
+            .catch(handleError);
+    }
+    getReloadGameData(): Observable<any[]>{
+        Helpers.setLoading(true);
+        let url = `${this.apiUrl}/WAPI/ReloadGameData/?key=${this.apiKey}`;
+        return this.http
+            .get(url)
+            .map(this.extractData)
+            .catch(handleError);
+    }
+    getReloadGeoIP(): Observable<any[]>{
+        Helpers.setLoading(true);
+        let url = `${this.apiUrl}/WAPI/ReloadGeoIP/?key=${this.apiKey}`;
+        return this.http
+            .get(url)
+            .map(this.extractData)
+            .catch(handleError);
+    }
     getServerSpecStart(sname,boo){
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/StartServer/?key=${this.apiKey}`;

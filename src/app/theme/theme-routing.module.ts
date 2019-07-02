@@ -34,6 +34,10 @@ const routes: Routes = [
                 "loadChildren": ".\/pages\/default\/components\/section-operator\/notice-ingame\/notice-ingame.module#NoticeIngameModule"
             },
             {
+                "path": "components\/operator\/event-lists",
+                "loadChildren": ".\/pages\/default\/components\/section-operator\/event-lists\/event-lists.module#EventListsModule"
+            },
+            {
                 "path": "components\/operator\/server-maintenance",
                 "loadChildren": ".\/pages\/default\/components\/section-operator\/server-maintenance\/server-maintenance.module#ServerMaintenanceModule"
             },

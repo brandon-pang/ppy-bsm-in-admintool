@@ -27,7 +27,7 @@ export class ServerManageComponent implements OnInit {
     public serverStartReturn: any = [];
     public serverStopReturn: any = [];
     public serverUpdateReturn: any = [];
-
+    public updateAllData: any = [];
     public allServerOnSet: boolean = true;
     public allServerArSet: boolean = true;
     public allServerUpArSet: boolean = true;
@@ -169,11 +169,73 @@ export class ServerManageComponent implements OnInit {
                                 }
                             }
                         }
-                        swal("Update All Server", "모든 업데이트 되었습니다.", "success");
+                        swal("Update All Server", "모든 서버가 업데이트 되었습니다.", "success");
                         //리셋
                         this.getServerStateList();
 
                         console.log('this serverStat', this.serverAllUpdateReturn)
+                    } else {
+                        swal("Error", "Result Number is " + res.result, "error");
+                    }
+                },
+                error => {
+                    this.errMessage = <any>error
+                });
+    }
+    getUpdateAllData() {
+        let res: any = [];
+        this.serverManageService.getUpdateAllData()
+            .subscribe(
+                updateAllData => {
+                    res = updateAllData;
+                    console.log(res);
+                    if (res.result === 100) {
+                        this.updateAllData = res.data[0].serverList;
+
+                        swal("Update All Server", "모든 게임 데이타가 업데이트 되었습니다.", "success");
+                        //리셋
+                        this.getServerStateList();
+                        console.log('this serverStat', this.updateAllData)
+                    } else {
+                        swal("Error", "Result Number is " + res.result, "error");
+                    }
+                },
+                error => {
+                    this.errMessage = <any>error
+                });
+    }
+    getReloadGameData() {
+        let res: any = [];
+        this.serverManageService.getReloadGameData()
+            .subscribe(
+                reloadGameData => {
+                    res = reloadGameData;
+                    if (res.result === 100) {
+                        //this.reloadGameData = res.data[0]
+                        swal("Reload Game Data", "모든 게임 데이타가 리로드 되었습니다.", "success");
+                        //리셋
+                        this.getServerStateList();
+                        console.log('this reloadGameData', res)
+                    } else {
+                        swal("Error", "Result Number is " + res.result, "error");
+                    }
+                },
+                error => {
+                    this.errMessage = <any>error
+                });
+    }
+    getReloadGeoIP() {
+        let res: any = [];
+        this.serverManageService.getReloadGeoIP()
+            .subscribe(
+                reloadGeoIP=> {
+                    res = reloadGeoIP;
+                    if (res.result === 100) {
+                        //this.updateAllData = res.data[0].serverList;
+                        swal("Reload Region IP", "국가별 IP가 리로드 되었습니다.", "success");
+                        //리셋
+                        this.getServerStateList();
+                        console.log('this reloadGeoIP', res)
                     } else {
                         swal("Error", "Result Number is " + res.result, "error");
                     }

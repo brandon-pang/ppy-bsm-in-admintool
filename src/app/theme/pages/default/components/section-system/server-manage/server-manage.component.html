@@ -25,25 +25,37 @@
 						<table class="table m-table">
 							<thead class="thead-default">
 							<tr>
-								<th colspan="5">
+								<th colspan="8">
 									<button type="button" class="btn btn-primary btn-md" (click)="getServerStateList()">
 										<i class="m-menu__link-icon flaticon-refresh m--padding-right-5"></i>새로고침
 									</button>
+									<button type="button" class="btn btn-accent btn-md" (click)="setEditOpen(reloadGameData)" [disabled]="!allServerOnSet">
+										<i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>RELOAD GAME DATA
+									</button>
+									<button type="button" class="btn btn-accent btn-md" (click)="setEditOpen(reloadGeoIP)" [disabled]="!allServerOnSet">
+										<i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>RELOAD REGION IP
+									</button>
+								</th>
+							</tr>
+							<tr>
+								<th colspan="2">
 									<button type="button" class="btn btn-info btn-md" (click)="setEditOpen(allKickUser)">
 										<i class="m-menu__link-icon flaticon-users m--padding-right-5"></i>Kick All Users
 									</button>
 								</th>
 
 								<th colspan="2" class="text-right" style="min-width:240px;">
-									<span class="m--margin-right-10">All Server ON / OFF</span>
-									<button type="button" class="btn btn-md" [ngClass]="{'btn-danger':!allServerOnSet, 'btn-info':allServerOnSet}" (click)="setEditOpen(allServerOn)">
+									<span class="m--margin-right-10">All Server</span>
+									<button type="button" class="btn btn-md" [ngClass]="{'btn-danger':!allServerOnSet, 'btn-success':allServerOnSet}" (click)="setEditOpen(allServerOn)">
 										<i class="m-menu__link-icon flaticon-light m--padding-right-5"></i>{{allServerOnSet ? 'ON' : 'OFF'}}
 									</button>
 								</th>
-								<th colspan="2" class="text-right" style="min-width:230px;">
-									<span class="m--margin-right-10">All Server Update {{allServerOnSet}}</span>
+								<th colspan="4" class="text-right" style="min-width:230px;">
 									<button type="button" class="btn btn-accent btn-md" (click)="setEditOpen(allServerUpdate)" [disabled]="!allServerOnSet">
-										<i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE
+										<i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE ALL SERVER
+									</button>
+									<button type="button" class="btn btn-brand btn-md" (click)="setEditOpen(allDataUpdate)" [disabled]="!allServerOnSet">
+										<i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE ALL DATA
 									</button>
 								</th>
 							</tr>
@@ -57,7 +69,7 @@
 								<th class="text-center">Address</th>
 								<th class="text-center">State</th>
 								<th class="text-center">Users</th>
-								<th class="text-center" style="min-width:100px;">Auto Res.</th>
+
 								<th class="text-center" style="min-width:240px;">Controls</th>
 							</tr>
 							<tr *ngFor="let list of serverStatData[0]?.AGENT">
@@ -72,11 +84,7 @@
 									<span class="m-badge m-badge--wide m-badge--rounded" [ngClass]="{'m-badge--info': list.State=='ACTIVE','m-badge--danger': list.State=='INACTIVE' }">{{list.State}}</span>
 								</td>
 								<td class="align-middle text-center">{{list.Concurrent}}</td>
-								<td class="text-center">
-									<label class="m-checkbox m-checkbox--square">
-										<input type="checkbox" checked="true" #specAutoRestart> <span></span>
-									</label>
-								</td>
+
 								<td class="align-middle text-center">
 									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State, specAutoRestart.checked)">
 										<i class="m-menu__link-icon flaticon-computer m--padding-right-5"></i>ON/OFF
@@ -96,7 +104,6 @@
 								<th class="text-center">Address</th>
 								<th class="text-center">State</th>
 								<th class="text-center">Users</th>
-								<th class="text-center">Auto Res.</th>
 								<th class="text-center">Controls</th>
 							</tr>
 							<tr *ngFor="let list of serverStatData[0]?.GAME">
@@ -111,11 +118,6 @@
 									<span class="m-badge m-badge--wide m-badge--rounded" [ngClass]="{'m-badge--info': list.State=='ACTIVE','m-badge--danger': list.State=='INACTIVE' }">{{list.State}}</span>
 								</td>
 								<td class="align-middle text-center">{{list.Concurrent}}</td>
-								<td class="text-center">
-									<label class="m-checkbox m-checkbox--square">
-										<input type="checkbox" checked="true" #specAutoRestart> <span></span>
-									</label>
-								</td>
 								<td class="align-middle text-center">
 									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State, specAutoRestart.checked)">
 										<i class="m-menu__link-icon flaticon-computer m--padding-right-5"></i>ON/OFF
@@ -135,7 +137,6 @@
 								<th class="text-center">Address</th>
 								<th class="text-center">State</th>
 								<th class="text-center">Users</th>
-								<th class="text-center">Auto Res.</th>
 								<th class="text-center">Controls</th>
 							</tr>
 							<tr *ngFor="let list of serverStatData[0]?.HOST">
@@ -150,11 +151,6 @@
 									<span class="m-badge m-badge--wide m-badge--rounded" [ngClass]="{'m-badge--info': list.State=='ACTIVE','m-badge--danger': list.State=='INACTIVE' }">{{list.State}}</span>
 								</td>
 								<td class="align-middle text-center">{{list.Concurrent}}</td>
-								<td class="text-center">
-									<label class="m-checkbox m-checkbox--square">
-										<input type="checkbox" checked="true" #specAutoRestart> <span></span>
-									</label>
-								</td>
 								<td class="align-middle text-center">
 									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State, specAutoRestart.checked)">
 										<i class="m-menu__link-icon flaticon-computer m--padding-right-5"></i>ON/OFF
@@ -174,7 +170,6 @@
 								<th class="text-center">Address</th>
 								<th class="text-center">State</th>
 								<th class="text-center">Users</th>
-								<th class="text-center">Auto Res.</th>
 								<th class="text-center">Controls</th>
 							</tr>
 							<tr *ngFor="let list of serverStatData[0]?.CACHE">
@@ -189,11 +184,6 @@
 									<span class="m-badge m-badge--wide m-badge--rounded" [ngClass]="{'m-badge--info': list.State=='ACTIVE','m-badge--danger': list.State=='INACTIVE' }">{{list.State}}</span>
 								</td>
 								<td class="align-middle text-center">{{list.Concurrent}}</td>
-								<td class="text-center">
-									<label class="m-checkbox m-checkbox--square">
-										<input type="checkbox" checked="true" #specAutoRestart> <span></span>
-									</label>
-								</td>
 								<td class="align-middle text-center">
 									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State, specAutoRestart.checked)">
 										<i class="m-menu__link-icon flaticon-computer m--padding-right-5"></i>ON/OFF
@@ -213,7 +203,6 @@
 								<th class="text-center">Address</th>
 								<th class="text-center">State</th>
 								<th class="text-center">Users</th>
-								<th class="text-center">Auto Res.</th>
 								<th class="text-center">Controls</th>
 							</tr>
 							<tr *ngFor="let list of serverStatData[0]?.MONITORING">
@@ -228,11 +217,6 @@
 									<span class="m-badge m-badge--wide m-badge--rounded" [ngClass]="{'m-badge--info': list.State=='ACTIVE','m-badge--danger': list.State=='INACTIVE' }">{{list.State}}</span>
 								</td>
 								<td class="align-middle text-center">{{list.Concurrent}}</td>
-								<td class="text-center">
-									<label class="m-checkbox m-checkbox--square">
-										<input type="checkbox" checked="true" #specAutoRestart> <span></span>
-									</label>
-								</td>
 								<td class="align-middle text-center">
 									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State, specAutoRestart.checked)">
 										<i class="m-menu__link-icon flaticon-computer m--padding-right-5"></i>ON/OFF
@@ -286,6 +270,69 @@
 	</div>
 	<div class="modal-footer">
 		<button type="button" class="btn btn-primary" (click)="c('Close click')" (click)="getCheckStatAllServer(serverAllBoo.checked, serverAllAr.checked)">Submit</button>
+		<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+	</div>
+</ng-template>
+<ng-template #allDataUpdate let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title">전체서버 Update Game Data</h4>
+		<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<table class="table table-bordered table-hover">
+			<tbody>
+			<tr>
+				<td class="text-center">전체서버에 게임 데이타를 업데이트 하시 겠습니까?</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary" (click)="c('Close click')" (click)="getUpdateAllData()">Update Data</button>
+		<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+	</div>
+</ng-template>
+<ng-template #reloadGameData let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title">Reload Game Data</h4>
+		<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<table class="table table-bordered table-hover">
+			<tbody>
+			<tr>
+				<td class="text-center">게임 데이타를 다시 로드 하시 겠습니까?</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary" (click)="c('Close click')" (click)="getReloadGameData()">Reload Data</button>
+		<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+	</div>
+</ng-template>
+<ng-template #reloadGeoIP let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title">Reload Region IP</h4>
+		<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<table class="table table-bordered table-hover">
+			<tbody>
+			<tr>
+				<td class="text-center">국가별 아이피를 다시 로드 하시 겠습니까?</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary" (click)="c('Close click')" (click)="getReloadGeoIP()">Reload IP</button>
 		<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
 	</div>
 </ng-template>
