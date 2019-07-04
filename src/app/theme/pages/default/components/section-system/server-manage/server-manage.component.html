@@ -86,10 +86,10 @@
 								<td class="align-middle text-center">{{list.Concurrent}}</td>
 
 								<td class="align-middle text-center">
-									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State, specAutoRestart.checked)">
+									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State)">
 										<i class="m-menu__link-icon flaticon-computer m--padding-right-5"></i>ON/OFF
 									</button>
-									<button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate, list.ServerName, specAutoRestart.checked)">
+									<button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate, list.ServerName)">
 										<i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE
 									</button>
 								</td>
@@ -119,10 +119,10 @@
 								</td>
 								<td class="align-middle text-center">{{list.Concurrent}}</td>
 								<td class="align-middle text-center">
-									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State, specAutoRestart.checked)">
+									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State)">
 										<i class="m-menu__link-icon flaticon-computer m--padding-right-5"></i>ON/OFF
 									</button>
-									<button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate, list.ServerName, specAutoRestart.checked)">
+									<button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate, list.ServerName)">
 										<i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE
 									</button>
 								</td>
@@ -152,10 +152,10 @@
 								</td>
 								<td class="align-middle text-center">{{list.Concurrent}}</td>
 								<td class="align-middle text-center">
-									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State, specAutoRestart.checked)">
+									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State)">
 										<i class="m-menu__link-icon flaticon-computer m--padding-right-5"></i>ON/OFF
 									</button>
-									<button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate, list.ServerName, specAutoRestart.checked)">
+									<button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate, list.ServerName)">
 										<i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE
 									</button>
 								</td>
@@ -185,10 +185,10 @@
 								</td>
 								<td class="align-middle text-center">{{list.Concurrent}}</td>
 								<td class="align-middle text-center">
-									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State, specAutoRestart.checked)">
+									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State)">
 										<i class="m-menu__link-icon flaticon-computer m--padding-right-5"></i>ON/OFF
 									</button>
-									<button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate, list.ServerName, specAutoRestart.checked)">
+									<button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate, list.ServerName)">
 										<i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE
 									</button>
 								</td>
@@ -218,10 +218,10 @@
 								</td>
 								<td class="align-middle text-center">{{list.Concurrent}}</td>
 								<td class="align-middle text-center">
-									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State, specAutoRestart.checked)">
+									<button type="button" class="btn btn-success btn-sm" (click)="setSpecEditOpen(specServerOn, list.ServerName, list.State)">
 										<i class="m-menu__link-icon flaticon-computer m--padding-right-5"></i>ON/OFF
 									</button>
-									<button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate, list.ServerName, specAutoRestart.checked)">
+									<button type="button" class="btn btn-accent btn-sm" (click)="setUpdateEditOpen(serverUpdate, list.ServerName)">
 										<i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>UPDATE
 									</button>
 								</td>
@@ -256,20 +256,11 @@
                     </span>
 				</td>
 			</tr>
-			<tr>
-				<td style="width:40%;">Auto Restart</td>
-				<td>
-					<label class="m-checkbox m-checkbox--square">
-						<input type="checkbox" [checked]="allServerArSet" #serverAllAr>
-						<span></span>
-					</label>
-				</td>
-			</tr>
 			</tbody>
 		</table>
 	</div>
 	<div class="modal-footer">
-		<button type="button" class="btn btn-primary" (click)="c('Close click')" (click)="getCheckStatAllServer(serverAllBoo.checked, serverAllAr.checked)">Submit</button>
+		<button type="button" class="btn btn-primary" (click)="c('Close click')" (click)="getCheckStatAllServer(serverAllBoo.checked)">Submit</button>
 		<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
 	</div>
 </ng-template>
@@ -349,18 +340,11 @@
 			<tr>
 				<td class="text-center">전체서버 업데이트를 하시겠습니까?</td>
 			</tr>
-			<tr>
-				<td class="text-center">
-					<label class="m-checkbox m-checkbox--square">
-						<input type="checkbox" [checked]="allServerUpArSet" #serverAllUpAr>Auto Restart
-						<span></span> </label>
-				</td>
-			</tr>
 			</tbody>
 		</table>
 	</div>
 	<div class="modal-footer">
-		<button type="button" class="btn btn-primary" (click)="c('Close click')" (click)="getServerAllUpdate(serverAllUpAr.checked)">Update</button>
+		<button type="button" class="btn btn-primary" (click)="c('Close click')" (click)="getServerAllUpdate()">Update</button>
 		<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
 	</div>
 </ng-template>

@@ -57,7 +57,6 @@ export class EventListsComponent implements OnInit, AfterViewInit {
                     console.log(' this.gameInfoData', res)
                     if (res.result == 100) {
                         this.gameInfoData = res.data;
-
                         this.getEventListsData()
                     } else {
                         swal("It can't find table data", "Result Number is " + res.result.value, "error");
@@ -78,7 +77,7 @@ export class EventListsComponent implements OnInit, AfterViewInit {
                         this.eventData = res.data[0].result;
                         for (let i in this.eventData) {
                             for (let a in this.gameInfoData[0].ITEM_CODE_LIST) {
-                                if (this.eventData[i].code == this.gameInfoData[0].ITEM_CODE_LIST[a].Value) {
+                                if (this.eventData[i].code.value == this.gameInfoData[0].ITEM_CODE_LIST[a].Value) {
                                     console.log('xxx',this.gameInfoData[0].ITEM_CODE_LIST[a].DescName);
                                     this.eventData[i].descName = this.gameInfoData[0].ITEM_CODE_LIST[a].DescName;
                                 }
@@ -102,8 +101,8 @@ export class EventListsComponent implements OnInit, AfterViewInit {
 
     setEventListRemove(rowid, id) {
         let res: any = [];
-        console.log('setInvenRemoveItem', id);
-        this.eventListsService.setEventListRemove(id)
+        console.log('setInvenRemoveItem', id.value);
+        this.eventListsService.setEventListRemove(id.value)
             .subscribe(
                 eventListRemoveData => {
                     res = eventListRemoveData;
@@ -111,7 +110,7 @@ export class EventListsComponent implements OnInit, AfterViewInit {
                     console.log(' this.invenRemoveItem', res);
                     if (res.result == 100) {
                         this.eventData.splice(rowid, 1);
-                        swal("성공", rowid + ": 아이템 삭제 되었습니다.", "success");
+                        swal("성공", rowid + "행 아이템 삭제 되었습니다.", "success");
                     } else {
                         swal("Error", "Row No: " + rowid + " Result Number is " + res.result, "error");
                     }

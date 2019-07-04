@@ -28,10 +28,10 @@ export class ServerManageService {
             .map(this.extractData)
             .catch(handleError);
     }
-    getServerAllStart(boo:string): Observable<any[]> {
+    getServerAllStart(): Observable<any[]> {
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/StartAllServer/?key=${this.apiKey}`;
-        let paramUrl=`${url}&autoRestart=${boo}`;
+        let paramUrl=`${url}&autoRestart=true`;
         return this.http
             .get(paramUrl)
             .map(this.extractData)
@@ -46,12 +46,11 @@ export class ServerManageService {
             .map(this.extractData)
             .catch(handleError);
     }
-    getServerAllUpdate(boo): Observable<any[]>{
+    getServerAllUpdate(): Observable<any[]>{
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/UpdateAllServer/?key=${this.apiKey}`;
-        let paramUrl=`${url}&autoRestart=${boo}`;
         return this.http
-            .get(paramUrl)
+            .get(url)
             .map(this.extractData)
             .catch(handleError);
     }
@@ -79,17 +78,15 @@ export class ServerManageService {
             .map(this.extractData)
             .catch(handleError);
     }
-    getServerSpecStart(sname,boo){
+    getServerSpecStart(sname){
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/StartServer/?key=${this.apiKey}`;
-        let paramUrl=`${url}&serverName=${sname}&autoRestart=${boo}`;
+        let paramUrl=`${url}&serverName=${sname}&autoRestart=true`;
         return this.http
             .get(paramUrl)
             .map(this.extractData)
             .catch(handleError);
     }
-
-
     getServerSpecStop(sname): Observable<any[]> {
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/StopServer/?key=${this.apiKey}`;
@@ -99,18 +96,15 @@ export class ServerManageService {
             .map(this.extractData)
             .catch(handleError);
     }
-
-
-    getServerUpdate(sname, boo): Observable<any[]>{
+    getServerUpdate(sname): Observable<any[]>{
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/UpdateServer/?key=${this.apiKey}`;
-        let paramUrl=`${url}&serverName=${sname}&autoRestart=${boo}`;
+        let paramUrl=`${url}&serverName=${sname}&autoRestart=true`;
         return this.http
             .get(paramUrl)
             .map(this.extractData)
             .catch(handleError);
     }
-
     getAllKickUser(msg): Observable<any[]>{
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/AllKick/?key=${this.apiKey}`;
@@ -120,7 +114,6 @@ export class ServerManageService {
             .map(this.extractData)
             .catch(handleError);
     }
-
     private extractData(res: Response) {
         Helpers.setLoading(false);
         let body = res.json();

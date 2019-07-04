@@ -2,7 +2,7 @@
 <div class="m-subheader" appunwraptag="">
 	<div class="d-flex align-items-center">
 		<div class="mr-auto">
-			<h3 class="m-subheader__title m-subheader__title--separator">인게임 공지사항</h3>
+			<h3 class="m-subheader__title m-subheader__title--separator">이벤트 리스</h3>
 		</div>
 	</div>
 </div><!-- END: Subheader -->
@@ -34,7 +34,7 @@
 						<td>{{p.eventID}}</td>
 						<td>{{p.title}}</td>
 						<td>{{p.postMessage}}</td>
-						<td>{{p.descName}} [ {{p.code}} ]</td>
+						<td>{{p.descName}} [{{p.code}}]</td>
 						<td>{{p.count}}</td>
 						<td>{{p.postTypeName}}</td>
 						<td>{{p.startDate}}</td>
@@ -75,7 +75,7 @@
 
 <ng-template #eventAdd let-c="close" let-d="dismiss">
 	<div class="modal-header">
-		<h4 class="modal-title">이벤트 등</h4>
+		<h4 class="modal-title">이벤트 등록</h4>
 		<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
 			<span aria-hidden="true">&times;</span>
 		</button>

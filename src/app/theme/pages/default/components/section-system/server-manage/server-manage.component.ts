@@ -61,12 +61,12 @@ export class ServerManageComponent implements OnInit {
                 error => this.errMessage = <any>error);
     }
 
-    getCheckStatAllServer(serverBoo, arBoo) {
-        console.log(serverBoo, arBoo);
+    getCheckStatAllServer(serverBoo) {
+        console.log(serverBoo);
         if (!serverBoo) {
-            this.getServerAllStop(arBoo)
+            this.getServerAllStop()
         } else if (serverBoo) {
-            this.getServerAllStart(arBoo)
+            this.getServerAllStart()
         }
     }
 
@@ -75,13 +75,13 @@ export class ServerManageComponent implements OnInit {
         if (!serverBoo) {
             this.getServerSpecStop(sname)
         } else if (serverBoo) {
-            this.getServerSpecStart(sname, arBoo)
+            this.getServerSpecStart(sname)
         }
     }
 
-    getServerAllStart(boo) {
+    getServerAllStart() {
         let res: any = [];
-        this.serverManageService.getServerAllStart(boo)
+        this.serverManageService.getServerAllStart()
             .subscribe(
                 serverAllStartReturn => {
                     res = serverAllStartReturn;
@@ -91,8 +91,6 @@ export class ServerManageComponent implements OnInit {
                         this.serverAllStartReturn = res.data[0].serverList;
 
                         this.allServerOnSet = true;
-                        this.allServerArSet = boo;
-
                         let serverData = this.serverStatData[0];
                         let returnData = this.serverAllStartReturn;
 
@@ -118,7 +116,7 @@ export class ServerManageComponent implements OnInit {
 
     }
 
-    getServerAllStop(boo) {
+    getServerAllStop() {
         let res: any = [];
         this.serverManageService.getServerAllStop()
             .subscribe(
@@ -127,7 +125,6 @@ export class ServerManageComponent implements OnInit {
                     if (res.result === 100) {
                         this.serverAllStopReturn = res.data[0].serverList;
                         this.allServerOnSet = false;
-                        this.allServerArSet = boo;
                         let serverData = this.serverStatData[0];
                         let returnData = this.serverAllStopReturn;
                         for (let i in returnData) {
@@ -150,15 +147,14 @@ export class ServerManageComponent implements OnInit {
                 error => this.errMessage = <any>error);
     }
 
-    getServerAllUpdate(boo) {
+    getServerAllUpdate() {
         let res: any = [];
-        this.serverManageService.getServerAllUpdate(boo)
+        this.serverManageService.getServerAllUpdate()
             .subscribe(
                 serverAllUpdateReturn => {
                     res = serverAllUpdateReturn;
                     if (res.result === 100) {
                         this.serverAllUpdateReturn = res.data[0].serverList;
-                        this.allServerUpArSet = boo;
                         let serverData = this.serverStatData[0];
                         let returnData = this.serverAllUpdateReturn;
                         for (let i in returnData) {
@@ -172,8 +168,6 @@ export class ServerManageComponent implements OnInit {
                         swal("Update All Server", "모든 서버가 업데이트 되었습니다.", "success");
                         //리셋
                         this.getServerStateList();
-
-                        console.log('this serverStat', this.serverAllUpdateReturn)
                     } else {
                         swal("Error", "Result Number is " + res.result, "error");
                     }
@@ -191,7 +185,6 @@ export class ServerManageComponent implements OnInit {
                     console.log(res);
                     if (res.result === 100) {
                         this.updateAllData = res.data[0].serverList;
-
                         swal("Update All Server", "모든 게임 데이타가 업데이트 되었습니다.", "success");
                         //리셋
                         this.getServerStateList();
@@ -245,9 +238,9 @@ export class ServerManageComponent implements OnInit {
                 });
     }
 
-    getServerSpecStart(sname, boo) {
+    getServerSpecStart(sname) {
         let res: any = [];
-        this.serverManageService.getServerSpecStart(sname, boo)
+        this.serverManageService.getServerSpecStart(sname)
             .subscribe(
                 serverStartReturn => {
                     res = serverStartReturn;
@@ -257,14 +250,10 @@ export class ServerManageComponent implements OnInit {
                         for (let i in serverData) {
                             console.log()
                             let serverName = serverData[i][0].ServerName;
-
                             if (sname == serverName) {
-                                //serverData[i][0].Concurrent = boo;
                                 serverData[i][0].State = 'ACTIVE';
                             }
                         }
-                        console.log(this.serverStatData);
-
                         swal("Start " + sname + " Server", "서버가 켜졌습니다.", "success");
                         console.log('this.serverStartReturn ', this.serverStartReturn)
                     } else {
@@ -306,15 +295,14 @@ export class ServerManageComponent implements OnInit {
     }
 
 
-    getServerUpdate(sname, boo) {
+    getServerUpdate(sname) {
         let res: any = [];
-        this.serverManageService.getServerUpdate(sname, boo)
+        this.serverManageService.getServerUpdate(sname)
             .subscribe(
                 serverUpdateReturn => {
                     res = serverUpdateReturn;
                     console.log('serverUpdateReturn', res);
                     if (res.result === 100) {
-                        this.serverArSet = boo;
                         let serverData = this.serverStatData[0];
                         for (let i in serverData) {
                             let serverName = serverData[i][0].ServerName;
@@ -359,7 +347,7 @@ export class ServerManageComponent implements OnInit {
         });
     }
 
-    setSpecEditOpen(content, sname, setVal, arVal) {
+    setSpecEditOpen(content, sname, setVal) {
         this.nowClickServerName = sname;
         let onSetVal;
         if (setVal == 'ACTIVE') {
@@ -368,8 +356,6 @@ export class ServerManageComponent implements OnInit {
             onSetVal = false
         }
         this.serverOnSet = onSetVal;
-        this.serverArSet = arVal;
-
         this.modalService.open(content).result.then((result) => {
             this.modalClose = `Closed with: ${result}`;
         }, (reason) => {
@@ -377,10 +363,8 @@ export class ServerManageComponent implements OnInit {
         });
     }
 
-    setUpdateEditOpen(content, sname, boo) {
-        console.log(boo);
+    setUpdateEditOpen(content, sname) {
         this.nowClickServerName = sname;
-        this.serverArSet = boo;
         this.modalService.open(content).result.then((result) => {
             this.modalClose = `Closed with: ${result}`;
         }, (reason) => {

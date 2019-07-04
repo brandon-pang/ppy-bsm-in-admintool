@@ -13,6 +13,8 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/toPromise';
 
 import { Helpers } from "../../../../../../helpers";
+declare function require(name:string);
+const LosslessJSON = require('lossless-json');
 
 @Injectable()
 
@@ -35,7 +37,7 @@ export class EventListsService{
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/GetEventList/?key=${this.apiKey}`;
         return this.http
-            .get(url)
+            .get(encodeURI(url))
             .map(this.extractData)
             .catch(handleError)
     }
@@ -58,7 +60,7 @@ export class EventListsService{
 
     private extractData(res: Response) {
         Helpers.setLoading(false);
-        let body = res.json();
+        let body = LosslessJSON.parse(res.text());
         return body || {};
     }
 }
