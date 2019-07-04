@@ -37,7 +37,6 @@ export class ServerManageService {
             .map(this.extractData)
             .catch(handleError);
     }
-
     getServerAllStop(): Observable<any[]> {
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/StopAllServer/?key=${this.apiKey}`;
