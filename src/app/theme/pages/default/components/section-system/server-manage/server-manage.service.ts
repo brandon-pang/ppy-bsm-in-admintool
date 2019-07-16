@@ -17,9 +17,7 @@ export class ServerManageService {
     private currentUser = JSON.parse(localStorage.getItem('currentUser'));
     private apiUrl = this.currentUser.connectIP;
     private apiKey = this.currentUser.apikey;
-
     constructor(private http: Http) { }
-
     getServerStateList(): Observable<any[]> {
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/ServerStateList/?key=${this.apiKey}`;
