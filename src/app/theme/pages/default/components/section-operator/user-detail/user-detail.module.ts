@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { UserDetailComponent } from './user-detail.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LayoutModule } from '../../../../../layouts/layout.module';
 import { DefaultComponent } from '../../../default.component';
 
@@ -31,4 +31,4 @@ const routes: Routes = [
         UserDetailComponent
     ]
 })
-export class UserDetailModule {}
+export class UserDetailModule { }

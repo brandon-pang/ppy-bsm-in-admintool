@@ -13,18 +13,18 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/toPromise';
 
 import { Helpers } from "../../../../../../helpers";
-declare function require(name:string);
+declare function require(name: string);
 const LosslessJSON = require('lossless-json');
 
 @Injectable()
 
-export class EventListsService{
+export class EventListsService {
     private currentUser = JSON.parse(localStorage.getItem('currentUser'));
     private apiUrl = this.currentUser.connectIP;
     private apiKey = this.currentUser.apikey;
 
-    constructor(private http:Http){ }
-    getGameInfoData():Observable<any[]>{
+    constructor(private http: Http) { }
+    getGameInfoData(): Observable<any[]> {
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/GetCodeInfo/?key=${this.apiKey}`;
         return this.http
@@ -49,9 +49,9 @@ export class EventListsService{
             .map(this.extractData)
             .catch(handleError)
     }
-    setEventListAdd(title, itemCode, count, msg, type, start, end): Observable<any[]> {
+    setEventListAdd(userType, userDate, title, itemCode, count, msg, type, start, end): Observable<any[]> {
         Helpers.setLoading(true);
-        let url = `${this.apiUrl}/WAPI/AddEvent/?key=${this.apiKey}&title=${title}&itemCode=${itemCode}&count=${count}&message=${msg}&postType=${type}&start=${start}&end=${end}`;
+        let url = `${this.apiUrl}/WAPI/AddEvent/?key=${this.apiKey}&eventType=${userType}&standardDate=${userDate}&title=${title}&itemCode=${itemCode}&count=${count}&message=${msg}&postType=${type}&start=${start}&end=${end}`;
         return this.http
             .get(url)
             .map(this.extractData)

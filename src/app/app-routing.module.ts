@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {LocationStrategy, HashLocationStrategy} from "@angular/common";
+import { LocationStrategy, HashLocationStrategy } from "@angular/common";
 import { LogoutComponent } from "./auth/logout/logout.component";
 
 const routes: Routes = [
@@ -10,7 +10,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    providers:[{provide:LocationStrategy, useClass:HashLocationStrategy}],
+    providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
 })

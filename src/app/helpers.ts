@@ -2,7 +2,7 @@ import * as $ from "jquery";
 
 export class Helpers {
     //public static apiUrl = 'http://122.199.219.189:20011';
-   // public static apiKey = 'test_key';
+    // public static apiKey = 'test_key';
 
     static loadStyles(tag, src) {
         if (Array.isArray(src)) {

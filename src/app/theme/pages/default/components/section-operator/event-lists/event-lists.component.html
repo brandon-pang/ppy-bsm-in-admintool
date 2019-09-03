@@ -22,6 +22,8 @@
 						<th>Message</th>
 						<th>Code</th>
 						<th>Count</th>
+						<th>User Ty.</th>
+						<th>Standard Date</th>
 						<th>Type</th>
 						<th>Start Date</th>
 						<th>End Date</th>
@@ -36,6 +38,8 @@
 						<td>{{p.postMessage}}</td>
 						<td>{{p.descName}} [{{p.code}}]</td>
 						<td>{{p.count}}</td>
+						<td>{{p.userTypeName}}</td>
+						<td>{{p.standardDate}}</td>
 						<td>{{p.postTypeName}}</td>
 						<td>{{p.startDate}}</td>
 						<td>{{p.endDate}}</td>
@@ -84,6 +88,28 @@
 		<table class="table table-bordered table-hover">
 			<tbody>
 			<tr>
+				<td style="width:30%;">이벤트 종류</td>
+				<td style="width:70%;">
+					<select class="form-control" name="eUserType" style="height:40px; padding:0; padding-left:15px;" #eUserType required>
+						<option value="0">전체 유저</option>
+						<option value="1">신규 유저</option>
+						<option value="2">기존 유저</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:30%;">기준 날짜 설정</td>
+				<td style="width:70%;">
+					<div class="input-group date">
+						<input type="text" class="form-control m-input" readonly id="m_datetimepicker_3_3" [value]="" #eUserDate required/>
+						<div class="input-group-append">
+							<span class="input-group-text"><i class="la la-calendar glyphicon-th"></i></span>
+						</div>
+					</div>
+					* 전체유저일 경우 기준일이 필요 없습니다.
+				</td>
+			</tr>
+			<tr>
 				<td style="width:30%;">아이템</td>
 				<td style="width:70%;">
 					<select class="form-control m-select2" id="m_select2_1" name="param" style="width:100%;"  #eItem required>
@@ -94,7 +120,7 @@
 			<tr>
 				<td style="width:30%;">지급 갯수</td>
 				<td style="width:70%;">
-					<input type="number" pattern="\d+" class="form-control m-input" [value]="1" #eCode required>
+					<input type="number" pattern="\d+" class="form-control m-input" [value]="1" #eCount required>
 				</td>
 			</tr>
 			<tr>
@@ -146,8 +172,15 @@
 	</div>
 	<div class="modal-footer">
 		<button type="button" class="btn btn-primary" (click)="c('Close click')" [disabled]="eTitle.value == '' && eBody.value == ''"
-				(click)="setEventListAdd(eTitle.value, eCode.value, eTitle.value,
-				eBody.value, eType.value, sDate.value, eDate.value)">Submit</button>
+				(click)="setEventListAdd(eUserType.value,
+				eUserDate.value,
+				eTitle.value,
+				eItem.value,
+				eCount.value,
+				eBody.value,
+				eType.value,
+				sDate.value,
+				eDate.value)">Submit</button>
 		<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
 	</div>
 </ng-template>

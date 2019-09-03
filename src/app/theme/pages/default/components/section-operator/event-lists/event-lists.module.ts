@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { EventListsComponent } from './event-lists.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LayoutModule } from '../../../../../layouts/layout.module';
 import { DefaultComponent } from '../../../default.component';
 
@@ -30,6 +30,6 @@ const routes: Routes = [
         EventListsComponent
     ]
 })
-export class  EventListsModule {
+export class EventListsModule {
 
 }

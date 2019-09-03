@@ -22,7 +22,7 @@ export class ServerMaintenanceService {
 
     constructor(private http: Http) { }
 
-    getGameInfoData():Observable<any[]>{
+    getGameInfoData(): Observable<any[]> {
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/GetCodeInfo/?key=${this.apiKey}`;
         return this.http
@@ -40,7 +40,7 @@ export class ServerMaintenanceService {
             .catch(handleError);
     }
 
-    getBundleID():Observable<any[]>{
+    getBundleID(): Observable<any[]> {
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/GetCurrentBundleID/?key=${this.apiKey}`;
         return this.http
@@ -49,7 +49,7 @@ export class ServerMaintenanceService {
             .catch(handleError);
     }
 
-    setBundleID(id):Observable<any[]>{
+    setBundleID(id): Observable<any[]> {
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/SetBundleID/?key=${this.apiKey}&bundleID=${id}`;
         return this.http
@@ -68,7 +68,7 @@ export class ServerMaintenanceService {
             .catch(handleError);
     }
 
-    setServerInspectData(region,startDate,endDate,state,message): Observable<any[]> {
+    setServerInspectData(region, startDate, endDate, state, message): Observable<any[]> {
         Helpers.setLoading(true);
         let targetUrl = `${this.apiUrl}/WAPI/ServerInspect/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&region=${region}&start=${startDate}&end=${endDate}&state=${state}&message=${message}`;

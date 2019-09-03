@@ -6,15 +6,15 @@ import {
     ViewContainerRef,
     ViewEncapsulation,
 } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {ScriptLoaderService} from '../_services/script-loader.service';
-import {AuthenticationService} from './_services/authentication.service';
-import {AlertService} from './_services/alert.service';
-import {UserService} from './_services/user.service';
-import {AlertComponent} from './_directives/alert.component';
-import {LoginCustom} from './_helpers/login-custom';
-import {Helpers} from '../helpers';
-import {Md5} from "ts-md5";
+import { ActivatedRoute, Router } from '@angular/router';
+import { ScriptLoaderService } from '../_services/script-loader.service';
+import { AuthenticationService } from './_services/authentication.service';
+import { AlertService } from './_services/alert.service';
+import { UserService } from './_services/user.service';
+import { AlertComponent } from './_directives/alert.component';
+import { LoginCustom } from './_helpers/login-custom';
+import { Helpers } from '../helpers';
+import { Md5 } from "ts-md5";
 
 
 @Component({
@@ -30,11 +30,11 @@ export class AuthComponent implements OnInit {
     loading = false;
     md5 = new Md5();
     @ViewChild('alertSignin',
-        {read: ViewContainerRef}) alertSignin: ViewContainerRef;
+        { read: ViewContainerRef }) alertSignin: ViewContainerRef;
     @ViewChild('alertSignup',
-        {read: ViewContainerRef}) alertSignup: ViewContainerRef;
+        { read: ViewContainerRef }) alertSignup: ViewContainerRef;
     @ViewChild('alertForgotPass',
-        {read: ViewContainerRef}) alertForgotPass: ViewContainerRef;
+        { read: ViewContainerRef }) alertForgotPass: ViewContainerRef;
 
     constructor(
         private _router: Router,
@@ -54,21 +54,21 @@ export class AuthComponent implements OnInit {
         this._script.loadScripts('body', [
             'assets/vendors/base/vendors.bundle.js',
             'assets/demo/default/base/scripts.bundle.js'], true).then(() => {
-            Helpers.setLoading(false);
-            LoginCustom.init();
-        });
+                Helpers.setLoading(false);
+                LoginCustom.init();
+            });
         //live
         //this.model.ip='http://110.234.23.129:20011';
-        this.model.ip='http://13.76.86.220:20011';
+        //this.model.ip='http://13.76.86.220:20011';
         //dev
-        //this.model.ip='http://122.199.219.189:20011';
+        this.model.ip = 'http://122.199.219.189:20011';
     }
 
     signin() {
         let res: any = [];
         this.loading = true;
         let conpass = Md5.hashStr(this.model.password);
-        let connectIP=this.model.ip;
+        let connectIP = this.model.ip;
         //live
         this._authService.login(this.model.id, conpass, connectIP).subscribe(
             data => {
@@ -84,7 +84,7 @@ export class AuthComponent implements OnInit {
                             fullName: 'admin',
                             email: this.model.id,
                             apikey: res.data[0].API_KEY,
-                            connectIP:connectIP
+                            connectIP: connectIP
                         }
                         localStorage.setItem('currentUser', JSON.stringify(data));
                         this._router.navigate([this.returnUrl]);

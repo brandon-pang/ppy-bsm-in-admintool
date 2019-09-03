@@ -16,12 +16,12 @@ import { Helpers } from "../../../../../../helpers";
 
 @Injectable()
 
-export class NotificationPushService{
+export class NotificationPushService {
     private currentUser = JSON.parse(localStorage.getItem('currentUser'));
     private apiUrl = this.currentUser.connectIP;
     private apiKey = this.currentUser.apikey;
 
-    constructor(private http:Http){ }
+    constructor(private http: Http) { }
 
     getPushJob(): Observable<any[]> {
         Helpers.setLoading(true);
@@ -31,7 +31,7 @@ export class NotificationPushService{
             .map(this.extractData)
             .catch(handleError)
     }
-    getGameInfoData():Observable<any[]>{
+    getGameInfoData(): Observable<any[]> {
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/GetCodeInfo/?key=${this.apiKey}`;
         return this.http
@@ -42,7 +42,7 @@ export class NotificationPushService{
     setJoinListPush(jobID, channel, title, body, when): Observable<any[]> {
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/AddPushJob/?key=${this.apiKey}`;
-        let addParamUrl=`${url}&jobID=${jobID}&channel=${channel}&title=${title}&body=${body}&when=${when}`
+        let addParamUrl = `${url}&jobID=${jobID}&channel=${channel}&title=${title}&body=${body}&when=${when}`
         return this.http
             .get(addParamUrl)
             .map(this.extractData)
@@ -51,7 +51,7 @@ export class NotificationPushService{
     setDelPushJob(jobID): Observable<any[]> {
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/DeletePushJob/?key=${this.apiKey}`;
-        let addParamUrl=`${url}&jobID=${jobID}`;
+        let addParamUrl = `${url}&jobID=${jobID}`;
         return this.http
             .get(addParamUrl)
             .map(this.extractData)

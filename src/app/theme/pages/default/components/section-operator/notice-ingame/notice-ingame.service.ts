@@ -16,12 +16,12 @@ import { Helpers } from "../../../../../../helpers";
 
 @Injectable()
 
-export class NoticeIngameService{
+export class NoticeIngameService {
     private currentUser = JSON.parse(localStorage.getItem('currentUser'));
     private apiUrl = this.currentUser.connectIP;
     private apiKey = this.currentUser.apikey;
 
-    constructor(private http:Http){ }
+    constructor(private http: Http) { }
 
     setNoticeData(msg): Observable<any[]> {
         Helpers.setLoading(true);

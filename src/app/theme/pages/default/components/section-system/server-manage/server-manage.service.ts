@@ -9,7 +9,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/toPromise';
-import {Helpers} from "../../../../../../helpers";
+import { Helpers } from "../../../../../../helpers";
 
 @Injectable()
 
@@ -29,7 +29,7 @@ export class ServerManageService {
     getServerAllStart(): Observable<any[]> {
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/StartAllServer/?key=${this.apiKey}`;
-        let paramUrl=`${url}&autoRestart=true`;
+        let paramUrl = `${url}&autoRestart=true`;
         return this.http
             .get(paramUrl)
             .map(this.extractData)
@@ -43,7 +43,7 @@ export class ServerManageService {
             .map(this.extractData)
             .catch(handleError);
     }
-    getServerAllUpdate(): Observable<any[]>{
+    getServerAllUpdate(): Observable<any[]> {
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/UpdateAllServer/?key=${this.apiKey}`;
         return this.http
@@ -51,7 +51,7 @@ export class ServerManageService {
             .map(this.extractData)
             .catch(handleError);
     }
-    getUpdateAllData(): Observable<any[]>{
+    getUpdateAllData(): Observable<any[]> {
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/UpdateAllData/?key=${this.apiKey}`;
         return this.http
@@ -59,7 +59,7 @@ export class ServerManageService {
             .map(this.extractData)
             .catch(handleError);
     }
-    getReloadGameData(): Observable<any[]>{
+    getReloadGameData(): Observable<any[]> {
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/ReloadGameData/?key=${this.apiKey}`;
         return this.http
@@ -67,7 +67,7 @@ export class ServerManageService {
             .map(this.extractData)
             .catch(handleError);
     }
-    getReloadGeoIP(): Observable<any[]>{
+    getReloadGeoIP(): Observable<any[]> {
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/ReloadGeoIP/?key=${this.apiKey}`;
         return this.http
@@ -75,10 +75,10 @@ export class ServerManageService {
             .map(this.extractData)
             .catch(handleError);
     }
-    getServerSpecStart(sname){
+    getServerSpecStart(sname) {
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/StartServer/?key=${this.apiKey}`;
-        let paramUrl=`${url}&serverName=${sname}&autoRestart=true`;
+        let paramUrl = `${url}&serverName=${sname}&autoRestart=true`;
         return this.http
             .get(paramUrl)
             .map(this.extractData)
@@ -87,25 +87,25 @@ export class ServerManageService {
     getServerSpecStop(sname): Observable<any[]> {
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/StopServer/?key=${this.apiKey}`;
-        let paramUrl=`${url}&serverName=${sname}`;
+        let paramUrl = `${url}&serverName=${sname}`;
         return this.http
             .get(paramUrl)
             .map(this.extractData)
             .catch(handleError);
     }
-    getServerUpdate(sname): Observable<any[]>{
+    getServerUpdate(sname): Observable<any[]> {
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/UpdateServer/?key=${this.apiKey}`;
-        let paramUrl=`${url}&serverName=${sname}&autoRestart=true`;
+        let paramUrl = `${url}&serverName=${sname}&autoRestart=true`;
         return this.http
             .get(paramUrl)
             .map(this.extractData)
             .catch(handleError);
     }
-    getAllKickUser(msg): Observable<any[]>{
+    getAllKickUser(msg): Observable<any[]> {
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/AllKick/?key=${this.apiKey}`;
-        let paramUrl=`${url}&message=${msg}`;
+        let paramUrl = `${url}&message=${msg}`;
         return this.http
             .get(paramUrl)
             .map(this.extractData)

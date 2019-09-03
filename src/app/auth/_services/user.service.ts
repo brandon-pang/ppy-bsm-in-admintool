@@ -14,7 +14,7 @@ export class UserService {
     }
 
     forgotPassword(email: string) {
-        return this.http.post('/api/forgot-password',JSON.stringify({ email }),this.jwt()).map((response: Response) => response.json());
+        return this.http.post('/api/forgot-password', JSON.stringify({ email }), this.jwt()).map((response: Response) => response.json());
     }
 
     getAll() {

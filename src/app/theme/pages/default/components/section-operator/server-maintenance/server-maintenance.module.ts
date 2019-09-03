@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ServerMaintenanceComponent } from './server-maintenance.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LayoutModule } from '../../../../../layouts/layout.module';
 import { DefaultComponent } from '../../../default.component';
 
@@ -30,4 +30,4 @@ const routes: Routes = [
         ServerMaintenanceComponent
     ]
 })
-export class ServerMaintenanceModule {}
+export class ServerMaintenanceModule { }

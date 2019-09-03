@@ -1,7 +1,7 @@
 //== Class definition
 
 var BootstrapDatetimepicker = function () {
-    
+
     //== Private functions
     var demos = function () {
         // minimal setup
@@ -41,6 +41,13 @@ var BootstrapDatetimepicker = function () {
         });
 
         $('#m_datetimepicker_3_2').datetimepicker({
+            todayHighlight: true,
+            autoclose: true,
+            pickerPosition: 'bottom-left',
+            todayBtn: true,
+            format: 'yyyy-mm-dd hh:ii'
+        });
+        $('#m_datetimepicker_3_3').datetimepicker({
             todayHighlight: true,
             autoclose: true,
             pickerPosition: 'bottom-left',
@@ -118,11 +125,11 @@ var BootstrapDatetimepicker = function () {
     return {
         // public functions
         init: function() {
-            demos(); 
+            demos();
         }
     };
 }();
 
-jQuery(document).ready(function() {    
+jQuery(document).ready(function() {
     BootstrapDatetimepicker.init();
 });

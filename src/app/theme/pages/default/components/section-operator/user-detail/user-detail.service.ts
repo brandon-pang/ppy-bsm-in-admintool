@@ -14,7 +14,7 @@ import 'rxjs/add/operator/toPromise';
 
 import { Helpers } from "../../../../../../helpers";
 
-declare function require(name:string);
+declare function require(name: string);
 const LosslessJSON = require('lossless-json');
 
 @Injectable()
@@ -57,7 +57,7 @@ export class UserDetailService {
             .map(this.extractData)
             .catch(handleError);
     }
-    removePostItemData(playerid,postid): Observable<any[]> {
+    removePostItemData(playerid, postid): Observable<any[]> {
         let targetUrl = `${this.apiUrl}/WAPI/RemovePost/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&playerID=${playerid}&postID=${postid}`;
         return this.http
@@ -66,7 +66,7 @@ export class UserDetailService {
             .catch(handleError);
     }
 
-    setSendItemMail(id, itemCode, count, sender, message,title,posttype): Observable<any[]> {
+    setSendItemMail(id, itemCode, count, sender, message, title, posttype): Observable<any[]> {
         Helpers.setLoading(true);
         let targetUrl = `${this.apiUrl}/WAPI/AddPost/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&playerID=${id}&itemCode=${itemCode}&count=${count}&senderName=${sender}&message=${message}&title=${title}&postType=${posttype}`;
@@ -86,7 +86,7 @@ export class UserDetailService {
             .catch(handleError);
     }
 
-    getGameInfoData():Observable<any[]>{
+    getGameInfoData(): Observable<any[]> {
         Helpers.setLoading(true);
         let url = `${this.apiUrl}/WAPI/GetCodeInfo/?key=${this.apiKey}`;
         return this.http
@@ -105,7 +105,7 @@ export class UserDetailService {
             .catch(handleError);
     }
 
-    setChangeGold(id:string,param:string): Observable<any[]> {
+    setChangeGold(id: string, param: string): Observable<any[]> {
         Helpers.setLoading(true);
         let targetUrl = `${this.apiUrl}/WAPI/ModifyGold/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&playerID=${id}&gold=${param}`;
@@ -115,7 +115,7 @@ export class UserDetailService {
             .catch(handleError);
     }
 
-    setChangeGem(id:string,param1:string,param2:string): Observable<any[]> {
+    setChangeGem(id: string, param1: string, param2: string): Observable<any[]> {
         Helpers.setLoading(true);
         let targetUrl = `${this.apiUrl}/WAPI/ModifyGem/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&playerID=${id}&gem=${param1}&bonusgem=${param2}`;
@@ -134,8 +134,8 @@ export class UserDetailService {
             .catch(handleError);
     }
 
-    setInvenItem(id: string, itemCode:string, count:string,
-                 level: string, expriy:string, skinCode:string): Observable<any[]> {
+    setInvenItem(id: string, itemCode: string, count: string,
+        level: string, expriy: string, skinCode: string): Observable<any[]> {
         let targetUrl = `${this.apiUrl}/WAPI/ModifyItem/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&playerID=${id}&itemCode=${itemCode}&count=${count}&level=${level}&expriy=${expriy}&skinCode=${skinCode}`;
         return this.http
@@ -143,7 +143,7 @@ export class UserDetailService {
             .map(this.extractData)
             .catch(handleError);
     }
-    setInvenRemoveItem(id: string, itemCode:string): Observable<any[]> {
+    setInvenRemoveItem(id: string, itemCode: string): Observable<any[]> {
         let targetUrl = `${this.apiUrl}/WAPI/RemoveItem/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&playerID=${id}&itemCode=${itemCode}`;
         return this.http
@@ -151,7 +151,7 @@ export class UserDetailService {
             .map(this.extractData)
             .catch(handleError);
     }
-    getFriendListData(type,id): Observable<any[]> {
+    getFriendListData(type, id): Observable<any[]> {
         Helpers.setLoading(true);
         let targetUrl = `${this.apiUrl}/WAPI/GetTableData/?key=${this.apiKey}`;
         let setUrl = `${targetUrl}&type=${type}&hashKey=${id}`;
