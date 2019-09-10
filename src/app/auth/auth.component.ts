@@ -59,9 +59,9 @@ export class AuthComponent implements OnInit {
             });
         //live
         //this.model.ip='http://110.234.23.129:20011';
-        //this.model.ip='http://13.76.86.220:20011';
+        this.model.ip='http://13.76.86.220:20011';
         //dev
-        this.model.ip = 'http://122.199.219.189:20011';
+        //this.model.ip = 'http://122.199.219.189:20011';
     }
 
     signin() {
