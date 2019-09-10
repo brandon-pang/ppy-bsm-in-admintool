@@ -121,19 +121,11 @@
 			</tr>
 			<tr>
 				<td style="width:30%;">아이템</td>
-				<td style="width:70%;" [hidden]="eType.value =='2' || eType.value =='3'">
-					<select style="width:100%;" #eItems required>
-						<option *ngFor="let b of rewardInfoData; let i=index" [value]="b.Value">{{b.DescName}}</option>
-					</select>
-				</td>
-				<td style="width:70%;" [hidden]="eType.value =='1' || eType.value =='3'">
-					<select style="width:100%;" #eItems required>
-						<option *ngFor="let p of gameInfoData; let i=index" [value]="p.Value">{{p.DescName}}</option>
-					</select>
-				</td>
-				<td style="width:70%;" [hidden]="eType.value =='1' || eType.value =='2'">
-					<select style="width:100%;" #eItems required>
-						<option *ngFor="let a of skinInfoData; let i=index" [value]="a.Value">{{a.DescName}}</option>
+				<td style="width:70%;" >
+					<select style="width:100%;" #eItems>
+						<option *ngFor="let p of rewardInfoData; let i=index" [value]="p.Value.value" [hidden]="eType.value =='2' || eType.value =='3'">{{p.DescName}}</option>
+						<option *ngFor="let p of gameInfoData; let i=index" [value]="p.Value.value"  [hidden]="eType.value =='1' || eType.value =='3'">{{p.DescName}}</option>
+						<option *ngFor="let p of skinInfoData; let i=index" [value]="p.Value.value" [hidden]="eType.value =='1' || eType.value =='2'">{{p.DescName}}</option>
 					</select>
 				</td>
 			</tr>
@@ -182,6 +174,7 @@
 			</tbody>
 		</table>
 	</div>
+
 	<div class="modal-footer">
 		<button type="button" class="btn btn-primary" (click)="c('Close click')" [disabled]="eTitle.value == '' && eBody.value == ''"
 				(click)="setEventListAdd(eUserType.value,

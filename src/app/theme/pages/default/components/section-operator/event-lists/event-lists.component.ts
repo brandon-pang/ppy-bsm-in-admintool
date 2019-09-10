@@ -28,6 +28,7 @@ export class EventListsComponent implements OnInit, AfterViewInit {
     rewardInfoData: any = [];
     EventRowId: string = "";
     EventID: string = "";
+    itemClickValue:string="";
     public modalClose: string;
 
     //private sub: any;
@@ -62,7 +63,10 @@ export class EventListsComponent implements OnInit, AfterViewInit {
                     this.gameInfoData = res.data[0].ITEM_CODE_LIST;
                     this.skinInfoData = res.data[0].SKIN_CODE_LIST;
                     this.rewardInfoData=res.data[0].REWARD_CODE_LIST;
-                    //console.log(' this.gameInfoData', this.gameInfoData)
+                    console.log(' this.gameInfoData', this.gameInfoData)
+                    console.log(' this.skinInfoData', this.skinInfoData)
+                    console.log(' this.rewardInfoData', this.rewardInfoData)
+                    console.log(' this.rewardInfoData', this.rewardInfoData[46].Value.value)
                     this.getEventListsData()
                 } else {
                     swal("It can't find table data", "Result Number is " + res.result.value, "error");
@@ -116,10 +120,7 @@ export class EventListsComponent implements OnInit, AfterViewInit {
                             this.eventData[i].standardDate = 'None';
                         } else {
                             this.eventData[i].userTypeName = '';
-
                         }
-
-
                     }
                 } else {
                     swal("It can't find data", "Result Number is " + res.result, "error");
@@ -152,7 +153,7 @@ export class EventListsComponent implements OnInit, AfterViewInit {
     }
     setEventListAdd(userType, userDate, title, itemCode, count, msg, type, start, end) {
         let res: any = [];
-        console.log(userType, userDate, title, itemCode, count, msg, type, start,end)
+        console.log('itemCode: ',itemCode)
         this.eventListsService.setEventListAdd(userType, userDate, title, itemCode, count, msg, type, start, end)
             .subscribe(
             eventListAddData => {
