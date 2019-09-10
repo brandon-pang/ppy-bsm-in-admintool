@@ -29,6 +29,7 @@ export class EventListsComponent implements OnInit, AfterViewInit {
     EventRowId: string = "";
     EventID: string = "";
     public modalClose: string;
+
     //private sub: any;
     constructor(
         //private route: ActivatedRoute,
@@ -56,11 +57,12 @@ export class EventListsComponent implements OnInit, AfterViewInit {
             .subscribe(
             gameInfoData => {
                 res = gameInfoData;
-                console.log(' this.gameInfoData', res)
+
                 if (res.result == 100) {
                     this.gameInfoData = res.data[0].ITEM_CODE_LIST;
                     this.skinInfoData = res.data[0].SKIN_CODE_LIST;
                     this.rewardInfoData=res.data[0].REWARD_CODE_LIST;
+                    //console.log(' this.gameInfoData', this.gameInfoData)
                     this.getEventListsData()
                 } else {
                     swal("It can't find table data", "Result Number is " + res.result.value, "error");
@@ -80,17 +82,28 @@ export class EventListsComponent implements OnInit, AfterViewInit {
                     //console.log(this.gameInfoData[0].ITEM_CODE_LIST)
                     this.eventData = res.data[0].result;
                     for (let i in this.eventData) {
-                        for (let a in this.gameInfoData[0].ITEM_CODE_LIST) {
-                            if (this.eventData[i].code.value == this.gameInfoData[0].ITEM_CODE_LIST[a].Value) {
-                                //console.log('xxx', this.gameInfoData[0].ITEM_CODE_LIST[a].DescName);
-                                this.eventData[i].descName = this.gameInfoData[0].ITEM_CODE_LIST[a].DescName;
-                            }
-                        }
                         if (this.eventData[i].type == 1) {
                             this.eventData[i].postTypeName = 'REWARD';
+                            for (let a in this.rewardInfoData) {
+                                if (this.eventData[i].code.value == this.rewardInfoData[a].Value) {
+                                    this.eventData[i].descName = this.rewardInfoData[a].DescName;
+                                }
+                            }
                         } else if (this.eventData[i].type == 2) {
                             this.eventData[i].postTypeName = 'ITEM';
-                        } else {
+                            for (let a in this.gameInfoData) {
+                                if (this.eventData[i].code.value == this.gameInfoData[a].Value) {
+                                    this.eventData[i].descName = this.gameInfoData[a].DescName;
+                                }
+                            }
+                        } else if (this.eventData[i].type == 3) {
+                            this.eventData[i].postTypeName = 'SKIN';
+                            for (let a in this.skinInfoData) {
+                                if (this.eventData[i].code.value == this.skinInfoData[a].Value) {
+                                    this.eventData[i].descName = this.skinInfoData[a].DescName;
+                                }
+                            }
+                        }else {
                             this.eventData[i].postTypeName = '';
                         }
 
@@ -165,7 +178,6 @@ export class EventListsComponent implements OnInit, AfterViewInit {
         this.EventRowId = id;
         this.EventID = eid
         this.modalService.open(content).result.then((result) => {
-
             this.modalClose = `Closed with: ${result}`;
         }, (reason) => {
             this.modalClose = `Dismissed ${this.modalDismissReason(reason)}`;
