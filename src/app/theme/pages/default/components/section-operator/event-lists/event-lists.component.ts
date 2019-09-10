@@ -24,6 +24,8 @@ export class EventListsComponent implements OnInit, AfterViewInit {
     eventListRemoveData: any = [];
     eventListAddData: any = [];
     gameInfoData: any = [];
+    skinInfoData: any = [];
+    rewardInfoData: any = [];
     EventRowId: string = "";
     EventID: string = "";
     public modalClose: string;
@@ -56,7 +58,9 @@ export class EventListsComponent implements OnInit, AfterViewInit {
                 res = gameInfoData;
                 console.log(' this.gameInfoData', res)
                 if (res.result == 100) {
-                    this.gameInfoData = res.data;
+                    this.gameInfoData = res.data[0].ITEM_CODE_LIST;
+                    this.skinInfoData = res.data[0].SKIN_CODE_LIST;
+                    this.rewardInfoData=res.data[0].REWARD_CODE_LIST;
                     this.getEventListsData()
                 } else {
                     swal("It can't find table data", "Result Number is " + res.result.value, "error");
@@ -78,7 +82,7 @@ export class EventListsComponent implements OnInit, AfterViewInit {
                     for (let i in this.eventData) {
                         for (let a in this.gameInfoData[0].ITEM_CODE_LIST) {
                             if (this.eventData[i].code.value == this.gameInfoData[0].ITEM_CODE_LIST[a].Value) {
-                                console.log('xxx', this.gameInfoData[0].ITEM_CODE_LIST[a].DescName);
+                                //console.log('xxx', this.gameInfoData[0].ITEM_CODE_LIST[a].DescName);
                                 this.eventData[i].descName = this.gameInfoData[0].ITEM_CODE_LIST[a].DescName;
                             }
                         }

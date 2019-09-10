@@ -110,10 +110,26 @@
 				</td>
 			</tr>
 			<tr>
+				<td style="width:30%;">타입</td>
+				<td style="width:70%;">
+					<select class="form-control" name="eType" style="height:40px; padding:0; padding-left:15px;" #eType required>
+						<option value="1">REWARD</option>
+						<option value="2">ITEM</option>
+						<option value="3">SKIN</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
 				<td style="width:30%;">아이템</td>
 				<td style="width:70%;">
-					<select class="form-control m-select2" id="m_select2_1" name="param" style="width:100%;"  #eItem required>
-						<option *ngFor="let p of gameInfoData[0].ITEM_CODE_LIST; let i=index"  [value]="p.Value">{{p.DescName}}</option>
+					<select name="param" style="width:100%;"  #eItem required *ngIf="eType.value=='2'">
+						<option *ngFor="let p of gameInfoData; let i=index"  [value]="p.Value">{{p.DescName}}</option>
+					</select>
+					<select name="param" style="width:100%;"  #eItem required *ngIf="eType.value=='3'">
+						<option *ngFor="let p of skinInfoData; let i=index"  [value]="p.Value">{{p.DescName}}</option>
+					</select>
+					<select name="param" style="width:100%;"  #eItem required *ngIf="eType.value=='1'">
+						<option *ngFor="let p of rewardInfoData; let i=index"  [value]="p.Value">{{p.DescName}}</option>
 					</select>
 				</td>
 			</tr>
@@ -136,15 +152,7 @@
 						   placeholder="본문 내용을 입력해 주세요" [value]="" #eBody required>
 				</td>
 			</tr>
-			<tr>
-				<td style="width:30%;">타입</td>
-				<td style="width:70%;">
-					<select class="form-control" name="eType" style="height:40px; padding:0; padding-left:15px;" #eType required>
-						<option value="1">REWARD</option>
-						<option value="2">ITEM</option>
-					</select>
-				</td>
-			</tr>
+
 			<tr>
 				<td style="width:30%;">이벤트 시작 날짜</td>
 				<td style="width:70%;">
