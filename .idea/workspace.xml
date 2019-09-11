@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="81ed65d7-51fc-4532-98ee-beec78cf8c21" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/auth.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/templates/login-1.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/templates/login-1.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme/pages/default/components/section-system/server-manage/server-manage.component.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,51 +18,6 @@
         <option value="TypeScript File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>parame</find>
-      <find>getParamData</find>
-      <find>null</find>
-      <find>nickName</find>
-      <find>Last Log-o</find>
-      <find>소셜</find>
-      <find>model</find>
-      <find>clanID</find>
-      <find>Number</find>
-      <find>Numbe</find>
-      <find>수정</find>
-      <find>css</find>
-      <find>gemEdit</find>
-      <find>postID</find>
-      <find>setSendItemMail</find>
-      <find>send</find>
-      <find>shopDescName</find>
-      <find>INACTIV</find>
-      <find>item code</find>
-      <find>invenEdit</find>
-      <find>gameInfoData</find>
-      <find>itemD</find>
-      <find>itemData</find>
-      <find>sendMailEdit</find>
-      <find>sendMailEditOpen</find>
-      <find>getServerAllUpdate</find>
-      <find>getCheckStatServer</find>
-      <find>auto re</find>
-      <find>setUpdateEditOpen</find>
-      <find>13.76.86.220:20011</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>persones[0].</replace>
-      <replace>findData[0]</replace>
-      <replace>findData.data[0]</replace>
-      <replace>DefaultComponent.tableData</replace>
-      <replace>DefaultComponent.gameInfoData</replace>
-      <replace>res.result.value</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>$PROJECT_DIR$</dir>
-    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -262,7 +216,8 @@
       <workItem from="1567529271461" duration="8218000" />
       <workItem from="1568048410288" duration="11000" />
       <workItem from="1568077400400" duration="1643000" />
-      <workItem from="1568084001480" duration="6661000" />
+      <workItem from="1568084001480" duration="6883000" />
+      <workItem from="1568226258290" duration="378000" />
     </task>
     <task id="LOCAL-00001" summary="우편함에서 우편발송 부분 수정">
       <created>1547083774443</created>
