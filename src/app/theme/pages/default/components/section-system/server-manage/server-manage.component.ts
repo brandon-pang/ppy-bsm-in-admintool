@@ -330,6 +330,8 @@ export class ServerManageComponent implements OnInit {
                 console.log(res)
                 if (res.result === 100) {
                     swal("메시지 전송 완료", "유저에게 메시지 '" + msg + "' 보냈습니다.", "success");
+                    //리셋
+                    this.getServerStateList();
                 } else {
                     swal("Error", "Result Number is " + res.result, "error");
                 }
@@ -337,6 +339,60 @@ export class ServerManageComponent implements OnInit {
             error => {
                 this.errMessage = <any>error
             });
+    }
+    setServerAdd(sName,sIp,pName,sType,sId,exePath,serverBatPath,dataBatPath) {
+        let res: any = [];
+        this.serverManageService.setServerAdd(sName,sIp,pName,sType,sId,exePath,serverBatPath,dataBatPath)
+            .subscribe(
+                setServerReturn => {
+                    res = setServerReturn;
+                    console.log(res)
+                    if (res.result === 100) {
+                        swal("완료 되었습니다.", "서버가 설정 되었습니다.", "success");
+                        //리셋
+                        this.getServerStateList();
+                    } else {
+                        if(res.result==0){
+                            swal("Error", "권한이 없습니다.", "error");
+                        }
+                        else if(res.result==1){
+                            swal("Error", "파라메터 에러", "error");
+                        }
+                        else if(res.result==2){
+                            swal("Error", "데이터가 존재하지 않습니다.", "error");
+                        }
+                        else if(res.result==96){
+                            swal("Error", "입력값에 문제가 있습니다.", "error");
+                        }
+                        else if(res.result==97){
+                            swal("Error", "이미 존재하는 서버 입니다.", "error");
+                        }else{
+                            swal("Error", "Result Number is " + res.result, "error");
+                        }
+                    }
+                },
+                error => {
+                    this.errMessage = <any>error
+                });
+    }
+    getServerDelete(sName) {
+        let res: any = [];
+        this.serverManageService.getServerDelete(sName)
+            .subscribe(
+                getServerDeleteReturn => {
+                    res = getServerDeleteReturn;
+                    console.log(res)
+                    if (res.result === 100) {
+                        swal("삭제 완료", "해당 서버가 삭제 되었습니다.", "success");
+                        //리셋
+                        this.getServerStateList();
+                    } else {
+                        swal("Error", "Result Number is " + res.result, "error");
+                    }
+                },
+                error => {
+                    this.errMessage = <any>error
+                });
     }
 
     setEditOpen(content) {

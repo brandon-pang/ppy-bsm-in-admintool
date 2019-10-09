@@ -111,6 +111,24 @@ export class ServerManageService {
             .map(this.extractData)
             .catch(handleError);
     }
+    setServerAdd(sName, sIp, pName, sType, sId, exePath, serverBatPath, dataBatPath): Observable<any[]> {
+        Helpers.setLoading(true);
+        let url = `${this.apiUrl}/WAPI/AddServer/?key=${this.apiKey}`;
+        let paramUrl = `${url}&viewName=${sName}&ip=${sIp}&name=${pName}&serverType=${sType}&serverId=${sId}&exePath=${exePath}&updateServerBatFilePath=${serverBatPath}&updateDataBatFilePath=${dataBatPath}`;
+        return this.http
+            .get(paramUrl)
+            .map(this.extractData)
+            .catch(handleError);
+    }
+    getServerDelete(sName): Observable<any[]> {
+        Helpers.setLoading(true);
+        let url = `${this.apiUrl}/WAPI/DeleteServer/?key=${this.apiKey}`;
+        let paramUrl = `${url}&viewName=${sName}`;
+        return this.http
+            .get(paramUrl)
+            .map(this.extractData)
+            .catch(handleError);
+    }
     private extractData(res: Response) {
         Helpers.setLoading(false);
         let body = res.json();

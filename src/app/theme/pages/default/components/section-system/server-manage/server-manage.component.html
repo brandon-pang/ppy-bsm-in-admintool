@@ -25,7 +25,7 @@
 						<table class="table m-table">
 							<thead class="thead-default">
 							<tr>
-								<th colspan="8">
+								<th colspan="6" style="min-width:500px;">
 									<button type="button" class="btn btn-primary btn-md" (click)="getServerStateList()">
 										<i class="m-menu__link-icon flaticon-refresh m--padding-right-5"></i>새로고침
 									</button>
@@ -34,6 +34,14 @@
 									</button>
 									<button type="button" class="btn btn-accent btn-md" (click)="setEditOpen(reloadGeoIP)" [disabled]="!allServerOnSet">
 										<i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>RELOAD REGION IP
+									</button>
+								</th>
+								<th colspan="2" class="text-right" style="min-width:240px;">
+									<button type="button" class="btn btn-warning btn-md" (click)="setEditOpen(serverAdd)">
+										<i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>서버 추가
+									</button>
+									<button type="button" class="btn btn-warning btn-md" (click)="setEditOpen(severDelete)">
+										<i class="m-menu__link-icon flaticon-cogwheel m--padding-right-5"></i>서버 삭제
 									</button>
 								</th>
 							</tr>
@@ -423,6 +431,78 @@
 	</div>
 	<div class="modal-footer">
 		<button type="button" class="btn btn-primary" (click)="c('Close click')" (click)="getAllKickUser(kickReason.value)" [disabled]="kickReason.value == ''">Submit</button>
+		<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+	</div>
+</ng-template>
+<ng-template #serverAdd let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title">서버 인스턴스 추가</h4>
+		<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<table class="table table-bordered table-hover">
+			<tbody>
+			<tr>
+				<td style="width:40%; vertical-align: middle;">Sever Name</td>
+				<td style="width:60%;"><input type="text" class="form-control m-input" required #sName></td>
+			</tr>
+			<tr>
+				<td style="width:40%; vertical-align: middle;">Sever IP</td>
+				<td style="width:60%;"><input type="text" class="form-control m-input" required #sIp></td>
+			</tr>
+			<tr>
+				<td style="width:40%; vertical-align: middle;">Process Name</td>
+				<td style="width:60%;"><input type="text" class="form-control m-input" required #pName></td>
+			</tr>
+			<tr>
+				<td style="width:40%; vertical-align: middle;">Sever Type</td>
+				<td style="width:60%;"><input type="text" maxlength="2" class="form-control m-input" required #sType></td>
+			</tr>
+			<tr>
+				<td style="width:40%; vertical-align: middle;">Sever ID</td>
+				<td style="width:60%;"><input type="text" maxlength="4" class="form-control m-input" required #sId></td>
+			</tr>
+			<tr>
+				<td style="width:40%; vertical-align: middle;">서버 실행 경로</td>
+				<td style="width:60%;"><input type="text" class="form-control m-input" required #exePath></td>
+			</tr>
+			<tr>
+				<td style="width:40%; vertical-align: middle;">서버 업데이트 경로</td>
+				<td style="width:60%;"><input type="text" class="form-control m-input" required #serverBatPath></td>
+			</tr>
+			<tr>
+				<td style="width:40%; vertical-align: middle;">서버 데이타 경로</td>
+				<td style="width:60%;"><input type="text" class="form-control m-input" required #dataBatPath></td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary" (click)="c('Close click')" (click)="setServerAdd(sName.value,sIp.value,pName.value,sType.value,sId.value,exePath.value,serverBatPath.value,dataBatPath.value)">Add Server</button>
+		<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+	</div>
+</ng-template>
+<ng-template #severDelete let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title">서버 인스턴스 삭제</h4>
+		<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<table class="table table-bordered table-hover">
+			<tbody>
+			<tr>
+				<td style="width:40%; vertical-align: middle;">Sever Name</td>
+				<td style="width:60%;"><input type="text" class="form-control m-input" required #sName></td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary" (click)="c('Close click')" (click)="getServerDelete(sName.value)">Delete Server</button>
 		<button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
 	</div>
 </ng-template>
