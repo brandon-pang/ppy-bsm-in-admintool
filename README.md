@@ -1,4 +1,12 @@
-# bsm-news
+# Managerments tool for Blackshot Mobile Game App
+> admin tool on WebSite
+
+## Spec
+```
+- Angular 6
+- Angular CLI
+- Angular Material
+```
 
 ## Project setup
 ```
@@ -7,23 +15,30 @@ npm install
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+npm start
 ```
 
 ### Compiles and minifies for production
 ```
-npm run build
+npm build
 ```
 
 ### Run your tests
 ```
-npm run test
+npm test
 ```
 
 ### Lints and fixes files
 ```
-npm run lint
+npm lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### ng Postinstall
+```
+npm postinstall
+```
+
+### rebuild and reformat for typescript
+```
+npm tsformat
+```
